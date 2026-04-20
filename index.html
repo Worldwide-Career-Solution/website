@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Worldwide Career Solution | Global Career Partner</title>
+    <title>Worldwide Career Solution | Professional Consultancy</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -19,7 +19,7 @@
                 </a>
                 <ul class="nav-menu">
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
+                    <li><a href="#speciality">Speciality</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact" class="nav-btn">Contact Us</a></li>
                 </ul>
@@ -27,40 +27,41 @@
         </nav>
     </header>
 
-    <section id="home" class="hero-section">
-        <div class="slider">
-            <div class="slide active" style="background-image: url('wcs-banner1.jpg');"></div>
-            <div class="slide" style="background-image: url('wcs-banner2.jpg');"></div>
-            <div class="slide" style="background-image: url('wcs-banner3.jpg');"></div>
-        </div>
-        <div class="hero-content">
-            <h1>"THE WORLD IS WAITING, LET'S GET YOU THERE."</h1>
-            <p>Your Trusted Partner for Global Career & Student Consultancy [cite: 2]</p>
-            <div class="hero-btns">
-                <a href="#services" class="btn-primary">Explore Services</a>
-                <a href="https://wa.me/8801408200200" class="btn-secondary">Consult Now</a>
+    <section id="home" class="main-hero">
+        <div class="container">
+            <div class="hero-box">
+                <h1>"THE WORLD IS WAITING, LET'S GET YOU THERE."</h1>
+                <p>Your Trusted Partner for Global Career & Student Consultancy</p>
+                <a href="https://wa.me/8801408200200" class="btn-primary">Consult with Experts</a>
             </div>
         </div>
     </section>
 
-    <section id="services" class="services-section">
+    <section id="speciality" class="showcase-section">
         <div class="container">
-            <h2 class="section-title">Our Professional Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <i class="fas fa-user-graduate"></i>
+            <h2 class="section-title">Our Specialized Programs</h2>
+            
+            <div class="banner-card">
+                <img src="wcs-banner1.jpg" alt="Student Consultancy">
+                <div class="banner-info">
                     <h3>Student Consultancy</h3>
-                    <p>Expert guidance for admission in top universities across North America, Europe, and Asia.</p>
+                    <p>Building your future with admissions in the best global universities.</p>
                 </div>
-                <div class="service-card">
-                    <i class="fas fa-passport"></i>
-                    <h3>Visa Processing</h3>
-                    <p>Hassle-free visa application support with high success rates for all categories.</p>
+            </div>
+
+            <div class="banner-card">
+                <img src="wcs-banner2.jpg" alt="Europe Visa">
+                <div class="banner-info">
+                    <h3>Europe Awaits You</h3>
+                    <p>Complete visa support for UK, Germany, France, and other European nations.</p>
                 </div>
-                <div class="service-card">
-                    <i class="fas fa-file-signature"></i>
-                    <h3>Documentation</h3>
-                    <p>Accurate document preparation and attestation services to ensure a smooth journey.</p>
+            </div>
+
+            <div class="banner-card">
+                <img src="wcs-banner3.jpg" alt="Australia Visa">
+                <div class="banner-info">
+                    <h3>Study Visa - Australia</h3>
+                    <p>Get your study permit and explore top-class education in Australia.</p>
                 </div>
             </div>
         </div>
@@ -74,10 +75,10 @@
         <div class="container footer-grid">
             <div class="footer-about">
                 <img src="wcs-logo-full.jpg" alt="WCS Full Logo">
-                <p>We empower students and professionals to achieve their dreams of working and studying abroad.</p>
+                <p>Empowering students and professionals for a global future.</p>
             </div>
             <div class="footer-contact" id="contact">
-                <h3>Get In Touch</h3>
+                <h3>Contact Details</h3>
                 <p><i class="fas fa-map-marker-alt"></i> 68/69 Concept Tower, Panthapath, Dhaka</p>
                 <p><i class="fas fa-phone"></i> +8801408-200200 | +8801940-904090</p>
                 <p><i class="fas fa-envelope"></i> worldwidecareersolution@gmail.com</p>
@@ -88,15 +89,5 @@
         </div>
     </footer>
 
-    <script>
-        let slides = document.querySelectorAll('.slide');
-        let currentSlide = 0;
-        function nextSlide() {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }
-        setInterval(nextSlide, 5000);
-    </script>
 </body>
 </html>
