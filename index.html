@@ -3,56 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Worldwide Career Solution | The World is Waiting</title>
+    <title>Worldwide Career Solution | Global Career Partner</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
     <header>
         <nav class="navbar">
-            <div class="logo-area">
-                <img src="wcs-logo-round.jpg" alt="WCS Logo">
-                <div class="brand-text">
-                    <span class="main-name">Worldwide Career Solution</span>
-                </div>
+            <div class="container">
+                <a href="#" class="logo-brand">
+                    <img src="wcs-logo-round.jpg" alt="WCS Logo">
+                    <span>Worldwide Career Solution</span>
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact" class="nav-btn">Contact Us</a></li>
+                </ul>
             </div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
         </nav>
     </header>
 
-    <section id="home" class="slider-container">
+    <section id="home" class="hero-section">
         <div class="slider">
-            <img src="wcs-banner1.jpg" alt="Banner 1">
-            <img src="wcs-banner2.jpg" alt="Banner 2">
-            <img src="wcs-banner3.jpg" alt="Banner 3">
+            <div class="slide active" style="background-image: url('wcs-banner1.jpg');"></div>
+            <div class="slide" style="background-image: url('wcs-banner2.jpg');"></div>
+            <div class="slide" style="background-image: url('wcs-banner3.jpg');"></div>
         </div>
-        <div class="hero-overlay">
+        <div class="hero-content">
             <h1>"THE WORLD IS WAITING, LET'S GET YOU THERE."</h1>
-            <p>Your Trusted Partner for Global Career & Student Consultancy</p>
+            <p>Your Trusted Partner for Global Career & Student Consultancy [cite: 2]</p>
+            <div class="hero-btns">
+                <a href="#services" class="btn-primary">Explore Services</a>
+                <a href="https://wa.me/8801408200200" class="btn-secondary">Consult Now</a>
+            </div>
         </div>
     </section>
 
-    <section id="about" class="info-section">
-        <h2>Welcome to Worldwide Career Solution</h2>
-        <p>আমরা আপনাকে সঠিক গন্তব্য খুঁজে পেতে এবং আপনার স্বপ্নের ক্যারিয়ার গড়তে পূর্ণাঙ্গ সহায়তা প্রদান করি। আমাদের বিশেষজ্ঞ টিম আপনার ভিসা প্রসেসিং থেকে শুরু করে সব ধরণের ডকুমেন্টেশনে পাশে আছে।</p>
+    <section id="services" class="services-section">
+        <div class="container">
+            <h2 class="section-title">Our Professional Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-user-graduate"></i>
+                    <h3>Student Consultancy</h3>
+                    <p>Expert guidance for admission in top universities across North America, Europe, and Asia.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-passport"></i>
+                    <h3>Visa Processing</h3>
+                    <p>Hassle-free visa application support with high success rates for all categories.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-file-signature"></i>
+                    <h3>Documentation</h3>
+                    <p>Accurate document preparation and attestation services to ensure a smooth journey.</p>
+                </div>
+            </div>
+        </div>
     </section>
+
+    <a href="https://wa.me/8801408200200" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <footer>
-        <div class="footer-content">
-            <img src="wcs-logo-full.jpg" alt="Full Logo" class="f-logo">
-            <div class="contact-info" id="contact">
-                <p>📍 68/69 Concept Tower, Panthapath, Dhaka</p>
-                <p>📞 +8801408-200200 | +8801940-904090</p>
-                <p>📧 worldwidecareersolution@gmail.com</p>
+        <div class="container footer-grid">
+            <div class="footer-about">
+                <img src="wcs-logo-full.jpg" alt="WCS Full Logo">
+                <p>We empower students and professionals to achieve their dreams of working and studying abroad.</p>
             </div>
-            <p class="copyright">&copy; 2026 Worldwide Career Solution. All rights reserved.</p>
+            <div class="footer-contact" id="contact">
+                <h3>Get In Touch</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 68/69 Concept Tower, Panthapath, Dhaka</p>
+                <p><i class="fas fa-phone"></i> +8801408-200200 | +8801940-904090</p>
+                <p><i class="fas fa-envelope"></i> worldwidecareersolution@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Worldwide Career Solution. All rights reserved.</p>
         </div>
     </footer>
 
+    <script>
+        let slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        setInterval(nextSlide, 5000);
+    </script>
 </body>
 </html>
