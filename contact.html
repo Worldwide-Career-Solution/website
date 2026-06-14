@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Worldwide Career Solution</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="index.html" class="logo-brand">
+                    <img src="wcs-logo-round.jpg" alt="WCS Logo">
+                    <span>Worldwide Career Solution</span>
+                </a>
+                <div class="menu-toggle" id="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#why-us">Why Us</a></li>
+                    <li><a href="index.html#showcase">Programs</a></li>
+                    <li><a href="index.html#faq">FAQ</a></li>
+                    <li><a href="contact.html" class="nav-btn">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Dedicated Contact & Map Section -->
+    <section class="contact-page-section">
+        <div class="container">
+            <h2 class="section-title">Connect With Us</h2>
+            
+            <!-- Quick Backlinks Area using Logo/Icons -->
+            <div class="logo-backlinks-box">
+                <img src="wcs-logo-full.jpg" alt="WCS Full Logo" class="backlink-main-logo">
+                <p>Click below to find us instantly across all official platforms:</p>
+                <div class="backlink-buttons">
+                    <a href="#" target="_blank" class="blink-btn fb"><i class="fab fa-facebook-f"></i> Facebook</a> <!-- ADD FACEBOOK LINK HERE -->
+                    <a href="https://maps.app.goo.gl/ZLwQipKEyS9VaYMt9" target="_blank" class="blink-btn gmap"><i class="fas fa-map-marker-alt"></i> Google Map</a>
+                    <a href="mailto:worldwidecareersolution@gmail.com" class="blink-btn mail"><i class="fas fa-envelope"></i> Official Mail</a>
+                    <a href="https://wa.me/8801408200200" target="_blank" class="blink-btn wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                </div>
+            </div>
+
+            <div class="contact-wrapper">
+                <!-- Formspree Contact Form -->
+                <div class="contact-form-box">
+                    <h3>Send Us a Message</h3>
+                    <form action="https://formspree.io/f/your_form_id" method="POST"> <!-- REPLACE 'your_form_id' WITH YOUR FORMSPREE ID -->
+                        <input type="text" name="name" placeholder="Full Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="text" name="phone" placeholder="Phone Number">
+                        <textarea name="message" placeholder="How can we help you?" rows="5" required></textarea>
+                        <button type="submit" class="btn-primary">Submit Message</button>
+                    </form>
+                </div>
+                <!-- Google Map -->
+                <div class="map-box">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.023616624534!2d90.38222957589578!3d23.75054908892695!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8a531d0411d%3A0xc3f173f4e2467d02!2sConcept%20Tower!5e0!3m2!1sen!2sbd!4v1713612800454!5m2!1sen!2sbd" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-about">
+                <img src="wcs-logo-full.jpg" alt="WCS Full Logo">
+                <p>Empowering students and professionals to build global careers.</p>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact Details</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 68/69 Concept Tower, Panthapath, Dhaka</p>
+                <p><i class="fas fa-phone"></i> +8801408-200200 | +8801940-904090</p>
+                <p><i class="fas fa-envelope"></i> worldwidecareersolution@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Worldwide Career Solution. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Hamburger Menu -->
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navMenu = document.querySelector('.nav-menu');
+
+        mobileMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
