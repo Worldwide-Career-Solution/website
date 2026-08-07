@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,63 +14,176 @@
     <header>
         <nav class="navbar">
             <div class="container">
-                <a href="#" class="logo-brand">
+                <a href="index.html" class="logo-brand">
                     <img src="wcs-logo-round.jpg" alt="WCS Logo">
                     <span>Worldwide Career Solution</span>
                 </a>
-                <!-- ৩ লাইনের হ্যামবার্গার আইকন মোবাইলের জন্য -->
+                
+                <!-- Language Switcher Bar -->
+                <div class="lang-translator-box">
+                    <i class="fas fa-globe"></i>
+                    <div id="google_translate_element"></div>
+                </div>
+
                 <div class="menu-toggle" id="mobile-menu">
                     <i class="fas fa-bars"></i>
                 </div>
                 <ul class="nav-menu">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#why-us">Why Us</a></li>
-                    <li><a href="#showcase">Programs</a></li>
-                    <li><a href="#faq">FAQ</a></li>
-                    <li><a href="contact" class="nav-btn">Contact Us</a></li>
+                    <li><a href="#home">হোম</a></li>
+                    <li><a href="#top-countries">পছন্দের দেশ</a></li>
+                    <li><a href="#tour-packages">ট্যুর প্যাকেজ</a></li>
+                    <li><a href="#showcase">প্রোগ্রামস</a></li>
+                    <li><a href="contact.html" class="nav-btn">যোগাযোগ করুন</a></li>
                 </ul>
             </div>
         </nav>
     </header>
 
-    <!-- Modern Hero Section -->
+    <!-- Modern Hero Search Section -->
     <section id="home" class="modern-hero">
         <div class="container hero-wrapper">
             <div class="hero-text-content">
                 <h1>"THE WORLD IS WAITING, LET'S GET YOU THERE."</h1>
-                <p>Your Trusted Partner for Global Career & Student Consultancy Services.</p>
-                <div class="hero-btns-group">
-                    <a href="https://wa.me/8801408200200" class="btn-primary">Consult Experts</a>
-                    <a href="contact" class="btn-secondary">Learn More</a>
+                <p>আপনার স্বপ্নের গন্তব্যে পৌঁছাতে আমরা আছি আপনার সাথে।</p>
+                
+                <!-- Country Search Bar -->
+                <div class="search-box-container">
+                    <div class="search-input-group">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="countrySearch" placeholder="আপনি কোন দেশে যেতে চান? (যেমন: USA, Canada, Japan...)" onkeyup="filterCountries()">
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Why Choose Us Section -->
-    <section id="why-us" class="why-us-section">
+    <!-- Top Destination Countries Section -->
+    <section id="top-countries" class="top-countries-section">
         <div class="container">
-            <h2 class="section-title">Why Choose Us?</h2>
-            <div class="why-us-grid">
-                <div class="why-card">
-                    <i class="fas fa-user-tie"></i>
-                    <h3>Expert Guidance</h3>
-                    <p>Our experienced consultants provide personalized advice for your career path.</p>
+            <h2 class="section-title">জনপ্রিয় গন্তব্যসমূহ (Top Destinations)</h2>
+            <p class="section-subtitle">যেকোনো দেশে ক্লিক করে সরাসরি আবেদন বা কনসালটেন্সি বুক করুন</p>
+            
+            <div class="country-grid" id="countryGrid">
+                <div class="country-card" onclick="openApplicationModal('USA')">
+                    <i class="fas fa-flag-usa country-icon"></i>
+                    <h3>USA (আমেরিকা)</h3>
+                    <span class="badge">Student & Tourist</span>
                 </div>
-                <div class="why-card">
-                    <i class="fas fa-search-dollar"></i>
-                    <h3>Transparent Process</h3>
-                    <p>We maintain 100% transparency in document processing and fee structures.</p>
+                <div class="country-card" onclick="openApplicationModal('Canada')">
+                    <i class="fas fa-leaf country-icon"></i>
+                    <h3>Canada (কানাডা)</h3>
+                    <span class="badge">Student & Immigration</span>
                 </div>
-                <div class="why-card">
-                    <i class="fas fa-check-circle"></i>
-                    <h3>High Success Rate</h3>
-                    <p>We pride ourselves on our consistent track record of successful visa approvals.</p>
+                <div class="country-card" onclick="openApplicationModal('Australia')">
+                    <i class="fas fa-globe-asia country-icon"></i>
+                    <h3>Australia (অস্ট্রেলিয়া)</h3>
+                    <span class="badge">Higher Study & Visit</span>
                 </div>
-                <div class="why-card">
-                    <i class="fas fa-headset"></i>
-                    <h3>24/7 Support</h3>
-                    <p>Our team is always available to answer your queries and provide updates.</p>
+                <div class="country-card" onclick="openApplicationModal('UK')">
+                    <i class="fas fa-crown country-icon"></i>
+                    <h3>UK (যুক্তরাজ্য)</h3>
+                    <span class="badge">Fast Track Student Visa</span>
+                </div>
+                <div class="country-card" onclick="openApplicationModal('Germany')">
+                    <i class="fas fa-university country-icon"></i>
+                    <h3>Germany (জার্মানি)</h3>
+                    <span class="badge">Schengen & Free Education</span>
+                </div>
+                <div class="country-card" onclick="openApplicationModal('Japan')">
+                    <i class="fas fa-torii-gate country-icon"></i>
+                    <h3>Japan (জাপান)</h3>
+                    <span class="badge">Language & Student Visa</span>
+                </div>
+                <div class="country-card" onclick="openApplicationModal('Malaysia')">
+                    <i class="fas fa-plane-departure country-icon"></i>
+                    <h3>Malaysia (মালয়েশিয়া)</h3>
+                    <span class="badge">Tour & Credit Transfer</span>
+                </div>
+                <div class="country-card" onclick="openApplicationModal('Schengen Europe')">
+                    <i class="fas fa-passport country-icon"></i>
+                    <h3>Schengen Europe</h3>
+                    <span class="badge">Visit & Work Process</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Checklist Section -->
+    <section class="checklist-download-section">
+        <div class="container checklist-box">
+            <div class="checklist-text">
+                <i class="fas fa-file-pdf pdf-icon"></i>
+                <div>
+                    <h3>ভিসা প্রসেসিং রিকোয়ারমেন্ট চেকক্লিপ (PDF)</h3>
+                    <p>আপনার প্রয়োজনীয় সকল কাগজের তালিকা এক ক্লিকে ডাউনলোড করে নিন।</p>
+                </div>
+            </div>
+            <!-- NOTE: Upload 'visa-checklist.pdf' to your github repo root directory -->
+            <a href="visa-checklist.pdf" download class="btn-primary btn-download">
+                <i class="fas fa-download"></i> চেকক্লিপ PDF ডাউনলোড
+            </a>
+        </div>
+    </section>
+
+    <!-- Major Asia Tour Packages Section -->
+    <section id="tour-packages" class="tour-packages-section">
+        <div class="container">
+            <h2 class="section-title">এশিয়ার সেরা ট্যুর প্যাকেজসমূহ (Asia Tour Packages)</h2>
+            <div class="package-grid">
+                <div class="package-card">
+                    <div class="package-header bg-thailand">
+                        <h3>Thailand (থাইল্যান্ড)</h3>
+                    </div>
+                    <div class="package-body">
+                        <p><strong>প্রধান দর্শনীয় স্থান:</strong> Bangkok, Pattaya, Phuket, Krabi</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> এয়ার টিকিট ও হোটেল বুকিং</li>
+                            <li><i class="fas fa-check"></i> সাইটসিয়িং ও ভিসা অ্যাসিস্ট্যান্স</li>
+                        </ul>
+                        <button class="btn-secondary-dark" onclick="openApplicationModal('Thailand Tour Package')">বুকিং ইনকোয়ারি</button>
+                    </div>
+                </div>
+
+                <div class="package-card">
+                    <div class="package-header bg-malaysia">
+                        <h3>Malaysia (মালয়েশিয়া)</h3>
+                    </div>
+                    <div class="package-body">
+                        <p><strong>প্রধান দর্শনীয় স্থান:</strong> Kuala Lumpur, Genting Highlands, Langkawi</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> পারিবারিক ও কাস্টমাইজড প্যাকেজ</li>
+                            <li><i class="fas fa-check"></i> দ্রুত ই-ভিসা প্রসেসিং</li>
+                        </ul>
+                        <button class="btn-secondary-dark" onclick="openApplicationModal('Malaysia Tour Package')">বুকিং ইনকোয়ারি</button>
+                    </div>
+                </div>
+
+                <div class="package-card">
+                    <div class="package-header bg-singapore">
+                        <h3>Singapore (সিঙ্গাপুর)</h3>
+                    </div>
+                    <div class="package-body">
+                        <p><strong>প্রধান দর্শনীয় স্থান:</strong> Marina Bay, Sentosa Island, Universal Studios</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> প্রিমিয়াম সিটি ট্যুর সাপোর্ট</li>
+                            <li><i class="fas fa-check"></i> গ্যারান্টিড হোটেল বুকিং</li>
+                        </ul>
+                        <button class="btn-secondary-dark" onclick="openApplicationModal('Singapore Tour Package')">বুকিং ইনকোয়ারি</button>
+                    </div>
+                </div>
+
+                <div class="package-card">
+                    <div class="package-header bg-vietnam">
+                        <h3>Vietnam (ভিয়েতনামী)</h3>
+                    </div>
+                    <div class="package-body">
+                        <p><strong>প্রধান দর্শনীয় স্থান:</strong> Ha Long Bay, Hanoi, Da Nang, Bana Hills</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> বাজেট ফ্রেন্ডলি ট্যুর প্ল্যান</li>
+                            <li><i class="fas fa-check"></i> অন-অ্যারাইভাল ভিসা সাপোর্ট</li>
+                        </ul>
+                        <button class="btn-secondary-dark" onclick="openApplicationModal('Vietnam Tour Package')">বুকিং ইনকোয়ারি</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -79,53 +192,104 @@
     <!-- Banner Showcase Section -->
     <section id="showcase" class="showcase-section">
         <div class="container">
-            <h2 class="section-title">Explore Our Success Programs</h2>
+            <h2 class="section-title">আমাদের সেবাসমূহ (Programs)</h2>
             <div class="banner-cards-grid">
                 <div class="banner-card">
                     <img src="wcs-banner1.jpg" alt="Student Consultancy">
                     <div class="banner-info">
                         <h3>Student Consultancy</h3>
-                        <p>Unlock admissions to top universities worldwide.</p>
+                        <p>বিশ্বমানের বিশ্ববিদ্যালয়ে উচ্চশিক্ষার সুযোগ।</p>
                     </div>
                 </div>
                 <div class="banner-card">
                     <img src="wcs-banner2.jpg" alt="Europe Visa">
                     <div class="banner-info">
                         <h3>Europe Awaits</h3>
-                        <p>Your hassle-free journey to study in Europe.</p>
+                        <p>ইউরোপে পড়াশোনা ও ভ্রমণের সহজ পথ।</p>
                     </div>
                 </div>
                 <div class="banner-card">
                     <img src="wcs-banner3.jpg" alt="Australia Visa">
                     <div class="banner-info">
                         <h3>Australia Study Visa</h3>
-                        <p>Explore elite education opportunities Down Under.</p>
+                        <p>অস্ট্রেলিয়ার সেরা ইউনিভার্সিটিতে আবেদনের সুযোগ।</p>
+                    </div>
+                </div>
+                <div class="banner-card">
+                    <img src="wcs-banner4.jpg" alt="Global Career Opportunity">
+                    <div class="banner-info">
+                        <h3>Global Opportunities</h3>
+                        <p>ক্যারিয়ার কনসালটেন্সি ও গাইডলাইন поддержка।</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section id="faq" class="faq-section">
-        <div class="container">
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            <div class="faq-list">
-                <div class="faq-item">
-                    <h4>Q: Which countries do you process visas for?</h4>
-                    <p>A: We specialize in North America, Europe (UK, Germany, France, etc.), Asia, and Australia.</p>
+    <!-- Dynamic Smart Form Modal (Pop-Up) -->
+    <div id="serviceModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h3 id="modalTitle">সার্ভিস ইনফরমেশন ফর্ম</h3>
+            <p id="selectedCountryText" class="modal-subtext"></p>
+
+            <form action="https://formspree.io/f/myklpllz" method="POST">
+                <input type="hidden" name="Selected_Country" id="hiddenCountryInput">
+
+                <div class="form-group">
+                    <label>আপনার নাম:</label>
+                    <input type="text" name="Name" required placeholder="আপনার পুরো নাম">
                 </div>
-                <div class="faq-item">
-                    <h4>Q: How long does the processing take?</h4>
-                    <p>A: It varies by country and visa type, but typically it takes between 2 to 6 months.</p>
+
+                <div class="form-group">
+                    <label>ফোন নম্বর:</label>
+                    <input type="tel" name="Phone" required placeholder="017xxxxxxxx">
                 </div>
-                <div class="faq-item">
-                    <h4>Q: Do you provide documentation support?</h4>
-                    <p>A: Yes, we offer full assistance with file preparation, attestation, and submission.</p>
+
+                <div class="form-group">
+                    <label>ইমেইল (ঐচ্ছিক):</label>
+                    <input type="email" name="Email" placeholder="example@mail.com">
                 </div>
-            </div>
+
+                <div class="form-group">
+                    <label>আপনি কী ধরনের সাপোর্ট নিতে চান?</label>
+                    <select name="Service_Type" id="serviceType" onchange="toggleFormFields()" required>
+                        <option value="">-- পছন্দ করুন --</option>
+                        <option value="Student Consultancy">স্টুডেন্ট কনসালটেন্সি (Student Visa)</option>
+                        <option value="Tourist / Visit Visa">ট্যুরিস্ট / ভিজিট ভিসা (Visit Visa)</option>
+                        <option value="Air Ticketing">এয়ার টিকেটিং (Air Ticket)</option>
+                        <option value="Tour Package">ট্যুর প্যাকেজ (Tour Package)</option>
+                    </select>
+                </div>
+
+                <!-- Dynamic Dynamic Fields Based on Selection -->
+                <div id="studentFields" class="dynamic-field" style="display:none;">
+                    <div class="form-group">
+                        <label>সর্বশেষ শিক্ষাগত যোগ্যতা:</label>
+                        <input type="text" name="Education_Level" placeholder="যেমন: HSC / Bachelor / Master's">
+                    </div>
+                    <div class="form-group">
+                        <label>IELTS / PTE স্কোর (যদি থাকে):</label>
+                        <input type="text" name="Language_Score" placeholder="যেমন: 6.5 or Not Appeared">
+                    </div>
+                </div>
+
+                <div id="touristFields" class="dynamic-field" style="display:none;">
+                    <div class="form-group">
+                        <label>বর্তমান পেশা:</label>
+                        <input type="text" name="Profession" placeholder="যেমন: Job / Business / Student">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>আপনার বিস্তারিত কিছু জানান:</label>
+                    <textarea name="Message" rows="3" placeholder="আপনার কোনো নির্দিষ্ট প্রশ্ন থাকলে লিখুন..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary w-100">আবেদন জমা দিন</button>
+            </form>
         </div>
-    </section>
+    </div>
 
     <!-- Floating WhatsApp Button -->
     <a href="https://wa.me/8801408200200" class="whatsapp-float" target="_blank">
@@ -151,14 +315,64 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Mobile Menu Toggle -->
+    <!-- Google Translate Script -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'bn',
+                includedLanguages: 'en,bn,hi,ar,fr,de',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <!-- Interactivity JS -->
     <script>
+        // Mobile Navigation Toggle
         const mobileMenu = document.getElementById('mobile-menu');
         const navMenu = document.querySelector('.nav-menu');
+        mobileMenu.addEventListener('click', () => { navMenu.classList.toggle('active'); });
 
-        mobileMenu.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
+        // Search Filter Logic
+        function filterCountries() {
+            let input = document.getElementById('countrySearch').value.toLowerCase();
+            let cards = document.getElementsByClassName('country-card');
+            for (let i = 0; i < cards.length; i++) {
+                let title = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
+                if (title.includes(input)) {
+                    cards[i].style.display = "block";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+
+        // Modal Functionalities
+        function openApplicationModal(countryName) {
+            document.getElementById('serviceModal').style.display = 'flex';
+            document.getElementById('modalTitle').innerText = countryName + " - সার্ভিস ইনকোয়ারি";
+            document.getElementById('selectedCountryText').innerText = "গন্তব্য: " + countryName;
+            document.getElementById('hiddenCountryInput').value = countryName;
+        }
+
+        function closeModal() {
+            document.getElementById('serviceModal').style.display = 'none';
+        }
+
+        // Dynamic Form Fields Logic
+        function toggleFormFields() {
+            let service = document.getElementById('serviceType').value;
+            document.getElementById('studentFields').style.display = (service === 'Student Consultancy') ? 'block' : 'none';
+            document.getElementById('touristFields').style.display = (service === 'Tourist / Visit Visa' || service === 'Tour Package') ? 'block' : 'none';
+        }
+
+        window.onclick = function(event) {
+            let modal = document.getElementById('serviceModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
     </script>
 </body>
 </html>
