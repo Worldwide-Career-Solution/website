@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Montserrat:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <!-- Ultra-Fast Guarantee PDF Downloader -->
+    <!-- Ultra-Fast Guarantee PDF Downloader Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
@@ -165,7 +165,7 @@
                 <div class="form-group">
                     <label>সার্ভিস ক্যাটাগরি:</label>
                     <select id="appServiceCategory" required>
-                        <option value="Student Visa Support">স্টুডент কনসালটেন্সি (Student Visa)</option>
+                        <option value="Student Visa Support">স্টুডেন্ট কনসালটেন্সি (Student Visa)</option>
                         <option value="Tourist / Visit Visa">ট্যুরিস্ট / ভিজিট ভিসা (Visit Visa)</option>
                         <option value="Air Ticketing">এয়ার টিকেটিং (Air Ticket)</option>
                         <option value="Tour Package">ট্যুর প্যাকেজ (Tour Package)</option>
@@ -183,59 +183,30 @@
         </div>
     </div>
 
-    <!-- 100% Native Replica of Official WCS Letterhead Pad Template -->
+    <!-- DIRECT OVERLAY ON YOUR UPLOADED LETTERHEAD IMAGE -->
     <div id="pdfTemplateWrapper" style="display: none;">
-        <div id="pdfTemplate" style="width: 790px; min-height: 1115px; padding: 45px 50px; font-family: 'Hind Siliguri', 'Poppins', sans-serif; background: #ffffff; color: #001a33; position: relative; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between;">
+        <div id="pdfTemplate" style="width: 794px; height: 1122px; position: relative; font-family: 'Hind Siliguri', 'Poppins', sans-serif; background: #ffffff; color: #001a33; box-sizing: border-box; overflow: hidden;">
             
-            <!-- Top Section (Header + Body) -->
-            <div>
-                <!-- Official Letterhead Header -->
-                <div style="display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2.5px solid #003366; padding-bottom: 18px; margin-bottom: 30px;">
-                    <div style="display: flex; align-items: center; gap: 15px;">
-                        <img src="wcs-logo-round.jpg" style="height: 85px; width: auto;">
-                        <div>
-                            <h1 style="color: #003366; font-size: 22px; font-weight: 700; margin: 0; font-family: 'Montserrat', sans-serif; letter-spacing: 0.5px;">WORLDWIDE CAREER SOLUTION</h1>
-                            <p style="color: #f37021; font-size: 11px; margin: 4px 0 0; font-weight: 600; font-style: italic;">"THE WORLD IS WAITING, LET'S GET YOU THERE."</p>
-                        </div>
-                    </div>
-                    
-                    <div style="text-align: right; font-size: 10.5px; color: #334155; line-height: 1.5;">
-                        <p style="margin: 0;"><strong>Hotline:</strong> +8801408-200200</p>
-                        <p style="margin: 0;"><strong>WhatsApp:</strong> +8801940-904090</p>
-                        <p style="margin: 0;"><strong>Web:</strong> www.worldwidecareersolution.com</p>
-                        <p style="margin: 0;"><strong>Email:</strong> worldwidecareersolution@gmail.com</p>
-                    </div>
+            <!-- Your Main Uploaded Official Letterhead Image -->
+            <img src="letterhead-bg.jpg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+
+            <!-- Text Content - Positioned RIGHT AT THE TOP below your pad's logo header -->
+            <div style="position: relative; z-index: 10; padding-top: 135px; padding-left: 65px; padding-right: 65px;">
+                
+                <!-- Title Box -->
+                <div style="margin-bottom: 20px; text-align: center; border-bottom: 2px solid #003366; padding-bottom: 8px;">
+                    <h2 id="pdfCountryTitle" style="color: #003366; font-size: 20px; margin: 0; font-weight: 700;"></h2>
+                    <p id="pdfCountryMeta" style="color: #f37021; font-size: 13px; margin: 4px 0 0; font-weight: 600;"></p>
                 </div>
 
-                <!-- Watermark Background -->
-                <div style="position: absolute; top: 38%; left: 26%; opacity: 0.05; pointer-events: none; z-index: 1;">
-                    <img src="wcs-logo-round.jpg" style="width: 380px;">
-                </div>
-
-                <!-- Document Title Box -->
-                <div style="position: relative; z-index: 2; margin-bottom: 25px; text-align: center; background: #f1f5f9; padding: 12px; border-radius: 6px; border: 1px solid #cbd5e1;">
-                    <h2 id="pdfCountryTitle" style="color: #003366; font-size: 17px; margin: 0; font-weight: 700; text-transform: uppercase;">CLIENT DOCUMENTATION CHECKLIST</h2>
-                    <p id="pdfCountryMeta" style="color: #f37021; font-size: 12px; margin: 4px 0 0; font-weight: 600;"></p>
-                </div>
-
-                <!-- Main Requirements Content Area -->
-                <div style="position: relative; z-index: 2; margin-bottom: 30px; min-height: 520px; padding: 0 10px;">
-                    <h3 style="color: #003366; font-size: 14px; margin-bottom: 15px; font-weight: 700; border-bottom: 1px solid #e2e8f0; padding-bottom: 6px;">
+                <!-- Main Checklist List -->
+                <div style="min-height: 600px;">
+                    <h3 style="color: #003366; font-size: 15px; margin-bottom: 15px; font-weight: 700;">
                         প্রাথমিক প্রয়োজনীয় কাগজপত্রের তালিকা (Primary Required Documents):
                     </h3>
-                    <ul id="pdfReqList" style="padding-left: 22px; font-size: 12.5px; line-height: 2.2; color: #1e293b; font-weight: 500;">
+                    <ul id="pdfReqList" style="padding-left: 20px; font-size: 13px; line-height: 2.2; color: #1e293b; font-weight: 500;">
                     </ul>
                 </div>
-            </div>
-
-            <!-- Official Footer (Address & Disclaimer) -->
-            <div style="position: relative; z-index: 2; border-top: 1.5px solid #003366; padding-top: 12px; text-align: center;">
-                <p style="margin: 0; font-size: 10px; color: #475569; font-weight: 600;">
-                    <i class="fas fa-map-marker-alt" style="color: #f37021;"></i> 68/69 Green Road, Concept Tower, 2nd floor, Shop No 225/226, Dhaka - 1205, Bangladesh.
-                </p>
-                <p style="margin: 3px 0 0; font-size: 9px; color: #64748b; font-style: italic;">
-                    * ফাইল প্রসেসিং সংক্রান্ত সহায়তার জন্য সরাসরি আমাদের অফিশিয়াল হটলাইন বা হোয়াটসঅ্যাপে যোগাযোগ করুন।
-                </p>
             </div>
         </div>
     </div>
@@ -380,7 +351,7 @@
             window.open(`https://wa.me/8801408200200?text=${waMessage}`, '_blank');
         }
 
-        /* Guarantee High Definition PDF Generation */
+        /* HD Direct PDF Generator using Official Background Image */
         function generateHdChecklistPdf() {
             if (!currentSelectedCountry) return;
 
@@ -418,7 +389,7 @@
                     btn.innerHTML = '<i class="fas fa-file-pdf"></i> অফিশিয়াল লেটারহেড প্যাডে ডাউনলোড PDF';
                     btn.disabled = false;
                 }).catch(err => {
-                    alert("PDF ডাউনলোডে সমস্যা হয়েছে। আবার চেষ্টা করুন।");
+                    alert("PDF ডাউনলোডে সমস্যা হয়েছে। নিশ্চিত করুন 'letterhead-bg.jpg' ফাইলটি গিটহাবে আপলোড আছে।");
                     wrapper.style.display = 'none';
                     btn.innerHTML = '<i class="fas fa-file-pdf"></i> অফিশিয়াল লেটারহেড প্যাডে ডাউনলোড PDF';
                     btn.disabled = false;
