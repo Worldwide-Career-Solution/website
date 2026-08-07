@@ -5,18 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Worldwide Career Solution | Global Consultancy</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Montserrat:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <!-- pdf-lib Library for Native HD PDF Text Overlay -->
+    <!-- pdf-lib Library -->
     <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
-    <script src="https://unpkg.com/@pdf-lib/fontkit@1.1.1/dist/fontkit.umd.min.js"></script>
 </head>
 <body>
 
-    <!-- ==========================================================================
-         Header Section (Logo, Language Switcher & Responsive Menu)
-         ========================================================================== -->
+    <!-- Header Section -->
     <header>
         <nav class="navbar">
             <div class="container">
@@ -25,37 +22,35 @@
                     <span>Worldwide Career Solution</span>
                 </a>
                 
-                <!-- Google Language Switcher -->
-                <div class="lang-translator-box">
-                    <i class="fas fa-globe"></i>
-                    <div id="google_translate_element"></div>
-                </div>
+                <div class="nav-right-wrapper">
+                    <ul class="nav-menu">
+                        <li><a href="#home">হোম</a></li>
+                        <li><a href="#visa-services">ভিসা সার্ভিস</a></li>
+                        <li><a href="#tour-packages">ট্যুর প্যাকেজ</a></li>
+                        <li><a href="#all-forms">অল ফর্মস</a></li>
+                        <li><a href="contact.html" class="nav-btn">যোগাযোগ করুন</a></li>
+                    </ul>
 
-                <div class="menu-toggle" id="mobile-menu">
-                    <i class="fas fa-bars"></i>
+                    <!-- Language Switcher Bar -->
+                    <div class="lang-translator-box">
+                        <div id="google_translate_element"></div>
+                    </div>
+
+                    <div class="menu-toggle" id="mobile-menu">
+                        <i class="fas fa-bars"></i>
+                    </div>
                 </div>
-                
-                <ul class="nav-menu">
-                    <li><a href="#home">হোম</a></li>
-                    <li><a href="#visa-services">ভিসা সার্ভিস</a></li>
-                    <li><a href="#tour-packages">ট্যুর প্যাকেজ</a></li>
-                    <li><a href="#all-forms">অল ফর্মস (Office Use)</a></li>
-                    <li><a href="contact.html" class="nav-btn">যোগাযোগ করুন</a></li>
-                </ul>
             </div>
         </nav>
     </header>
 
-    <!-- ==========================================================================
-         Hero Section & Country Live Search
-         ========================================================================== -->
+    <!-- Hero Section -->
     <section id="home" class="modern-hero">
         <div class="container hero-wrapper">
             <div class="hero-text-content">
                 <h1>"THE WORLD IS WAITING, LET'S GET YOU THERE."</h1>
                 <p>আপনার স্বপ্নের গন্তব্যে পৌঁছাতে আমরা আছি আপনার সাথে।</p>
                 
-                <!-- Search Bar -->
                 <div class="search-box-container">
                     <div class="search-input-group">
                         <i class="fas fa-search"></i>
@@ -66,15 +61,12 @@
         </div>
     </section>
 
-    <!-- ==========================================================================
-         Visa Services Section (Continent Tabs & Dynamic Country Cards)
-         ========================================================================== -->
+    <!-- Visa Services Section -->
     <section id="visa-services" class="top-countries-section">
         <div class="container">
             <h2 class="section-title">গ্লোবাল ভিসা সার্ভিসেস (Visa Services)</h2>
             <p class="section-subtitle">আপনার পছন্দের দেশ নির্বাচন করুন এবং প্রয়োজনীয় তথ্য ও চেকক্লিপ ডাউনলোড করুন</p>
             
-            <!-- Continent Tabs -->
             <div class="filter-tabs">
                 <button class="tab-btn active" onclick="filterByContinent('All', this)">সকল দেশ</button>
                 <button class="tab-btn" onclick="filterByContinent('North America', this)">নর্থ আমেরিকা ও অস্ট্রেলেশিয়া</button>
@@ -82,23 +74,19 @@
                 <button class="tab-btn" onclick="filterByContinent('Asia', this)">এশিয়া ও মিডল ইস্ট</button>
             </div>
 
-            <!-- Dynamic Country Cards Container -->
             <div class="country-grid" id="countryGridContainer">
-                <!-- JS data will load dynamically from visa-data.js -->
+                <!-- Loaded from visa-data.js -->
             </div>
         </div>
     </section>
 
-    <!-- ==========================================================================
-         Tour Packages Section (Interlinked to Visa Services)
-         ========================================================================== -->
+    <!-- Tour Packages Section -->
     <section id="tour-packages" style="padding: 60px 0; background: #ffffff;">
         <div class="container">
             <h2 class="section-title">এশিয়ার জনপ্রিয় ট্যুর প্যাকেজসমূহ</h2>
             <p class="section-subtitle">ফ্যামিলি, ফ্রেন্ডস বা বিজনেস ট্যুরের জন্য বিশেষ অফার</p>
             
             <div class="country-grid">
-                <!-- Thailand Package -->
                 <div class="country-card">
                     <span class="country-flag">🇹🇭</span>
                     <h3>থাইল্যান্ড ট্যুর প্যাকেজ</h3>
@@ -107,7 +95,6 @@
                     <button class="btn-card-action btn-solid w-100" onclick="openDirectBookingModal('Thailand Tour Package')">বুকিং ইনকোয়ারি</button>
                 </div>
 
-                <!-- Malaysia Package -->
                 <div class="country-card">
                     <span class="country-flag">🇲🇾</span>
                     <h3>মালয়েশিয়া ট্যুর প্যাকেজ</h3>
@@ -116,7 +103,6 @@
                     <button class="btn-card-action btn-solid w-100" onclick="openDirectBookingModal('Malaysia Tour Package')">বুকিং ইনকোয়ারি</button>
                 </div>
 
-                <!-- Singapore Package -->
                 <div class="country-card">
                     <span class="country-flag">🇸🇬</span>
                     <h3>সিঙ্গাপুর ট্যুর প্যাকেজ</h3>
@@ -128,20 +114,13 @@
         </div>
     </section>
 
-    <!-- ==========================================================================
-         All Forms Section (Office Use - Clean Print without Background)
-         ========================================================================== -->
+    <!-- All Forms Section -->
     <section id="all-forms" style="padding: 60px 0; background: #f8fafc;">
         <div class="container">
             <h2 class="section-title">অফিসিয়াল ফর্মস (All Forms)</h2>
             <p class="section-subtitle">অফিসিয়াল ব্যবহারের জন্য ডাউনলোডযোগ্য রেডি ফর্মসমূহ</p>
             
-            <!-- 
-                বাংলা নির্দেশিকা: 
-                আপনার প্রস্তুতকৃত সকল ম্যানুয়াল ফর্ম নিচে লিংক আকারে যোগ করতে পারবেন। 
-                এগুলো ফিজিক্যাল লেটারহেড প্যাডে সরাসরি প্রিন্ট করার উপযোগী।
-            -->
-            <div style="background: #fff; padding: 25px; border-radius: 10px; border: 1px solid #e2e8f0; max-width: 800px; margin: auto;">
+            <div style="background: #fff; padding: 25px; border-radius: 16px; border: 1px solid var(--card-border); max-width: 800px; margin: auto; box-shadow: var(--shadow-water);">
                 <ul style="list-style: none;">
                     <li style="padding: 12px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center;">
                         <span><i class="fas fa-file-alt" style="color: #003366; margin-right: 10px;"></i> ক্লায়েন্ট ইনফরমেশন ও অ্যাসেসমেন্ট ফরম</span>
@@ -151,34 +130,29 @@
                         <span><i class="fas fa-file-alt" style="color: #003366; margin-right: 10px;"></i> পাসপোর্ট ও ডকুমেন্ট রিকুইজিশন ফরম</span>
                         <a href="#" class="btn-card-action btn-outline" style="text-decoration: none; padding: 6px 15px;">ডাউনলোড</a>
                     </li>
-                    <!-- নতুন ফর্ম যোগ করতে উপরের <li> অংশটি কপি পেস্ট করুন -->
                 </ul>
             </div>
         </div>
     </section>
 
-    <!-- ==========================================================================
-         Dynamic Modal for Country Details & WhatsApp Application Form
-         ========================================================================== -->
+    <!-- Dynamic Modal -->
     <div id="countryModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeCountryModal()">&times;</span>
             <h3 id="mCountryName">দেশ নির্বাচন করুন</h3>
             <p id="mCountryMeta" class="modal-subtext"></p>
 
-            <div style="background: #f8fafc; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-                <h4 style="font-size: 0.9rem; color: #003366; margin-bottom: 8px;"><i class="fas fa-list-check"></i> প্রয়োজনীয় কাগজপত্রের তালিকা (Checklist Summary):</h4>
-                <ul id="mReqList" class="req-list">
-                    <!-- Dynamic Checklist Items -->
+            <div style="background: #f8fafc; padding: 15px; border-radius: 12px; margin-bottom: 15px;">
+                <h4 style="font-size: 0.9rem; color: #003366; margin-bottom: 8px;"><i class="fas fa-list-check"></i> প্রয়োজনীয় কাগজপত্রের তালিকা:</h4>
+                <ul id="mReqList" style="padding-left: 20px; font-size: 0.88rem; margin-bottom: 12px;">
                 </ul>
                 <button class="btn-card-action btn-solid w-100" id="btnDownloadChecklistPdf" onclick="generateHdChecklistPdf()">
                     <i class="fas fa-file-pdf"></i> অফিশিয়াল লেটারহেড প্যাডে ডাউনলোড PDF
                 </button>
             </div>
 
-            <!-- WhatsApp Direct Application Form -->
             <form onsubmit="handleWhatsAppSubmit(event)">
-                <h4 style="font-size: 0.95rem; color: #003366; margin-bottom: 12px;"><i class="fas fa-paper-plane"></i> সরাসরি আবেদন বা ইনকোয়ারি করুন:</h4>
+                <h4 style="font-size: 0.95rem; color: #003366; margin-bottom: 12px;"><i class="fas fa-paper-plane"></i> সরাসরি আবেদন করুন:</h4>
                 <div class="form-group">
                     <label>আপনার নাম:</label>
                     <input type="text" id="appApplicantName" required placeholder="আপনার পুরো নাম">
@@ -197,7 +171,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>বার্তা বা কোনো নির্দিষ্ট প্রশ্ন (ঐচ্ছিক):</label>
+                    <label>বার্তা (ঐচ্ছিক):</label>
                     <textarea id="appApplicantMsg" rows="2" placeholder="আপনার কিছু জানার থাকলে লিখুন..."></textarea>
                 </div>
 
@@ -208,7 +182,7 @@
         </div>
     </div>
 
-    <!-- Floating WhatsApp Button -->
+    <!-- Floating WhatsApp -->
     <a href="https://wa.me/8801408200200" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
@@ -232,10 +206,8 @@
         </div>
     </footer>
 
-    <!-- Visa Database Script -->
     <script src="visa-data.js"></script>
 
-    <!-- Google Translate Script -->
     <script type="text/javascript">
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
@@ -247,22 +219,19 @@
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-    <!-- Core Interactive JavaScript -->
     <script>
         let currentSelectedCountry = null;
 
-        // Mobile Nav Toggle
         const mobileMenu = document.getElementById('mobile-menu');
         const navMenu = document.querySelector('.nav-menu');
         mobileMenu.addEventListener('click', () => { navMenu.classList.toggle('active'); });
 
-        // Load Country Cards Dynamically
         function renderCountryCards(dataList) {
             const container = document.getElementById('countryGridContainer');
             container.innerHTML = '';
 
             if(dataList.length === 0) {
-                container.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #666;">কোনো দেশ পাওয়া যায়নি। অন্য কোনো নাম দিয়ে সার্চ করুন।</p>';
+                container.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #666;">কোনো দেশ পাওয়া যায়নি।</p>';
                 return;
             }
 
@@ -283,7 +252,6 @@
             });
         }
 
-        // Filter by Continent Tabs
         function filterByContinent(category, btnElement) {
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
             btnElement.classList.add('active');
@@ -291,14 +259,12 @@
             renderCountryCards(filtered);
         }
 
-        // Live Search Filter
         function filterVisaCountries() {
             const input = document.getElementById('countrySearchInput').value.toLowerCase();
             const filtered = visaDatabase.filter(c => c.countryName.toLowerCase().includes(input) || c.category.toLowerCase().includes(input));
             renderCountryCards(filtered);
         }
 
-        // Modal Handlers
         function openCountryModal(countryId) {
             const country = getCountryById(countryId);
             if(!country) return;
@@ -326,11 +292,10 @@
             document.getElementById('countryModal').style.display = 'flex';
         }
 
-        function closeCountryModal() {
+        function closeModal() {
             document.getElementById('countryModal').style.display = 'none';
         }
 
-        // Form Submit to Official WhatsApp
         function handleWhatsAppSubmit(event) {
             event.preventDefault();
             const name = document.getElementById('appApplicantName').value;
@@ -346,78 +311,62 @@
                               `📋 *সার্ভিস:* ${encodeURIComponent(category)}%0A` +
                               `💬 *বার্তা:* ${encodeURIComponent(msg || 'N/A')}`;
 
-            // Redirects directly to primary WhatsApp number
             window.open(`https://wa.me/8801408200200?text=${waMessage}`, '_blank');
         }
 
-        // ==========================================================================
-        // HD PDF Generation Overlay on Original PDF Letterhead (WCS letterhead Pad main.pdf)
-        // ==========================================================================
+        /* FIXED PDF GENERATOR - Renamed to letterhead.pdf */
         async function generateHdChecklistPdf() {
             if (!currentSelectedCountry) return;
 
             const btn = document.getElementById('btnDownloadChecklistPdf');
-            btn.innerText = "PDF প্রসেস হচ্ছে, অপেক্ষা করুন...";
+            btn.innerText = "PDF প্রসেস হচ্ছে...";
             btn.disabled = true;
 
             try {
-                // Fetch original main PDF file
-                const existingPdfBytes = await fetch('WCS letterhead Pad main.pdf').then(res => res.arrayBuffer());
+                // Fetches renamed letterhead.pdf
+                const existingPdfBytes = await fetch('letterhead.pdf').then(res => {
+                    if (!res.ok) throw new Error("File not found");
+                    return res.arrayBuffer();
+                });
                 
-                // Load PDF with pdf-lib
                 const pdfDoc = await PDFLib.PDFDocument.load(existingPdfBytes);
                 const pages = pdfDoc.getPages();
                 const firstPage = pages[0];
                 const { width, height } = firstPage.getSize();
 
-                // Draw Text inside the blank middle margin of official letterhead
-                const fontSize = 11;
-                let startY = height - 180; // Margin below header
+                let startY = height - 180;
 
                 firstPage.drawText(`Visa Checklist Requirement: ${currentSelectedCountry.countryName}`, {
-                    x: 50,
-                    y: startY,
-                    size: 14,
-                    color: PDFLib.rgb(0, 0.2, 0.4),
+                    x: 50, y: startY, size: 14, color: PDFLib.rgb(0, 0.2, 0.4),
                 });
 
                 startY -= 25;
                 firstPage.drawText(`Category: ${currentSelectedCountry.category} | Processing: ${currentSelectedCountry.processingTime}`, {
-                    x: 50,
-                    y: startY,
-                    size: 10,
-                    color: PDFLib.rgb(0.4, 0.4, 0.4),
+                    x: 50, y: startY, size: 10, color: PDFLib.rgb(0.4, 0.4, 0.4),
                 });
 
                 startY -= 30;
                 firstPage.drawText(`Required Documents Checklist:`, {
-                    x: 50,
-                    y: startY,
-                    size: 11,
-                    color: PDFLib.rgb(0, 0, 0),
+                    x: 50, y: startY, size: 11, color: PDFLib.rgb(0, 0, 0),
                 });
 
                 startY -= 20;
                 currentSelectedCountry.requirements.forEach((req, idx) => {
                     firstPage.drawText(`${idx + 1}. ${req}`, {
-                        x: 60,
-                        y: startY,
-                        size: 9.5,
-                        color: PDFLib.rgb(0.2, 0.2, 0.2),
+                        x: 60, y: startY, size: 9.5, color: PDFLib.rgb(0.2, 0.2, 0.2),
                     });
                     startY -= 18;
                 });
 
-                // Save & Trigger HD Download
                 const pdfBytes = await pdfDoc.save();
                 const blob = new Blob([pdfBytes], { type: 'application/pdf' });
                 const link = document.createElement('a');
                 link.href = URL.createObjectURL(blob);
-                link.download = `${currentSelectedCountry.id}-visa-checklist-WCS.pdf`;
+                link.download = `${currentSelectedCountry.id}-checklist-WCS.pdf`;
                 link.click();
 
             } catch (err) {
-                alert("PDF ডাউনলোড করতে সমস্যা হয়েছে। 'WCS letterhead Pad main.pdf' ফাইলটি রুট ফোল্ডারে আছে কিনা তা নিশ্চিত করুন।");
+                alert("PDF পেতে সমস্যা হয়েছে! নিশ্চিত করুন আপনি গিটহাবে ফাইলটির নাম 'letterhead.pdf' দিয়েছেন।");
                 console.error(err);
             } finally {
                 btn.innerHTML = '<i class="fas fa-file-pdf"></i> অফিশিয়াল লেটারহেড প্যাডে ডাউনলোড PDF';
@@ -425,7 +374,6 @@
             }
         }
 
-        // Initialize Cards on Page Load
         window.onload = () => {
             renderCountryCards(visaDatabase);
         };
