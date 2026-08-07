@@ -183,28 +183,28 @@
         </div>
     </div>
 
-    <!-- OFF-SCREEN EXACT FIXED A4 TEMPLATE (No display:none bug) -->
-    <div id="pdfTemplateWrapper" style="position: fixed; left: -9999px; top: 0; z-index: -9999;">
-        <div id="pdfTemplate" style="width: 794px; height: 1122px; position: relative; font-family: 'Hind Siliguri', 'Poppins', sans-serif; background: #ffffff; color: #001a33; box-sizing: border-box; overflow: hidden; margin: 0; padding: 0;">
+    <!-- ZERO-CROP FIXED A4 TEMPLATE -->
+    <div id="pdfTemplateWrapper" style="position: fixed; top: 0; left: 0; width: 210mm; height: 297mm; z-index: -9999; opacity: 0; pointer-events: none; overflow: hidden;">
+        <div id="pdfTemplate" style="width: 210mm; height: 297mm; position: relative; font-family: 'Hind Siliguri', 'Poppins', sans-serif; background: #ffffff; color: #001a33; box-sizing: border-box; margin: 0; padding: 0;">
             
             <!-- Letterhead Background Image -->
-            <img src="letterhead-bg.jpg" style="position: absolute; top: 0; left: 0; width: 794px; height: 1122px; object-fit: fill; z-index: 1;">
+            <img src="letterhead-bg.jpg" style="position: absolute; top: 0; left: 0; width: 210mm; height: 297mm; object-fit: fill; z-index: 1;">
 
-            <!-- Text Overlay Container: Exactly Starts at 42mm Top (below header) & Stops at 45mm Bottom -->
-            <div style="position: relative; z-index: 10; width: 794px; height: 1122px; box-sizing: border-box; padding-top: 165px; padding-bottom: 160px; padding-left: 70px; padding-right: 70px; display: flex; flex-direction: column; justify-content: flex-start;">
+            <!-- Content Area: Exactly Starts at 42mm Top & Stops at 45mm Bottom -->
+            <div style="position: relative; z-index: 10; width: 210mm; height: 297mm; box-sizing: border-box; padding-top: 42mm; padding-bottom: 45mm; padding-left: 18mm; padding-right: 18mm; display: flex; flex-direction: column; justify-content: flex-start;">
                 
                 <!-- Title Box -->
-                <div style="margin-bottom: 20px; text-align: center; border-bottom: 2px solid #003366; padding-bottom: 8px;">
-                    <h2 id="pdfCountryTitle" style="color: #003366; font-size: 20px; margin: 0; font-weight: 700;"></h2>
-                    <p id="pdfCountryMeta" style="color: #f37021; font-size: 13px; margin: 4px 0 0; font-weight: 600;"></p>
+                <div style="margin-bottom: 12mm; text-align: center; border-bottom: 2px solid #003366; padding-bottom: 3mm;">
+                    <h2 id="pdfCountryTitle" style="color: #003366; font-size: 18px; margin: 0; font-weight: 700;"></h2>
+                    <p id="pdfCountryMeta" style="color: #f37021; font-size: 12px; margin: 2mm 0 0; font-weight: 600;"></p>
                 </div>
 
                 <!-- Main Requirements Content Area -->
                 <div style="flex-grow: 1;">
-                    <h3 style="color: #003366; font-size: 15px; margin-bottom: 15px; font-weight: 700;">
+                    <h3 style="color: #003366; font-size: 14px; margin-bottom: 10px; font-weight: 700;">
                         প্রাথমিক প্রয়োজনীয় কাগজপত্রের তালিকা (Primary Required Documents):
                     </h3>
-                    <ul id="pdfReqList" style="padding-left: 22px; font-size: 13px; line-height: 2.2; color: #1e293b; font-weight: 500; margin: 0;">
+                    <ul id="pdfReqList" style="padding-left: 20px; font-size: 12px; line-height: 2.1; color: #1e293b; font-weight: 500; margin: 0;">
                     </ul>
                 </div>
             </div>
@@ -351,7 +351,7 @@
             window.open(`https://wa.me/8801408200200?text=${waMessage}`, '_blank');
         }
 
-        /* Fixed Pixel-perfect HD PDF Downloader */
+        /* Zero-Crop Offset Precision HD PDF Downloader */
         function generateHdChecklistPdf() {
             if (!currentSelectedCountry) return;
 
@@ -366,7 +366,7 @@
             pdfReqList.innerHTML = '';
             currentSelectedCountry.requirements.forEach(req => {
                 const li = document.createElement('li');
-                li.style.marginBottom = '8px';
+                li.style.marginBottom = '6px';
                 li.innerText = req;
                 pdfReqList.appendChild(li);
             });
@@ -376,9 +376,17 @@
             const opt = {
                 margin:       0,
                 filename:     `${currentSelectedCountry.id}-checklist-WCS.pdf`,
-                image:        { type: 'jpeg', quality: 1.0 },
-                html2canvas:  { scale: 2, useCORS: true, logging: false, windowWidth: 794, width: 794, height: 1122 },
-                jsPDF:        { unit: 'px', format: [794, 1122], orientation: 'portrait' }
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { 
+                    scale: 2, 
+                    useCORS: true, 
+                    logging: false, 
+                    scrollX: 0, 
+                    scrollY: 0,
+                    x: 0,
+                    y: 0
+                },
+                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
             };
 
             setTimeout(() => {
