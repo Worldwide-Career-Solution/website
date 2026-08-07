@@ -183,12 +183,12 @@
         </div>
     </div>
 
-    <!-- HIGH-PRECISION VISIBLE CAPTURE A4 TEMPLATE WRAPPER -->
-    <div id="pdfTemplateWrapper" style="position: fixed; top: 0; left: 0; margin: 0; padding: 0; width: 210mm; height: 297mm; z-index: -9999; opacity: 0; pointer-events: none; overflow: hidden; background: #ffffff;">
-        <div id="pdfTemplate" style="width: 210mm; height: 297mm; position: absolute; top: 0; left: 0; margin: 0; padding: 0; font-family: 'Hind Siliguri', 'Poppins', sans-serif; background: #ffffff; color: #001a33; box-sizing: border-box;">
+    <!-- PRE-RENDERED ABSOLUTE FIXED A4 TEMPLATE WRAPPER -->
+    <div id="pdfTemplateWrapper" style="position: fixed; top: 0; left: 0; width: 210mm; height: 297mm; z-index: -999; visibility: hidden; pointer-events: none; background: #ffffff;">
+        <div id="pdfTemplate" style="width: 210mm; height: 297mm; position: relative; font-family: 'Hind Siliguri', 'Poppins', sans-serif; background: #ffffff; color: #001a33; box-sizing: border-box; overflow: hidden;">
             
             <!-- Letterhead Background Image -->
-            <img src="letterhead-bg.jpg" style="position: absolute; top: 0; left: 0; margin: 0; padding: 0; width: 210mm; height: 297mm; object-fit: fill; z-index: 1;">
+            <img id="pdfBgImg" src="letterhead-bg.jpg" style="position: absolute; top: 0; left: 0; margin: 0; padding: 0; width: 210mm; height: 297mm; object-fit: fill; z-index: 1;">
 
             <!-- Content Area: Exactly Starts at 42mm Top & Stops at 45mm Bottom -->
             <div style="position: relative; z-index: 10; width: 210mm; height: 297mm; box-sizing: border-box; padding-top: 42mm; padding-bottom: 45mm; padding-left: 15mm; padding-right: 15mm; display: flex; flex-direction: column; justify-content: flex-start;">
@@ -351,7 +351,7 @@
             window.open(`https://wa.me/8801408200200?text=${waMessage}`, '_blank');
         }
 
-        /* Direct Visible Capture Precision HD PDF Downloader */
+        /* Guaranteed 100% Rendered HD PDF Downloader */
         async function generateHdChecklistPdf() {
             if (!currentSelectedCountry) return;
 
@@ -359,6 +359,7 @@
             btn.innerText = "PDF তৈরি হচ্ছে...";
             btn.disabled = true;
 
+            // Populate text
             document.getElementById('pdfCountryTitle').innerText = `${currentSelectedCountry.countryName} - ভিসা চেকলিস্ট`;
             document.getElementById('pdfCountryMeta').innerText = `ক্যাটাগরি: ${currentSelectedCountry.category} | প্রসেসিং টাইম: ${currentSelectedCountry.processingTime}`;
 
@@ -373,10 +374,19 @@
 
             const wrapper = document.getElementById('pdfTemplateWrapper');
             const element = document.getElementById('pdfTemplate');
+            const bgImg = document.getElementById('pdfBgImg');
 
-            // Temporarily make fully visible for canvas capture
-            wrapper.style.opacity = '1';
-            wrapper.style.zIndex = '99999';
+            // 1. Ensure Background Image is Fully Loaded
+            if (!bgImg.complete) {
+                await new Promise((resolve) => {
+                    bgImg.onload = resolve;
+                    bgImg.onerror = resolve;
+                });
+            }
+
+            // 2. Make visible temporarily for browser DOM repaint
+            wrapper.style.visibility = 'visible';
+            wrapper.style.zIndex = '999999';
 
             const opt = {
                 margin:       0,
@@ -387,24 +397,25 @@
                     useCORS: true, 
                     allowTaint: true,
                     logging: false, 
-                    x: 0,
-                    y: 0,
                     scrollX: 0, 
                     scrollY: 0
                 },
                 jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
             };
 
-            try {
-                await html2pdf().set(opt).from(element).save();
-            } catch (err) {
-                alert("PDF ডাউনলোডে সমস্যা হয়েছে। নিশ্চিত করুন 'letterhead-bg.jpg' ফাইলটি গিটহাবে আপলোড আছে।");
-            } finally {
-                wrapper.style.opacity = '0';
-                wrapper.style.zIndex = '-9999';
-                btn.innerHTML = '<i class="fas fa-file-pdf"></i> অফিশিয়াল লেটারহেড প্যাডে ডাউনলোড PDF';
-                btn.disabled = false;
-            }
+            // 3. Wait 300ms for browser layout engine repaint before html2pdf capture
+            setTimeout(async () => {
+                try {
+                    await html2pdf().set(opt).from(element).save();
+                } catch (err) {
+                    alert("PDF ডাউনলোডে সমস্যা হয়েছে। নিশ্চিত করুন 'letterhead-bg.jpg' ফাইলটি গিটহাবে আপলোড আছে।");
+                } finally {
+                    wrapper.style.visibility = 'hidden';
+                    wrapper.style.zIndex = '-999';
+                    btn.innerHTML = '<i class="fas fa-file-pdf"></i> অফিশিয়াল লেটারহেড প্যাডে ডাউনলোড PDF';
+                    btn.disabled = false;
+                }
+            }, 350);
         }
 
         window.onload = () => {
