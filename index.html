@@ -7,10 +7,16 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- pdf-lib Library for Native HD PDF Text Overlay -->
+    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <script src="https://unpkg.com/@pdf-lib/fontkit@1.1.1/dist/fontkit.umd.min.js"></script>
 </head>
 <body>
 
-    <!-- Header Section -->
+    <!-- ==========================================================================
+         Header Section (Logo, Language Switcher & Responsive Menu)
+         ========================================================================== -->
     <header>
         <nav class="navbar">
             <div class="container">
@@ -19,7 +25,7 @@
                     <span>Worldwide Career Solution</span>
                 </a>
                 
-                <!-- Language Switcher Bar -->
+                <!-- Google Language Switcher -->
                 <div class="lang-translator-box">
                     <i class="fas fa-globe"></i>
                     <div id="google_translate_element"></div>
@@ -28,265 +34,176 @@
                 <div class="menu-toggle" id="mobile-menu">
                     <i class="fas fa-bars"></i>
                 </div>
+                
                 <ul class="nav-menu">
                     <li><a href="#home">হোম</a></li>
-                    <li><a href="#top-countries">পছন্দের দেশ</a></li>
+                    <li><a href="#visa-services">ভিসা সার্ভিস</a></li>
                     <li><a href="#tour-packages">ট্যুর প্যাকেজ</a></li>
-                    <li><a href="#showcase">প্রোগ্রামস</a></li>
+                    <li><a href="#all-forms">অল ফর্মস (Office Use)</a></li>
                     <li><a href="contact.html" class="nav-btn">যোগাযোগ করুন</a></li>
                 </ul>
             </div>
         </nav>
     </header>
 
-    <!-- Modern Hero Search Section -->
+    <!-- ==========================================================================
+         Hero Section & Country Live Search
+         ========================================================================== -->
     <section id="home" class="modern-hero">
         <div class="container hero-wrapper">
             <div class="hero-text-content">
                 <h1>"THE WORLD IS WAITING, LET'S GET YOU THERE."</h1>
                 <p>আপনার স্বপ্নের গন্তব্যে পৌঁছাতে আমরা আছি আপনার সাথে।</p>
                 
-                <!-- Country Search Bar -->
+                <!-- Search Bar -->
                 <div class="search-box-container">
                     <div class="search-input-group">
                         <i class="fas fa-search"></i>
-                        <input type="text" id="countrySearch" placeholder="আপনি কোন দেশে যেতে চান? (যেমন: USA, Canada, Japan...)" onkeyup="filterCountries()">
+                        <input type="text" id="countrySearchInput" placeholder="আপনি কোন দেশে যেতে চান? (যেমন: USA, Japan, Germany)..." onkeyup="filterVisaCountries()">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Top Destination Countries Section -->
-    <section id="top-countries" class="top-countries-section">
+    <!-- ==========================================================================
+         Visa Services Section (Continent Tabs & Dynamic Country Cards)
+         ========================================================================== -->
+    <section id="visa-services" class="top-countries-section">
         <div class="container">
-            <h2 class="section-title">জনপ্রিয় গন্তব্যসমূহ (Top Destinations)</h2>
-            <p class="section-subtitle">যেকোনো দেশে ক্লিক করে সরাসরি আবেদন বা কনসালটেন্সি বুক করুন</p>
+            <h2 class="section-title">গ্লোবাল ভিসা সার্ভিসেস (Visa Services)</h2>
+            <p class="section-subtitle">আপনার পছন্দের দেশ নির্বাচন করুন এবং প্রয়োজনীয় তথ্য ও চেকক্লিপ ডাউনলোড করুন</p>
             
-            <div class="country-grid" id="countryGrid">
-                <div class="country-card" onclick="openApplicationModal('USA')">
-                    <i class="fas fa-flag-usa country-icon"></i>
-                    <h3>USA (আমেরিকা)</h3>
-                    <span class="badge">Student & Tourist</span>
-                </div>
-                <div class="country-card" onclick="openApplicationModal('Canada')">
-                    <i class="fas fa-leaf country-icon"></i>
-                    <h3>Canada (কানাডা)</h3>
-                    <span class="badge">Student & Immigration</span>
-                </div>
-                <div class="country-card" onclick="openApplicationModal('Australia')">
-                    <i class="fas fa-globe-asia country-icon"></i>
-                    <h3>Australia (অস্ট্রেলিয়া)</h3>
-                    <span class="badge">Higher Study & Visit</span>
-                </div>
-                <div class="country-card" onclick="openApplicationModal('UK')">
-                    <i class="fas fa-crown country-icon"></i>
-                    <h3>UK (যুক্তরাজ্য)</h3>
-                    <span class="badge">Fast Track Student Visa</span>
-                </div>
-                <div class="country-card" onclick="openApplicationModal('Germany')">
-                    <i class="fas fa-university country-icon"></i>
-                    <h3>Germany (জার্মানি)</h3>
-                    <span class="badge">Schengen & Free Education</span>
-                </div>
-                <div class="country-card" onclick="openApplicationModal('Japan')">
-                    <i class="fas fa-torii-gate country-icon"></i>
-                    <h3>Japan (জাপান)</h3>
-                    <span class="badge">Language & Student Visa</span>
-                </div>
-                <div class="country-card" onclick="openApplicationModal('Malaysia')">
-                    <i class="fas fa-plane-departure country-icon"></i>
-                    <h3>Malaysia (মালয়েশিয়া)</h3>
-                    <span class="badge">Tour & Credit Transfer</span>
-                </div>
-                <div class="country-card" onclick="openApplicationModal('Schengen Europe')">
-                    <i class="fas fa-passport country-icon"></i>
-                    <h3>Schengen Europe</h3>
-                    <span class="badge">Visit & Work Process</span>
-                </div>
+            <!-- Continent Tabs -->
+            <div class="filter-tabs">
+                <button class="tab-btn active" onclick="filterByContinent('All', this)">সকল দেশ</button>
+                <button class="tab-btn" onclick="filterByContinent('North America', this)">নর্থ আমেরিকা ও অস্ট্রেলেশিয়া</button>
+                <button class="tab-btn" onclick="filterByContinent('Europe', this)">ইউরোপ (Schengen & UK)</button>
+                <button class="tab-btn" onclick="filterByContinent('Asia', this)">এশিয়া ও মিডল ইস্ট</button>
+            </div>
+
+            <!-- Dynamic Country Cards Container -->
+            <div class="country-grid" id="countryGridContainer">
+                <!-- JS data will load dynamically from visa-data.js -->
             </div>
         </div>
     </section>
 
-    <!-- Download Checklist Section -->
-    <section class="checklist-download-section">
-        <div class="container checklist-box">
-            <div class="checklist-text">
-                <i class="fas fa-file-pdf pdf-icon"></i>
-                <div>
-                    <h3>ভিসা প্রসেসিং রিকোয়ারমেন্ট চেকক্লিপ (PDF)</h3>
-                    <p>আপনার প্রয়োজনীয় সকল কাগজের তালিকা এক ক্লিকে ডাউনলোড করে নিন।</p>
-                </div>
-            </div>
-            <!-- NOTE: Upload 'visa-checklist.pdf' to your github repo root directory -->
-            <a href="visa-checklist.pdf" download class="btn-primary btn-download">
-                <i class="fas fa-download"></i> চেকক্লিপ PDF ডাউনলোড
-            </a>
-        </div>
-    </section>
-
-    <!-- Major Asia Tour Packages Section -->
-    <section id="tour-packages" class="tour-packages-section">
+    <!-- ==========================================================================
+         Tour Packages Section (Interlinked to Visa Services)
+         ========================================================================== -->
+    <section id="tour-packages" style="padding: 60px 0; background: #ffffff;">
         <div class="container">
-            <h2 class="section-title">এশিয়ার সেরা ট্যুর প্যাকেজসমূহ (Asia Tour Packages)</h2>
-            <div class="package-grid">
-                <div class="package-card">
-                    <div class="package-header bg-thailand">
-                        <h3>Thailand (থাইল্যান্ড)</h3>
-                    </div>
-                    <div class="package-body">
-                        <p><strong>প্রধান দর্শনীয় স্থান:</strong> Bangkok, Pattaya, Phuket, Krabi</p>
-                        <ul>
-                            <li><i class="fas fa-check"></i> এয়ার টিকিট ও হোটেল বুকিং</li>
-                            <li><i class="fas fa-check"></i> সাইটসিয়িং ও ভিসা অ্যাসিস্ট্যান্স</li>
-                        </ul>
-                        <button class="btn-secondary-dark" onclick="openApplicationModal('Thailand Tour Package')">বুকিং ইনকোয়ারি</button>
-                    </div>
+            <h2 class="section-title">এশিয়ার জনপ্রিয় ট্যুর প্যাকেজসমূহ</h2>
+            <p class="section-subtitle">ফ্যামিলি, ফ্রেন্ডস বা বিজনেস ট্যুরের জন্য বিশেষ অফার</p>
+            
+            <div class="country-grid">
+                <!-- Thailand Package -->
+                <div class="country-card">
+                    <span class="country-flag">🇹🇭</span>
+                    <h3>থাইল্যান্ড ট্যুর প্যাকেজ</h3>
+                    <span class="badge">Bangkok, Pattaya, Phuket</span>
+                    <p style="font-size: 0.85rem; color: #666; margin-bottom: 15px;">এয়ার টিকিট, হোটেল বুকিং ও সাইটসিয়িং সহ সম্পূর্ণ প্যাকেজ সাপোর্ট।</p>
+                    <button class="btn-card-action btn-solid w-100" onclick="openDirectBookingModal('Thailand Tour Package')">বুকিং ইনকোয়ারি</button>
                 </div>
 
-                <div class="package-card">
-                    <div class="package-header bg-malaysia">
-                        <h3>Malaysia (মালয়েশিয়া)</h3>
-                    </div>
-                    <div class="package-body">
-                        <p><strong>প্রধান দর্শনীয় স্থান:</strong> Kuala Lumpur, Genting Highlands, Langkawi</p>
-                        <ul>
-                            <li><i class="fas fa-check"></i> পারিবারিক ও কাস্টমাইজড প্যাকেজ</li>
-                            <li><i class="fas fa-check"></i> দ্রুত ই-ভিসা প্রসেসিং</li>
-                        </ul>
-                        <button class="btn-secondary-dark" onclick="openApplicationModal('Malaysia Tour Package')">বুকিং ইনকোয়ারি</button>
-                    </div>
+                <!-- Malaysia Package -->
+                <div class="country-card">
+                    <span class="country-flag">🇲🇾</span>
+                    <h3>মালয়েশিয়া ট্যুর প্যাকেজ</h3>
+                    <span class="badge">Kuala Lumpur, Genting, Langkawi</span>
+                    <p style="font-size: 0.85rem; color: #666; margin-bottom: 15px;">দ্রুত ই-ভিসা প্রসেসিং ও ফ্যামিলি কাস্টমাইজড প্যাকেজ।</p>
+                    <button class="btn-card-action btn-solid w-100" onclick="openDirectBookingModal('Malaysia Tour Package')">বুকিং ইনকোয়ারি</button>
                 </div>
 
-                <div class="package-card">
-                    <div class="package-header bg-singapore">
-                        <h3>Singapore (সিঙ্গাপুর)</h3>
-                    </div>
-                    <div class="package-body">
-                        <p><strong>প্রধান দর্শনীয় স্থান:</strong> Marina Bay, Sentosa Island, Universal Studios</p>
-                        <ul>
-                            <li><i class="fas fa-check"></i> প্রিমিয়াম সিটি ট্যুর সাপোর্ট</li>
-                            <li><i class="fas fa-check"></i> গ্যারান্টিড হোটেল বুকিং</li>
-                        </ul>
-                        <button class="btn-secondary-dark" onclick="openApplicationModal('Singapore Tour Package')">বুকিং ইনকোয়ারি</button>
-                    </div>
-                </div>
-
-                <div class="package-card">
-                    <div class="package-header bg-vietnam">
-                        <h3>Vietnam (ভিয়েতনামী)</h3>
-                    </div>
-                    <div class="package-body">
-                        <p><strong>প্রধান দর্শনীয় স্থান:</strong> Ha Long Bay, Hanoi, Da Nang, Bana Hills</p>
-                        <ul>
-                            <li><i class="fas fa-check"></i> বাজেট ফ্রেন্ডলি ট্যুর প্ল্যান</li>
-                            <li><i class="fas fa-check"></i> অন-অ্যারাইভাল ভিসা সাপোর্ট</li>
-                        </ul>
-                        <button class="btn-secondary-dark" onclick="openApplicationModal('Vietnam Tour Package')">বুকিং ইনকোয়ারি</button>
-                    </div>
+                <!-- Singapore Package -->
+                <div class="country-card">
+                    <span class="country-flag">🇸🇬</span>
+                    <h3>সিঙ্গাপুর ট্যুর প্যাকেজ</h3>
+                    <span class="badge">Marina Bay, Sentosa Island</span>
+                    <p style="font-size: 0.85rem; color: #666; margin-bottom: 15px;">প্রিমিয়াম হোটেল রিজার্ভেশন ও প্রফেশনাল গাইড সাপোর্ট।</p>
+                    <button class="btn-card-action btn-solid w-100" onclick="openDirectBookingModal('Singapore Tour Package')">বুকিং ইনকোয়ারি</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Banner Showcase Section -->
-    <section id="showcase" class="showcase-section">
+    <!-- ==========================================================================
+         All Forms Section (Office Use - Clean Print without Background)
+         ========================================================================== -->
+    <section id="all-forms" style="padding: 60px 0; background: #f8fafc;">
         <div class="container">
-            <h2 class="section-title">আমাদের সেবাসমূহ (Programs)</h2>
-            <div class="banner-cards-grid">
-                <div class="banner-card">
-                    <img src="wcs-banner1.jpg" alt="Student Consultancy">
-                    <div class="banner-info">
-                        <h3>Student Consultancy</h3>
-                        <p>বিশ্বমানের বিশ্ববিদ্যালয়ে উচ্চশিক্ষার সুযোগ।</p>
-                    </div>
-                </div>
-                <div class="banner-card">
-                    <img src="wcs-banner2.jpg" alt="Europe Visa">
-                    <div class="banner-info">
-                        <h3>Europe Awaits</h3>
-                        <p>ইউরোপে পড়াশোনা ও ভ্রমণের সহজ পথ।</p>
-                    </div>
-                </div>
-                <div class="banner-card">
-                    <img src="wcs-banner3.jpg" alt="Australia Visa">
-                    <div class="banner-info">
-                        <h3>Australia Study Visa</h3>
-                        <p>অস্ট্রেলিয়ার সেরা ইউনিভার্সিটিতে আবেদনের সুযোগ।</p>
-                    </div>
-                </div>
-                <div class="banner-card">
-                    <img src="wcs-banner4.jpg" alt="Global Career Opportunity">
-                    <div class="banner-info">
-                        <h3>Global Opportunities</h3>
-                        <p>ক্যারিয়ার কনসালটেন্সি ও গাইডলাইন поддержка।</p>
-                    </div>
-                </div>
+            <h2 class="section-title">অফিসিয়াল ফর্মস (All Forms)</h2>
+            <p class="section-subtitle">অফিসিয়াল ব্যবহারের জন্য ডাউনলোডযোগ্য রেডি ফর্মসমূহ</p>
+            
+            <!-- 
+                বাংলা নির্দেশিকা: 
+                আপনার প্রস্তুতকৃত সকল ম্যানুয়াল ফর্ম নিচে লিংক আকারে যোগ করতে পারবেন। 
+                এগুলো ফিজিক্যাল লেটারহেড প্যাডে সরাসরি প্রিন্ট করার উপযোগী।
+            -->
+            <div style="background: #fff; padding: 25px; border-radius: 10px; border: 1px solid #e2e8f0; max-width: 800px; margin: auto;">
+                <ul style="list-style: none;">
+                    <li style="padding: 12px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center;">
+                        <span><i class="fas fa-file-alt" style="color: #003366; margin-right: 10px;"></i> ক্লায়েন্ট ইনফরমেশন ও অ্যাসেসমেন্ট ফরম</span>
+                        <a href="#" class="btn-card-action btn-outline" style="text-decoration: none; padding: 6px 15px;">ডাউনলোড</a>
+                    </li>
+                    <li style="padding: 12px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center;">
+                        <span><i class="fas fa-file-alt" style="color: #003366; margin-right: 10px;"></i> পাসপোর্ট ও ডকুমেন্ট রিকুইজিশন ফরম</span>
+                        <a href="#" class="btn-card-action btn-outline" style="text-decoration: none; padding: 6px 15px;">ডাউনলোড</a>
+                    </li>
+                    <!-- নতুন ফর্ম যোগ করতে উপরের <li> অংশটি কপি পেস্ট করুন -->
+                </ul>
             </div>
         </div>
     </section>
 
-    <!-- Dynamic Smart Form Modal (Pop-Up) -->
-    <div id="serviceModal" class="modal">
+    <!-- ==========================================================================
+         Dynamic Modal for Country Details & WhatsApp Application Form
+         ========================================================================== -->
+    <div id="countryModal" class="modal">
         <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
-            <h3 id="modalTitle">সার্ভিস ইনফরমেশন ফর্ম</h3>
-            <p id="selectedCountryText" class="modal-subtext"></p>
+            <span class="close-btn" onclick="closeCountryModal()">&times;</span>
+            <h3 id="mCountryName">দেশ নির্বাচন করুন</h3>
+            <p id="mCountryMeta" class="modal-subtext"></p>
 
-            <form action="https://formspree.io/f/myklpllz" method="POST">
-                <input type="hidden" name="Selected_Country" id="hiddenCountryInput">
+            <div style="background: #f8fafc; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                <h4 style="font-size: 0.9rem; color: #003366; margin-bottom: 8px;"><i class="fas fa-list-check"></i> প্রয়োজনীয় কাগজপত্রের তালিকা (Checklist Summary):</h4>
+                <ul id="mReqList" class="req-list">
+                    <!-- Dynamic Checklist Items -->
+                </ul>
+                <button class="btn-card-action btn-solid w-100" id="btnDownloadChecklistPdf" onclick="generateHdChecklistPdf()">
+                    <i class="fas fa-file-pdf"></i> অফিশিয়াল লেটারহেড প্যাডে ডাউনলোড PDF
+                </button>
+            </div>
 
+            <!-- WhatsApp Direct Application Form -->
+            <form onsubmit="handleWhatsAppSubmit(event)">
+                <h4 style="font-size: 0.95rem; color: #003366; margin-bottom: 12px;"><i class="fas fa-paper-plane"></i> সরাসরি আবেদন বা ইনকোয়ারি করুন:</h4>
                 <div class="form-group">
                     <label>আপনার নাম:</label>
-                    <input type="text" name="Name" required placeholder="আপনার পুরো নাম">
+                    <input type="text" id="appApplicantName" required placeholder="আপনার পুরো নাম">
                 </div>
-
                 <div class="form-group">
                     <label>ফোন নম্বর:</label>
-                    <input type="tel" name="Phone" required placeholder="017xxxxxxxx">
+                    <input type="tel" id="appApplicantPhone" required placeholder="017xxxxxxxx">
                 </div>
-
                 <div class="form-group">
-                    <label>ইমেইল (ঐচ্ছিক):</label>
-                    <input type="email" name="Email" placeholder="example@mail.com">
-                </div>
-
-                <div class="form-group">
-                    <label>আপনি কী ধরনের সাপোর্ট নিতে চান?</label>
-                    <select name="Service_Type" id="serviceType" onchange="toggleFormFields()" required>
-                        <option value="">-- পছন্দ করুন --</option>
-                        <option value="Student Consultancy">স্টুডেন্ট কনসালটেন্সি (Student Visa)</option>
+                    <label>সার্ভিস ক্যাটাগরি:</label>
+                    <select id="appServiceCategory" required>
+                        <option value="Student Visa Support">স্টুডেন্ট কনসালটেন্সি (Student Visa)</option>
                         <option value="Tourist / Visit Visa">ট্যুরিস্ট / ভিজিট ভিসা (Visit Visa)</option>
                         <option value="Air Ticketing">এয়ার টিকেটিং (Air Ticket)</option>
                         <option value="Tour Package">ট্যুর প্যাকেজ (Tour Package)</option>
                     </select>
                 </div>
-
-                <!-- Dynamic Dynamic Fields Based on Selection -->
-                <div id="studentFields" class="dynamic-field" style="display:none;">
-                    <div class="form-group">
-                        <label>সর্বশেষ শিক্ষাগত যোগ্যতা:</label>
-                        <input type="text" name="Education_Level" placeholder="যেমন: HSC / Bachelor / Master's">
-                    </div>
-                    <div class="form-group">
-                        <label>IELTS / PTE স্কোর (যদি থাকে):</label>
-                        <input type="text" name="Language_Score" placeholder="যেমন: 6.5 or Not Appeared">
-                    </div>
-                </div>
-
-                <div id="touristFields" class="dynamic-field" style="display:none;">
-                    <div class="form-group">
-                        <label>বর্তমান পেশা:</label>
-                        <input type="text" name="Profession" placeholder="যেমন: Job / Business / Student">
-                    </div>
-                </div>
-
                 <div class="form-group">
-                    <label>আপনার বিস্তারিত কিছু জানান:</label>
-                    <textarea name="Message" rows="3" placeholder="আপনার কোনো নির্দিষ্ট প্রশ্ন থাকলে লিখুন..."></textarea>
+                    <label>বার্তা বা কোনো নির্দিষ্ট প্রশ্ন (ঐচ্ছিক):</label>
+                    <textarea id="appApplicantMsg" rows="2" placeholder="আপনার কিছু জানার থাকলে লিখুন..."></textarea>
                 </div>
 
-                <button type="submit" class="btn-primary w-100">আবেদন জমা দিন</button>
+                <button type="submit" class="btn-card-action btn-solid w-100" style="padding: 12px; font-size: 0.95rem; background: #25d366;">
+                    <i class="fab fa-whatsapp"></i> হোয়াটসঅ্যাপে তথ্য পাঠান
+                </button>
             </form>
         </div>
     </div>
@@ -297,23 +214,26 @@
     </a>
 
     <!-- Footer -->
-    <footer>
-        <div class="container footer-grid">
-            <div class="footer-about">
-                <img src="wcs-logo-full.jpg" alt="WCS Full Logo">
-                <p>Empowering students and professionals to build global careers.</p>
+    <footer style="background: #001a33; color: #fff; padding: 50px 0 20px; margin-top: 50px;">
+        <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; padding-bottom: 30px;">
+            <div>
+                <img src="wcs-logo-full.jpg" alt="WCS Full Logo" style="height: 60px; margin-bottom: 15px;">
+                <p style="font-size: 0.85rem; opacity: 0.8;">Empowering students and professionals to build global careers.</p>
             </div>
-            <div class="footer-contact">
-                <h3>Contact Details</h3>
-                <p><i class="fas fa-map-marker-alt"></i> 68/69 Concept Tower, Panthapath, Dhaka</p>
-                <p><i class="fas fa-phone"></i> +8801408-200200 | +8801940-904090</p>
-                <p><i class="fas fa-envelope"></i> worldwidecareersolution@gmail.com</p>
+            <div>
+                <h3 style="color: #f37021; margin-bottom: 15px; font-size: 1.1rem;">অফিস এড্রেস</h3>
+                <p style="font-size: 0.85rem;"><i class="fas fa-map-marker-alt"></i> 68/69 Concept Tower, Panthapath, Dhaka</p>
+                <p style="font-size: 0.85rem;"><i class="fas fa-phone"></i> +8801408-200200 | +8801940-904090</p>
+                <p style="font-size: 0.85rem;"><i class="fas fa-envelope"></i> worldwidecareersolution@gmail.com</p>
             </div>
         </div>
-        <div class="footer-bottom">
+        <div style="text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 0.8rem; opacity: 0.5;">
             <p>&copy; 2026 Worldwide Career Solution. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Visa Database Script -->
+    <script src="visa-data.js"></script>
 
     <!-- Google Translate Script -->
     <script type="text/javascript">
@@ -327,52 +247,188 @@
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-    <!-- Interactivity JS -->
+    <!-- Core Interactive JavaScript -->
     <script>
-        // Mobile Navigation Toggle
+        let currentSelectedCountry = null;
+
+        // Mobile Nav Toggle
         const mobileMenu = document.getElementById('mobile-menu');
         const navMenu = document.querySelector('.nav-menu');
         mobileMenu.addEventListener('click', () => { navMenu.classList.toggle('active'); });
 
-        // Search Filter Logic
-        function filterCountries() {
-            let input = document.getElementById('countrySearch').value.toLowerCase();
-            let cards = document.getElementsByClassName('country-card');
-            for (let i = 0; i < cards.length; i++) {
-                let title = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
-                if (title.includes(input)) {
-                    cards[i].style.display = "block";
-                } else {
-                    cards[i].style.display = "none";
-                }
+        // Load Country Cards Dynamically
+        function renderCountryCards(dataList) {
+            const container = document.getElementById('countryGridContainer');
+            container.innerHTML = '';
+
+            if(dataList.length === 0) {
+                container.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #666;">কোনো দেশ পাওয়া যায়নি। অন্য কোনো নাম দিয়ে সার্চ করুন।</p>';
+                return;
+            }
+
+            dataList.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'country-card';
+                card.innerHTML = `
+                    <span class="country-flag">${item.flag}</span>
+                    <h3>${item.countryName}</h3>
+                    <span class="badge">${item.visasOffered}</span>
+                    <p style="font-size: 0.8rem; color: #666; margin-bottom: 12px;">প্রসেসিং সময়: ${item.processingTime}</p>
+                    <div class="card-btns-group">
+                        <button class="btn-card-action btn-outline" onclick="openCountryModal('${item.id}')">রিকোয়ারমেন্টস</button>
+                        <button class="btn-card-action btn-solid" onclick="openCountryModal('${item.id}')">আবেদন করুন</button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Filter by Continent Tabs
+        function filterByContinent(category, btnElement) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            btnElement.classList.add('active');
+            const filtered = getCountriesByCategory(category);
+            renderCountryCards(filtered);
+        }
+
+        // Live Search Filter
+        function filterVisaCountries() {
+            const input = document.getElementById('countrySearchInput').value.toLowerCase();
+            const filtered = visaDatabase.filter(c => c.countryName.toLowerCase().includes(input) || c.category.toLowerCase().includes(input));
+            renderCountryCards(filtered);
+        }
+
+        // Modal Handlers
+        function openCountryModal(countryId) {
+            const country = getCountryById(countryId);
+            if(!country) return;
+
+            currentSelectedCountry = country;
+            document.getElementById('mCountryName').innerText = country.countryName;
+            document.getElementById('mCountryMeta').innerText = `ক্যাটাগরি: ${country.category} | প্রসেসিং টাইম: ${country.processingTime}`;
+
+            const reqListElem = document.getElementById('mReqList');
+            reqListElem.innerHTML = '';
+            country.requirements.forEach(req => {
+                const li = document.createElement('li');
+                li.innerText = req;
+                reqListElem.appendChild(li);
+            });
+
+            document.getElementById('countryModal').style.display = 'flex';
+        }
+
+        function openDirectBookingModal(packageName) {
+            currentSelectedCountry = { countryName: packageName };
+            document.getElementById('mCountryName').innerText = packageName;
+            document.getElementById('mCountryMeta').innerText = "বিশেষ ট্যুর প্যাকেজ ইনকোয়ারি";
+            document.getElementById('mReqList').innerHTML = '<li>ইনকোয়ারি জমা দিলে আমাদের টিম আপনার সাথে কথা বলে সেরা ডিল নিশ্চিত করবে।</li>';
+            document.getElementById('countryModal').style.display = 'flex';
+        }
+
+        function closeCountryModal() {
+            document.getElementById('countryModal').style.display = 'none';
+        }
+
+        // Form Submit to Official WhatsApp
+        function handleWhatsAppSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('appApplicantName').value;
+            const phone = document.getElementById('appApplicantPhone').value;
+            const category = document.getElementById('appServiceCategory').value;
+            const msg = document.getElementById('appApplicantMsg').value;
+            const countryName = currentSelectedCountry ? currentSelectedCountry.countryName : "সাধারণ ইনকোয়ারি";
+
+            const waMessage = `*নতুন সার্ভিস ইনকোয়ারি (WCS Website)*%0A%0A` +
+                              `👤 *নাম:* ${encodeURIComponent(name)}%0A` +
+                              `📞 *ফোন:* ${encodeURIComponent(phone)}%0A` +
+                              `🌍 *গন্তব্য/দেশ:* ${encodeURIComponent(countryName)}%0A` +
+                              `📋 *সার্ভিস:* ${encodeURIComponent(category)}%0A` +
+                              `💬 *বার্তা:* ${encodeURIComponent(msg || 'N/A')}`;
+
+            // Redirects directly to primary WhatsApp number
+            window.open(`https://wa.me/8801408200200?text=${waMessage}`, '_blank');
+        }
+
+        // ==========================================================================
+        // HD PDF Generation Overlay on Original PDF Letterhead (WCS letterhead Pad main.pdf)
+        // ==========================================================================
+        async function generateHdChecklistPdf() {
+            if (!currentSelectedCountry) return;
+
+            const btn = document.getElementById('btnDownloadChecklistPdf');
+            btn.innerText = "PDF প্রসেস হচ্ছে, অপেক্ষা করুন...";
+            btn.disabled = true;
+
+            try {
+                // Fetch original main PDF file
+                const existingPdfBytes = await fetch('WCS letterhead Pad main.pdf').then(res => res.arrayBuffer());
+                
+                // Load PDF with pdf-lib
+                const pdfDoc = await PDFLib.PDFDocument.load(existingPdfBytes);
+                const pages = pdfDoc.getPages();
+                const firstPage = pages[0];
+                const { width, height } = firstPage.getSize();
+
+                // Draw Text inside the blank middle margin of official letterhead
+                const fontSize = 11;
+                let startY = height - 180; // Margin below header
+
+                firstPage.drawText(`Visa Checklist Requirement: ${currentSelectedCountry.countryName}`, {
+                    x: 50,
+                    y: startY,
+                    size: 14,
+                    color: PDFLib.rgb(0, 0.2, 0.4),
+                });
+
+                startY -= 25;
+                firstPage.drawText(`Category: ${currentSelectedCountry.category} | Processing: ${currentSelectedCountry.processingTime}`, {
+                    x: 50,
+                    y: startY,
+                    size: 10,
+                    color: PDFLib.rgb(0.4, 0.4, 0.4),
+                });
+
+                startY -= 30;
+                firstPage.drawText(`Required Documents Checklist:`, {
+                    x: 50,
+                    y: startY,
+                    size: 11,
+                    color: PDFLib.rgb(0, 0, 0),
+                });
+
+                startY -= 20;
+                currentSelectedCountry.requirements.forEach((req, idx) => {
+                    firstPage.drawText(`${idx + 1}. ${req}`, {
+                        x: 60,
+                        y: startY,
+                        size: 9.5,
+                        color: PDFLib.rgb(0.2, 0.2, 0.2),
+                    });
+                    startY -= 18;
+                });
+
+                // Save & Trigger HD Download
+                const pdfBytes = await pdfDoc.save();
+                const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(blob);
+                link.download = `${currentSelectedCountry.id}-visa-checklist-WCS.pdf`;
+                link.click();
+
+            } catch (err) {
+                alert("PDF ডাউনলোড করতে সমস্যা হয়েছে। 'WCS letterhead Pad main.pdf' ফাইলটি রুট ফোল্ডারে আছে কিনা তা নিশ্চিত করুন।");
+                console.error(err);
+            } finally {
+                btn.innerHTML = '<i class="fas fa-file-pdf"></i> অফিশিয়াল লেটারহেড প্যাডে ডাউনলোড PDF';
+                btn.disabled = false;
             }
         }
 
-        // Modal Functionalities
-        function openApplicationModal(countryName) {
-            document.getElementById('serviceModal').style.display = 'flex';
-            document.getElementById('modalTitle').innerText = countryName + " - সার্ভিস ইনকোয়ারি";
-            document.getElementById('selectedCountryText').innerText = "গন্তব্য: " + countryName;
-            document.getElementById('hiddenCountryInput').value = countryName;
-        }
-
-        function closeModal() {
-            document.getElementById('serviceModal').style.display = 'none';
-        }
-
-        // Dynamic Form Fields Logic
-        function toggleFormFields() {
-            let service = document.getElementById('serviceType').value;
-            document.getElementById('studentFields').style.display = (service === 'Student Consultancy') ? 'block' : 'none';
-            document.getElementById('touristFields').style.display = (service === 'Tourist / Visit Visa' || service === 'Tour Package') ? 'block' : 'none';
-        }
-
-        window.onclick = function(event) {
-            let modal = document.getElementById('serviceModal');
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
+        // Initialize Cards on Page Load
+        window.onload = () => {
+            renderCountryCards(visaDatabase);
+        };
     </script>
 </body>
 </html>
