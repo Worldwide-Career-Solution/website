@@ -183,8 +183,8 @@
         </div>
     </div>
 
-    <!-- STRICT ZERO-OFFSET FIXED A4 TEMPLATE -->
-    <div id="pdfTemplateWrapper" style="position: fixed; top: 0; left: 0; margin: 0; padding: 0; width: 210mm; height: 297mm; z-index: -9999; opacity: 0.01; pointer-events: none; overflow: hidden;">
+    <!-- HIGH-PRECISION VISIBLE CAPTURE A4 TEMPLATE WRAPPER -->
+    <div id="pdfTemplateWrapper" style="position: fixed; top: 0; left: 0; margin: 0; padding: 0; width: 210mm; height: 297mm; z-index: -9999; opacity: 0; pointer-events: none; overflow: hidden; background: #ffffff;">
         <div id="pdfTemplate" style="width: 210mm; height: 297mm; position: absolute; top: 0; left: 0; margin: 0; padding: 0; font-family: 'Hind Siliguri', 'Poppins', sans-serif; background: #ffffff; color: #001a33; box-sizing: border-box;">
             
             <!-- Letterhead Background Image -->
@@ -351,8 +351,8 @@
             window.open(`https://wa.me/8801408200200?text=${waMessage}`, '_blank');
         }
 
-        /* Strict Zero-Offset Precision HD PDF Downloader */
-        function generateHdChecklistPdf() {
+        /* Direct Visible Capture Precision HD PDF Downloader */
+        async function generateHdChecklistPdf() {
             if (!currentSelectedCountry) return;
 
             const btn = document.getElementById('btnDownloadChecklistPdf');
@@ -371,7 +371,12 @@
                 pdfReqList.appendChild(li);
             });
 
+            const wrapper = document.getElementById('pdfTemplateWrapper');
             const element = document.getElementById('pdfTemplate');
+
+            // Temporarily make fully visible for canvas capture
+            wrapper.style.opacity = '1';
+            wrapper.style.zIndex = '99999';
 
             const opt = {
                 margin:       0,
@@ -380,6 +385,7 @@
                 html2canvas:  { 
                     scale: 2, 
                     useCORS: true, 
+                    allowTaint: true,
                     logging: false, 
                     x: 0,
                     y: 0,
@@ -389,16 +395,16 @@
                 jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
             };
 
-            setTimeout(() => {
-                html2pdf().set(opt).from(element).save().then(() => {
-                    btn.innerHTML = '<i class="fas fa-file-pdf"></i> অফিশিয়াল লেটারহেড প্যাডে ডাউনলোড PDF';
-                    btn.disabled = false;
-                }).catch(err => {
-                    alert("PDF ডাউনলোডে সমস্যা হয়েছে। নিশ্চিত করুন 'letterhead-bg.jpg' ফাইলটি গিটহাবে আপলোড আছে।");
-                    btn.innerHTML = '<i class="fas fa-file-pdf"></i> অফিশিয়াল লেটারহেড প্যাডে ডাউনলোড PDF';
-                    btn.disabled = false;
-                });
-            }, 250);
+            try {
+                await html2pdf().set(opt).from(element).save();
+            } catch (err) {
+                alert("PDF ডাউনলোডে সমস্যা হয়েছে। নিশ্চিত করুন 'letterhead-bg.jpg' ফাইলটি গিটহাবে আপলোড আছে।");
+            } finally {
+                wrapper.style.opacity = '0';
+                wrapper.style.zIndex = '-9999';
+                btn.innerHTML = '<i class="fas fa-file-pdf"></i> অফিশিয়াল লেটারহেড প্যাডে ডাউনলোড PDF';
+                btn.disabled = false;
+            }
         }
 
         window.onload = () => {
