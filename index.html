@@ -8,8 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Montserrat:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <!-- pdf-lib Library -->
-    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <!-- Ultra-Fast Guarantee Direct HTML-to-PDF Downloader Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
 
@@ -31,7 +31,6 @@
                         <li><a href="contact.html" class="nav-btn">যোগাযোগ করুন</a></li>
                     </ul>
 
-                    <!-- Language Switcher Bar -->
                     <div class="lang-translator-box">
                         <div id="google_translate_element"></div>
                     </div>
@@ -182,6 +181,53 @@
         </div>
     </div>
 
+    <!-- Hidden Off-screen Official Letterhead PDF Template -->
+    <div id="pdfTemplateWrapper" style="display: none;">
+        <div id="pdfTemplate" style="width: 790px; padding: 40px; font-family: 'Poppins', sans-serif; background: #fff; color: #1e293b; position: relative;">
+            <!-- Header Branding -->
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #003366; padding-bottom: 15px; margin-bottom: 25px;">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <img src="wcs-logo-round.jpg" style="height: 75px;">
+                    <div>
+                        <h1 style="color: #003366; font-size: 20px; font-weight: 700; margin: 0;">Worldwide Career Solution</h1>
+                        <p style="color: #f37021; font-size: 11px; margin: 2px 0 0; font-weight: 600;">"THE WORLD IS WAITING, LET'S GET YOU THERE."</p>
+                    </div>
+                </div>
+                <div style="text-align: right; font-size: 10px; color: #555;">
+                    <p style="margin: 0;"><strong>Hotline:</strong> +8801408-200200</p>
+                    <p style="margin: 2px 0;"><strong>WhatsApp:</strong> +8801940-904090</p>
+                    <p style="margin: 0;"><strong>Web:</strong> worldwidecareersolution.com</p>
+                </div>
+            </div>
+
+            <!-- Watermark Background -->
+            <div style="position: absolute; top: 35%; left: 25%; opacity: 0.05; pointer-events: none;">
+                <img src="wcs-logo-round.jpg" style="width: 380px;">
+            </div>
+
+            <!-- Document Title -->
+            <div style="margin-bottom: 25px; text-align: center; background: #eef4ff; padding: 12px; border-radius: 8px;">
+                <h2 id="pdfCountryTitle" style="color: #003366; font-size: 18px; margin: 0; font-weight: 700;">DOCUMENTATION CHECKLIST</h2>
+                <p id="pdfCountryMeta" style="color: #64748b; font-size: 12px; margin: 4px 0 0;"></p>
+            </div>
+
+            <!-- Checklist Items -->
+            <div style="margin-bottom: 40px; min-height: 450px;">
+                <h3 style="color: #003366; font-size: 14px; border-bottom: 1px solid #cbd5e1; padding-bottom: 6px; margin-bottom: 15px;">
+                    Required Documents Checklist:
+                </h3>
+                <ul id="pdfReqList" style="padding-left: 20px; font-size: 12px; line-height: 1.8; color: #334155;">
+                </ul>
+            </div>
+
+            <!-- Footer Details -->
+            <div style="border-top: 1px solid #e2e8f0; padding-top: 15px; font-size: 10px; color: #64748b; text-align: center; display: flex; justify-content: space-between;">
+                <span>Office: 68/69 Concept Tower, Panthapath, Dhaka</span>
+                <span>Email: worldwidecareersolution@gmail.com</span>
+            </div>
+        </div>
+    </div>
+
     <!-- Floating WhatsApp -->
     <a href="https://wa.me/8801408200200" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
@@ -285,14 +331,14 @@
         }
 
         function openDirectBookingModal(packageName) {
-            currentSelectedCountry = { countryName: packageName };
+            currentSelectedCountry = { countryName: packageName, category: "Tour Package", processingTime: "7-10 Days", requirements: ["Passport copy", "NID copy", "Photo 35x45mm"] };
             document.getElementById('mCountryName').innerText = packageName;
             document.getElementById('mCountryMeta').innerText = "বিশেষ ট্যুর প্যাকেজ ইনকোয়ারি";
             document.getElementById('mReqList').innerHTML = '<li>ইনকোয়ারি জমা দিলে আমাদের টিম আপনার সাথে কথা বলে সেরা ডিল নিশ্চিত করবে।</li>';
             document.getElementById('countryModal').style.display = 'flex';
         }
 
-        function closeModal() {
+        function closeCountryModal() {
             document.getElementById('countryModal').style.display = 'none';
         }
 
@@ -314,64 +360,52 @@
             window.open(`https://wa.me/8801408200200?text=${waMessage}`, '_blank');
         }
 
-        /* FIXED PDF GENERATOR - Renamed to letterhead.pdf */
-        async function generateHdChecklistPdf() {
+        /* 100% DIRECT HD PDF DOWNLOAD GENERATOR */
+        function generateHdChecklistPdf() {
             if (!currentSelectedCountry) return;
 
             const btn = document.getElementById('btnDownloadChecklistPdf');
-            btn.innerText = "PDF প্রসেস হচ্ছে...";
+            btn.innerText = "PDF জেনারেট হচ্ছে...";
             btn.disabled = true;
 
-            try {
-                // Fetches renamed letterhead.pdf
-                const existingPdfBytes = await fetch('letterhead.pdf').then(res => {
-                    if (!res.ok) throw new Error("File not found");
-                    return res.arrayBuffer();
-                });
-                
-                const pdfDoc = await PDFLib.PDFDocument.load(existingPdfBytes);
-                const pages = pdfDoc.getPages();
-                const firstPage = pages[0];
-                const { width, height } = firstPage.getSize();
+            // Fill PDF Template Elements
+            document.getElementById('pdfCountryTitle').innerText = `${currentSelectedCountry.countryName.toUpperCase()} - VISA CHECKLIST`;
+            document.getElementById('pdfCountryMeta').innerText = `Category: ${currentSelectedCountry.category} | Estimated Processing: ${currentSelectedCountry.processingTime}`;
 
-                let startY = height - 180;
+            const pdfReqList = document.getElementById('pdfReqList');
+            pdfReqList.innerHTML = '';
+            currentSelectedCountry.requirements.forEach(req => {
+                const li = document.createElement('li');
+                li.style.marginBottom = '8px';
+                li.innerText = req;
+                pdfReqList.appendChild(li);
+            });
 
-                firstPage.drawText(`Visa Checklist Requirement: ${currentSelectedCountry.countryName}`, {
-                    x: 50, y: startY, size: 14, color: PDFLib.rgb(0, 0.2, 0.4),
-                });
+            // Show Wrapper temporarily
+            const wrapper = document.getElementById('pdfTemplateWrapper');
+            const element = document.getElementById('pdfTemplate');
+            wrapper.style.display = 'block';
 
-                startY -= 25;
-                firstPage.drawText(`Category: ${currentSelectedCountry.category} | Processing: ${currentSelectedCountry.processingTime}`, {
-                    x: 50, y: startY, size: 10, color: PDFLib.rgb(0.4, 0.4, 0.4),
-                });
+            // Config for Perfect HD PDF
+            const opt = {
+                margin:       0,
+                filename:     `${currentSelectedCountry.id}-checklist-WCS.pdf`,
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2, logging: false },
+                jsPDF:        { unit: 'pt', format: 'a4', orientation: 'portrait' }
+            };
 
-                startY -= 30;
-                firstPage.drawText(`Required Documents Checklist:`, {
-                    x: 50, y: startY, size: 11, color: PDFLib.rgb(0, 0, 0),
-                });
-
-                startY -= 20;
-                currentSelectedCountry.requirements.forEach((req, idx) => {
-                    firstPage.drawText(`${idx + 1}. ${req}`, {
-                        x: 60, y: startY, size: 9.5, color: PDFLib.rgb(0.2, 0.2, 0.2),
-                    });
-                    startY -= 18;
-                });
-
-                const pdfBytes = await pdfDoc.save();
-                const blob = new Blob([pdfBytes], { type: 'application/pdf' });
-                const link = document.createElement('a');
-                link.href = URL.createObjectURL(blob);
-                link.download = `${currentSelectedCountry.id}-checklist-WCS.pdf`;
-                link.click();
-
-            } catch (err) {
-                alert("PDF পেতে সমস্যা হয়েছে! নিশ্চিত করুন আপনি গিটহাবে ফাইলটির নাম 'letterhead.pdf' দিয়েছেন।");
-                console.error(err);
-            } finally {
+            // Trigger Direct Download
+            html2pdf().set(opt).from(element).save().then(() => {
+                wrapper.style.display = 'none';
                 btn.innerHTML = '<i class="fas fa-file-pdf"></i> অফিশিয়াল লেটারহেড প্যাডে ডাউনলোড PDF';
                 btn.disabled = false;
-            }
+            }).catch(err => {
+                alert("PDF ডাউনলোডে সমস্যা হয়েছে। পুনরায় চেষ্টা করুন।");
+                wrapper.style.display = 'none';
+                btn.innerHTML = '<i class="fas fa-file-pdf"></i> অফিশিয়াল লেটারহেড প্যাডে ডাউনলোড PDF';
+                btn.disabled = false;
+            });
         }
 
         window.onload = () => {
