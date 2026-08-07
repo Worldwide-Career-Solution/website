@@ -8,8 +8,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Montserrat:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <!-- Ultra-Fast Guarantee Direct HTML-to-PDF Downloader Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <!-- Native PDF Overlay Script -->
+    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <script src="https://unpkg.com/@pdf-lib/fontkit@1.1.1/dist/fontkit.umd.min.js"></script>
 </head>
 <body>
 
@@ -64,7 +65,7 @@
     <section id="visa-services" class="top-countries-section">
         <div class="container">
             <h2 class="section-title">গ্লোবাল ভিসা সার্ভিসেস (Visa Services)</h2>
-            <p class="section-subtitle">আপনার পছন্দের দেশ নির্বাচন করুন এবং প্রয়োজনীয় তথ্য ও চেকক্লিপ ডাউনলোড করুন</p>
+            <p class="section-subtitle">আপনার পছন্দের দেশ নির্বাচন করুন এবং প্রয়োজনীয় চেকক্লিপ ডাউনলোড করুন</p>
             
             <div class="filter-tabs">
                 <button class="tab-btn active" onclick="filterByContinent('All', this)">সকল দেশ</button>
@@ -79,61 +80,6 @@
         </div>
     </section>
 
-    <!-- Tour Packages Section -->
-    <section id="tour-packages" style="padding: 60px 0; background: #ffffff;">
-        <div class="container">
-            <h2 class="section-title">এশিয়ার জনপ্রিয় ট্যুর প্যাকেজসমূহ</h2>
-            <p class="section-subtitle">ফ্যামিলি, ফ্রেন্ডস বা বিজনেস ট্যুরের জন্য বিশেষ অফার</p>
-            
-            <div class="country-grid">
-                <div class="country-card">
-                    <span class="country-flag">🇹🇭</span>
-                    <h3>থাইল্যান্ড ট্যুর প্যাকেজ</h3>
-                    <span class="badge">Bangkok, Pattaya, Phuket</span>
-                    <p style="font-size: 0.85rem; color: #666; margin-bottom: 15px;">এয়ার টিকিট, হোটেল বুকিং ও সাইটসিয়িং সহ সম্পূর্ণ প্যাকেজ সাপোর্ট।</p>
-                    <button class="btn-card-action btn-solid w-100" onclick="openDirectBookingModal('Thailand Tour Package')">বুকিং ইনকোয়ারি</button>
-                </div>
-
-                <div class="country-card">
-                    <span class="country-flag">🇲🇾</span>
-                    <h3>মালয়েশিয়া ট্যুর প্যাকেজ</h3>
-                    <span class="badge">Kuala Lumpur, Genting, Langkawi</span>
-                    <p style="font-size: 0.85rem; color: #666; margin-bottom: 15px;">দ্রুত ই-ভিসা প্রসেসিং ও ফ্যামিলি কাস্টমাইজড প্যাকেজ।</p>
-                    <button class="btn-card-action btn-solid w-100" onclick="openDirectBookingModal('Malaysia Tour Package')">বুকিং ইনকোয়ারি</button>
-                </div>
-
-                <div class="country-card">
-                    <span class="country-flag">🇸🇬</span>
-                    <h3>সিঙ্গাপুর ট্যুর প্যাকেজ</h3>
-                    <span class="badge">Marina Bay, Sentosa Island</span>
-                    <p style="font-size: 0.85rem; color: #666; margin-bottom: 15px;">প্রিমিয়াম হোটেল রিজার্ভেশন ও প্রফেশনাল গাইড সাপোর্ট।</p>
-                    <button class="btn-card-action btn-solid w-100" onclick="openDirectBookingModal('Singapore Tour Package')">বুকিং ইনকোয়ারি</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- All Forms Section -->
-    <section id="all-forms" style="padding: 60px 0; background: #f8fafc;">
-        <div class="container">
-            <h2 class="section-title">অফিসিয়াল ফর্মস (All Forms)</h2>
-            <p class="section-subtitle">অফিসিয়াল ব্যবহারের জন্য ডাউনলোডযোগ্য রেডি ফর্মসমূহ</p>
-            
-            <div style="background: #fff; padding: 25px; border-radius: 16px; border: 1px solid var(--card-border); max-width: 800px; margin: auto; box-shadow: var(--shadow-water);">
-                <ul style="list-style: none;">
-                    <li style="padding: 12px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center;">
-                        <span><i class="fas fa-file-alt" style="color: #003366; margin-right: 10px;"></i> ক্লায়েন্ট ইনফরমেশন ও অ্যাসেসমেন্ট ফরম</span>
-                        <a href="#" class="btn-card-action btn-outline" style="text-decoration: none; padding: 6px 15px;">ডাউনলোড</a>
-                    </li>
-                    <li style="padding: 12px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center;">
-                        <span><i class="fas fa-file-alt" style="color: #003366; margin-right: 10px;"></i> পাসপোর্ট ও ডকুমেন্ট রিকুইজিশন ফরম</span>
-                        <a href="#" class="btn-card-action btn-outline" style="text-decoration: none; padding: 6px 15px;">ডাউনলোড</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
     <!-- Dynamic Modal -->
     <div id="countryModal" class="modal">
         <div class="modal-content">
@@ -142,8 +88,8 @@
             <p id="mCountryMeta" class="modal-subtext"></p>
 
             <div style="background: #f8fafc; padding: 15px; border-radius: 12px; margin-bottom: 15px;">
-                <h4 style="font-size: 0.9rem; color: #003366; margin-bottom: 8px;"><i class="fas fa-list-check"></i> প্রয়োজনীয় কাগজপত্রের তালিকা:</h4>
-                <ul id="mReqList" style="padding-left: 20px; font-size: 0.88rem; margin-bottom: 12px;">
+                <h4 style="font-size: 0.9rem; color: #003366; margin-bottom: 8px;"><i class="fas fa-list-check"></i> প্রাথমিক প্রয়োজনীয় কাগজের তালিকা (Client Requirement):</h4>
+                <ul id="mReqList" style="padding-left: 20px; font-size: 0.88rem; margin-bottom: 15px;">
                 </ul>
                 <button class="btn-card-action btn-solid w-100" id="btnDownloadChecklistPdf" onclick="generateHdChecklistPdf()">
                     <i class="fas fa-file-pdf"></i> অফিশিয়াল লেটারহেড প্যাডে ডাউনলোড PDF
@@ -166,7 +112,6 @@
                         <option value="Student Visa Support">স্টুডেন্ট কনসালটেন্সি (Student Visa)</option>
                         <option value="Tourist / Visit Visa">ট্যুরিস্ট / ভিজিট ভিসা (Visit Visa)</option>
                         <option value="Air Ticketing">এয়ার টিকেটিং (Air Ticket)</option>
-                        <option value="Tour Package">ট্যুর প্যাকেজ (Tour Package)</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -178,53 +123,6 @@
                     <i class="fab fa-whatsapp"></i> হোয়াটসঅ্যাপে তথ্য পাঠান
                 </button>
             </form>
-        </div>
-    </div>
-
-    <!-- Hidden Off-screen Official Letterhead PDF Template -->
-    <div id="pdfTemplateWrapper" style="display: none;">
-        <div id="pdfTemplate" style="width: 790px; padding: 40px; font-family: 'Poppins', sans-serif; background: #fff; color: #1e293b; position: relative;">
-            <!-- Header Branding -->
-            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #003366; padding-bottom: 15px; margin-bottom: 25px;">
-                <div style="display: flex; align-items: center; gap: 15px;">
-                    <img src="wcs-logo-round.jpg" style="height: 75px;">
-                    <div>
-                        <h1 style="color: #003366; font-size: 20px; font-weight: 700; margin: 0;">Worldwide Career Solution</h1>
-                        <p style="color: #f37021; font-size: 11px; margin: 2px 0 0; font-weight: 600;">"THE WORLD IS WAITING, LET'S GET YOU THERE."</p>
-                    </div>
-                </div>
-                <div style="text-align: right; font-size: 10px; color: #555;">
-                    <p style="margin: 0;"><strong>Hotline:</strong> +8801408-200200</p>
-                    <p style="margin: 2px 0;"><strong>WhatsApp:</strong> +8801940-904090</p>
-                    <p style="margin: 0;"><strong>Web:</strong> worldwidecareersolution.com</p>
-                </div>
-            </div>
-
-            <!-- Watermark Background -->
-            <div style="position: absolute; top: 35%; left: 25%; opacity: 0.05; pointer-events: none;">
-                <img src="wcs-logo-round.jpg" style="width: 380px;">
-            </div>
-
-            <!-- Document Title -->
-            <div style="margin-bottom: 25px; text-align: center; background: #eef4ff; padding: 12px; border-radius: 8px;">
-                <h2 id="pdfCountryTitle" style="color: #003366; font-size: 18px; margin: 0; font-weight: 700;">DOCUMENTATION CHECKLIST</h2>
-                <p id="pdfCountryMeta" style="color: #64748b; font-size: 12px; margin: 4px 0 0;"></p>
-            </div>
-
-            <!-- Checklist Items -->
-            <div style="margin-bottom: 40px; min-height: 450px;">
-                <h3 style="color: #003366; font-size: 14px; border-bottom: 1px solid #cbd5e1; padding-bottom: 6px; margin-bottom: 15px;">
-                    Required Documents Checklist:
-                </h3>
-                <ul id="pdfReqList" style="padding-left: 20px; font-size: 12px; line-height: 1.8; color: #334155;">
-                </ul>
-            </div>
-
-            <!-- Footer Details -->
-            <div style="border-top: 1px solid #e2e8f0; padding-top: 15px; font-size: 10px; color: #64748b; text-align: center; display: flex; justify-content: space-between;">
-                <span>Office: 68/69 Concept Tower, Panthapath, Dhaka</span>
-                <span>Email: worldwidecareersolution@gmail.com</span>
-            </div>
         </div>
     </div>
 
@@ -276,11 +174,6 @@
             const container = document.getElementById('countryGridContainer');
             container.innerHTML = '';
 
-            if(dataList.length === 0) {
-                container.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #666;">কোনো দেশ পাওয়া যায়নি।</p>';
-                return;
-            }
-
             dataList.forEach(item => {
                 const card = document.createElement('div');
                 card.className = 'country-card';
@@ -290,7 +183,7 @@
                     <span class="badge">${item.visasOffered}</span>
                     <p style="font-size: 0.8rem; color: #666; margin-bottom: 12px;">প্রসেসিং সময়: ${item.processingTime}</p>
                     <div class="card-btns-group">
-                        <button class="btn-card-action btn-outline" onclick="openCountryModal('${item.id}')">রিকোয়ারমেন্টস</button>
+                        <button class="btn-card-action btn-outline" onclick="openCountryModal('${item.id}')">চেকক্লিপ দেখুন</button>
                         <button class="btn-card-action btn-solid" onclick="openCountryModal('${item.id}')">আবেদন করুন</button>
                     </div>
                 `;
@@ -330,14 +223,6 @@
             document.getElementById('countryModal').style.display = 'flex';
         }
 
-        function openDirectBookingModal(packageName) {
-            currentSelectedCountry = { countryName: packageName, category: "Tour Package", processingTime: "7-10 Days", requirements: ["Passport copy", "NID copy", "Photo 35x45mm"] };
-            document.getElementById('mCountryName').innerText = packageName;
-            document.getElementById('mCountryMeta').innerText = "বিশেষ ট্যুর প্যাকেজ ইনকোয়ারি";
-            document.getElementById('mReqList').innerHTML = '<li>ইনকোয়ারি জমা দিলে আমাদের টিম আপনার সাথে কথা বলে সেরা ডিল নিশ্চিত করবে।</li>';
-            document.getElementById('countryModal').style.display = 'flex';
-        }
-
         function closeCountryModal() {
             document.getElementById('countryModal').style.display = 'none';
         }
@@ -360,52 +245,62 @@
             window.open(`https://wa.me/8801408200200?text=${waMessage}`, '_blank');
         }
 
-        /* 100% DIRECT HD PDF DOWNLOAD GENERATOR */
-        function generateHdChecklistPdf() {
+        /* DIRECT NATIVE PDF OVERLAY GENERATOR (Official Pad Preservation) */
+        async function generateHdChecklistPdf() {
             if (!currentSelectedCountry) return;
 
             const btn = document.getElementById('btnDownloadChecklistPdf');
             btn.innerText = "PDF জেনারেট হচ্ছে...";
             btn.disabled = true;
 
-            // Fill PDF Template Elements
-            document.getElementById('pdfCountryTitle').innerText = `${currentSelectedCountry.countryName.toUpperCase()} - VISA CHECKLIST`;
-            document.getElementById('pdfCountryMeta').innerText = `Category: ${currentSelectedCountry.category} | Estimated Processing: ${currentSelectedCountry.processingTime}`;
+            try {
+                // Fetch official letterhead.pdf
+                const existingPdfBytes = await fetch('letterhead.pdf').then(res => res.arrayBuffer());
+                
+                const pdfDoc = await PDFLib.PDFDocument.load(existingPdfBytes);
+                const pages = pdfDoc.getPages();
+                const firstPage = pages[0];
+                const { height } = firstPage.getSize();
 
-            const pdfReqList = document.getElementById('pdfReqList');
-            pdfReqList.innerHTML = '';
-            currentSelectedCountry.requirements.forEach(req => {
-                const li = document.createElement('li');
-                li.style.marginBottom = '8px';
-                li.innerText = req;
-                pdfReqList.appendChild(li);
-            });
+                // Draw Text directly inside the original PDF middle blank area
+                let startY = height - 190;
 
-            // Show Wrapper temporarily
-            const wrapper = document.getElementById('pdfTemplateWrapper');
-            const element = document.getElementById('pdfTemplate');
-            wrapper.style.display = 'block';
+                firstPage.drawText(`CLIENT DOCUMENTATION CHECKLIST`, {
+                    x: 60, y: startY, size: 13, color: PDFLib.rgb(0, 0.2, 0.4)
+                });
 
-            // Config for Perfect HD PDF
-            const opt = {
-                margin:       0,
-                filename:     `${currentSelectedCountry.id}-checklist-WCS.pdf`,
-                image:        { type: 'jpeg', quality: 0.98 },
-                html2canvas:  { scale: 2, logging: false },
-                jsPDF:        { unit: 'pt', format: 'a4', orientation: 'portrait' }
-            };
+                startY -= 20;
+                firstPage.drawText(`Country: ${currentSelectedCountry.countryName} | Estimated Processing: ${currentSelectedCountry.processingTime}`, {
+                    x: 60, y: startY, size: 9, color: PDFLib.rgb(0.3, 0.3, 0.3)
+                });
 
-            // Trigger Direct Download
-            html2pdf().set(opt).from(element).save().then(() => {
-                wrapper.style.display = 'none';
+                startY -= 25;
+                firstPage.drawText(`Required Primary Documents:`, {
+                    x: 60, y: startY, size: 10, color: PDFLib.rgb(0, 0, 0)
+                });
+
+                startY -= 18;
+                currentSelectedCountry.requirements.forEach((req, idx) => {
+                    firstPage.drawText(`${idx + 1}. ${req}`, {
+                        x: 70, y: startY, size: 8.5, color: PDFLib.rgb(0.2, 0.2, 0.2)
+                    });
+                    startY -= 16;
+                });
+
+                const pdfBytes = await pdfDoc.save();
+                const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(blob);
+                link.download = `${currentSelectedCountry.id}-checklist-WCS.pdf`;
+                link.click();
+
+            } catch (err) {
+                alert("PDF প্রসেস করতে সমস্যা হয়েছে। নিশ্চিত করুন গিটহাবে 'letterhead.pdf' ফাইলটি রয়েছে।");
+                console.error(err);
+            } finally {
                 btn.innerHTML = '<i class="fas fa-file-pdf"></i> অফিশিয়াল লেটারহেড প্যাডে ডাউনলোড PDF';
                 btn.disabled = false;
-            }).catch(err => {
-                alert("PDF ডাউনলোডে সমস্যা হয়েছে। পুনরায় চেষ্টা করুন।");
-                wrapper.style.display = 'none';
-                btn.innerHTML = '<i class="fas fa-file-pdf"></i> অফিশিয়াল লেটারহেড প্যাডে ডাউনলোড PDF';
-                btn.disabled = false;
-            });
+            }
         }
 
         window.onload = () => {
