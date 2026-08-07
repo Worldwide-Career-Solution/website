@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Montserrat:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <!-- Fast Client-Side PDF Generator Library -->
+    <!-- Ultra-Fast Client-Side PDF Downloader -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
@@ -121,7 +121,7 @@
             
             <div style="background: #fff; padding: 25px; border-radius: 16px; border: 1px solid var(--card-border); max-width: 800px; margin: auto; box-shadow: var(--shadow-water);">
                 <ul style="list-style: none;">
-                    <li style="padding: 12px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align- items: center;">
+                    <li style="padding: 12px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center;">
                         <span><i class="fas fa-file-alt" style="color: #003366; margin-right: 10px;"></i> ক্লায়েন্ট ইনফরমেশন ও অ্যাসেসমেন্ট ফরম</span>
                         <a href="#" class="btn-card-action btn-outline" style="text-decoration: none; padding: 6px 15px;">ডাউনলোড</a>
                     </li>
@@ -151,7 +151,7 @@
                 </button>
             </div>
 
-            <!-- Application Form sending data to WhatsApp -->
+            <!-- Application Form -->
             <form onsubmit="handleWhatsAppSubmit(event)">
                 <h4 style="font-size: 0.95rem; color: #003366; margin-bottom: 12px;"><i class="fas fa-paper-plane"></i> সরাসরি আবেদনপত্র জমা দিন:</h4>
                 <div class="form-group">
@@ -183,50 +183,35 @@
         </div>
     </div>
 
-    <!-- Official Brand PDF Letterhead Template -->
+    <!-- Exact Official Letterhead Image Background PDF Canvas Template -->
     <div id="pdfTemplateWrapper" style="display: none;">
-        <div id="pdfTemplate" style="width: 750px; padding: 40px; font-family: 'Poppins', 'Hind Siliguri', sans-serif; background: #fff; color: #1e293b; position: relative; border: 1px solid #cbd5e1;">
+        <div id="pdfTemplate" style="width: 794px; height: 1123px; position: relative; font-family: 'Hind Siliguri', 'Poppins', sans-serif; background: #ffffff; color: #001a33; box-sizing: border-box;">
             
-            <!-- Header Branding -->
-            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #003366; padding-bottom: 15px; margin-bottom: 25px;">
-                <div style="display: flex; align-items: center; gap: 15px;">
-                    <img src="wcs-logo-round.jpg" style="height: 70px;">
-                    <div>
-                        <h1 style="color: #003366; font-size: 22px; font-weight: 700; margin: 0;">Worldwide Career Solution</h1>
-                        <p style="color: #f37021; font-size: 11px; margin: 2px 0 0; font-weight: 600;">"THE WORLD IS WAITING, LET'S GET YOU THERE."</p>
-                    </div>
+            <!-- Official Letterhead Pad Background Image -->
+            <img src="letterhead-bg.jpg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+
+            <!-- Content Area - Strictly Positioned in the Middle Blank Space -->
+            <div style="position: relative; z-index: 10; padding-top: 220px; padding-left: 75px; padding-right: 75px; padding-bottom: 120px;">
+                
+                <!-- Document Title Box -->
+                <div style="margin-bottom: 20px; text-align: center; border-bottom: 2px solid #003366; padding-bottom: 8px;">
+                    <h2 id="pdfCountryTitle" style="color: #003366; font-size: 20px; margin: 0; font-weight: 700;">CLIENT DOCUMENTATION CHECKLIST</h2>
+                    <p id="pdfCountryMeta" style="color: #f37021; font-size: 13px; margin: 4px 0 0; font-weight: 600;"></p>
                 </div>
-                <div style="text-align: right; font-size: 10px; color: #475569;">
-                    <p style="margin: 0;"><strong>Hotline:</strong> +8801408-200200</p>
-                    <p style="margin: 2px 0;"><strong>WhatsApp:</strong> +8801940-904090</p>
-                    <p style="margin: 0;"><strong>Web:</strong> worldwidecareersolution.com</p>
+
+                <!-- Body Requirements -->
+                <div style="min-height: 500px;">
+                    <h3 style="color: #003366; font-size: 15px; margin-bottom: 15px; font-weight: 700;">
+                        প্রাথমিক প্রয়োজনীয় কাগজপত্রের তালিকা (Primary Required Documents):
+                    </h3>
+                    <ul id="pdfReqList" style="padding-left: 20px; font-size: 13px; line-height: 2.1; color: #1e293b; font-weight: 500;">
+                    </ul>
                 </div>
-            </div>
 
-            <!-- Watermark -->
-            <div style="position: absolute; top: 35%; left: 28%; opacity: 0.04; pointer-events: none;">
-                <img src="wcs-logo-round.jpg" style="width: 350px;">
-            </div>
-
-            <!-- Title Box -->
-            <div style="margin-bottom: 25px; text-align: center; background: #f1f5f9; padding: 12px; border-radius: 6px; border: 1px solid #cbd5e1;">
-                <h2 id="pdfCountryTitle" style="color: #003366; font-size: 16px; margin: 0; font-weight: 700; text-transform: uppercase;">CLIENT DOCUMENTATION CHECKLIST</h2>
-                <p id="pdfCountryMeta" style="color: #64748b; font-size: 11px; margin: 4px 0 0;"></p>
-            </div>
-
-            <!-- Body Requirements -->
-            <div style="margin-bottom: 40px; min-height: 480px;">
-                <h3 style="color: #003366; font-size: 13px; border-bottom: 1px solid #e2e8f0; padding-bottom: 6px; margin-bottom: 15px; font-weight: 600;">
-                    Primary Required Documents Checklist:
-                </h3>
-                <ul id="pdfReqList" style="padding-left: 20px; font-size: 11px; line-height: 2; color: #334155;">
-                </ul>
-            </div>
-
-            <!-- Footer -->
-            <div style="border-top: 1px solid #cbd5e1; padding-top: 15px; font-size: 10px; color: #64748b; text-align: center; display: flex; justify-content: space-between;">
-                <span>Address: 68/69 Concept Tower, Panthapath, Dhaka</span>
-                <span>Email: worldwidecareersolution@gmail.com</span>
+                <!-- Note Bottom -->
+                <div style="margin-top: 30px; font-size: 11px; color: #64748b; font-style: italic; border-top: 1px dashed #cbd5e1; padding-top: 10px;">
+                    * নোট: ফাইল প্রসেসিং সংক্রান্ত যেকোনো সহায়তার জন্য সরাসরি আমাদের অফিশিয়াল হটলাইন বা হোয়াটসঅ্যাপে যোগাযোগ করুন।
+                </div>
             </div>
         </div>
     </div>
@@ -275,7 +260,6 @@
         const navMenu = document.querySelector('.nav-menu');
         mobileMenu.addEventListener('click', () => { navMenu.classList.toggle('active'); });
 
-        // Single Primary Action Button on Cards
         function renderCountryCards(dataList) {
             const container = document.getElementById('countryGridContainer');
             container.innerHTML = '';
@@ -372,7 +356,7 @@
             window.open(`https://wa.me/8801408200200?text=${waMessage}`, '_blank');
         }
 
-        /* Direct Client-Side HD PDF Downloader */
+        /* HD Direct PDF Generator using Official Background Image */
         function generateHdChecklistPdf() {
             if (!currentSelectedCountry) return;
 
@@ -380,14 +364,14 @@
             btn.innerText = "PDF তৈরি হচ্ছে...";
             btn.disabled = true;
 
-            document.getElementById('pdfCountryTitle').innerText = `${currentSelectedCountry.countryName} - VISA CHECKLIST`;
-            document.getElementById('pdfCountryMeta').innerText = `Category: ${currentSelectedCountry.category} | Estimated Processing: ${currentSelectedCountry.processingTime}`;
+            document.getElementById('pdfCountryTitle').innerText = `${currentSelectedCountry.countryName} - ভিসা চেকলিস্ট`;
+            document.getElementById('pdfCountryMeta').innerText = `ক্যাটাগরি: ${currentSelectedCountry.category} | প্রসেসিং টাইম: ${currentSelectedCountry.processingTime}`;
 
             const pdfReqList = document.getElementById('pdfReqList');
             pdfReqList.innerHTML = '';
             currentSelectedCountry.requirements.forEach(req => {
                 const li = document.createElement('li');
-                li.style.marginBottom = '6px';
+                li.style.marginBottom = '8px';
                 li.innerText = req;
                 pdfReqList.appendChild(li);
             });
@@ -397,10 +381,10 @@
             wrapper.style.display = 'block';
 
             const opt = {
-                margin:       [15, 15, 15, 15],
+                margin:       0,
                 filename:     `${currentSelectedCountry.id}-checklist-WCS.pdf`,
                 image:        { type: 'jpeg', quality: 0.98 },
-                html2canvas:  { scale: 2, logging: false },
+                html2canvas:  { scale: 2, useCORS: true, logging: false },
                 jsPDF:        { unit: 'pt', format: 'a4', orientation: 'portrait' }
             };
 
@@ -409,7 +393,7 @@
                 btn.innerHTML = '<i class="fas fa-file-pdf"></i> অফিশিয়াল লেটারহেড প্যাডে ডাউনলোড PDF';
                 btn.disabled = false;
             }).catch(err => {
-                alert("PDF ডাউনলোডে সমস্যা হয়েছে। আবার চেষ্টা করুন।");
+                alert("PDF ডাউনলোডে সমস্যা হয়েছে। নিশ্চিত করুন 'letterhead-bg.jpg' ফাইলটি আপলোড করা আছে।");
                 wrapper.style.display = 'none';
                 btn.innerHTML = '<i class="fas fa-file-pdf"></i> অফিশিয়াল লেটারহেড প্যাডে ডাউনলোড PDF';
                 btn.disabled = false;
