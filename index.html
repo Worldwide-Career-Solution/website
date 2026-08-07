@@ -183,28 +183,28 @@
         </div>
     </div>
 
-    <!-- DIRECT OVERLAY ON YOUR UPLOADED LETTERHEAD IMAGE -->
+    <!-- EXACT A4 MM MEASURED OVERLAY TEMPLATE -->
     <div id="pdfTemplateWrapper" style="display: none;">
-        <div id="pdfTemplate" style="width: 794px; height: 1122px; position: relative; font-family: 'Hind Siliguri', 'Poppins', sans-serif; background: #ffffff; color: #001a33; box-sizing: border-box; overflow: hidden;">
+        <div id="pdfTemplate" style="width: 210mm; height: 297mm; position: relative; font-family: 'Hind Siliguri', 'Poppins', sans-serif; background: #ffffff; color: #001a33; box-sizing: border-box; overflow: hidden; margin: 0; padding: 0;">
             
             <!-- Your Main Uploaded Official Letterhead Image -->
-            <img src="letterhead-bg.jpg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+            <img src="letterhead-bg.jpg" style="position: absolute; top: 0; left: 0; width: 210mm; height: 297mm; object-fit: fill; z-index: 1;">
 
-            <!-- Text Content - Positioned RIGHT AT THE TOP below your pad's logo header -->
-            <div style="position: relative; z-index: 10; padding-top: 135px; padding-left: 65px; padding-right: 65px;">
+            <!-- Content Area: Exactly Starts at 42mm Top (below 40mm header) & Stops at 45mm Bottom -->
+            <div style="position: relative; z-index: 10; padding-top: 42mm; padding-left: 20mm; padding-right: 20mm; padding-bottom: 45mm; height: 297mm; box-sizing: border-box; display: flex; flex-direction: column; justify-content: flex-start;">
                 
                 <!-- Title Box -->
-                <div style="margin-bottom: 20px; text-align: center; border-bottom: 2px solid #003366; padding-bottom: 8px;">
-                    <h2 id="pdfCountryTitle" style="color: #003366; font-size: 20px; margin: 0; font-weight: 700;"></h2>
-                    <p id="pdfCountryMeta" style="color: #f37021; font-size: 13px; margin: 4px 0 0; font-weight: 600;"></p>
+                <div style="margin-bottom: 15px; text-align: center; border-bottom: 2px solid #003366; padding-bottom: 6px;">
+                    <h2 id="pdfCountryTitle" style="color: #003366; font-size: 18px; margin: 0; font-weight: 700;"></h2>
+                    <p id="pdfCountryMeta" style="color: #f37021; font-size: 12px; margin: 3px 0 0; font-weight: 600;"></p>
                 </div>
 
-                <!-- Main Checklist List -->
-                <div style="min-height: 600px;">
-                    <h3 style="color: #003366; font-size: 15px; margin-bottom: 15px; font-weight: 700;">
+                <!-- Main Checklist Content Area -->
+                <div style="flex-grow: 1;">
+                    <h3 style="color: #003366; font-size: 14px; margin-bottom: 12px; font-weight: 700;">
                         প্রাথমিক প্রয়োজনীয় কাগজপত্রের তালিকা (Primary Required Documents):
                     </h3>
-                    <ul id="pdfReqList" style="padding-left: 20px; font-size: 13px; line-height: 2.2; color: #1e293b; font-weight: 500;">
+                    <ul id="pdfReqList" style="padding-left: 20px; font-size: 12px; line-height: 2.1; color: #1e293b; font-weight: 500; margin: 0;">
                     </ul>
                 </div>
             </div>
@@ -351,7 +351,7 @@
             window.open(`https://wa.me/8801408200200?text=${waMessage}`, '_blank');
         }
 
-        /* HD Direct PDF Generator using Official Background Image */
+        /* Precise mm-based HD PDF Downloader */
         function generateHdChecklistPdf() {
             if (!currentSelectedCountry) return;
 
@@ -366,7 +366,7 @@
             pdfReqList.innerHTML = '';
             currentSelectedCountry.requirements.forEach(req => {
                 const li = document.createElement('li');
-                li.style.marginBottom = '8px';
+                li.style.marginBottom = '6px';
                 li.innerText = req;
                 pdfReqList.appendChild(li);
             });
@@ -380,7 +380,7 @@
                 filename:     `${currentSelectedCountry.id}-checklist-WCS.pdf`,
                 image:        { type: 'jpeg', quality: 0.98 },
                 html2canvas:  { scale: 2, useCORS: true, logging: false },
-                jsPDF:        { unit: 'pt', format: 'a4', orientation: 'portrait' }
+                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
             };
 
             setTimeout(() => {
