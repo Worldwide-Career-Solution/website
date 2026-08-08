@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | Worldwide Career Solution</title>
+    <title>Worldwide Career Solution | Global Consultancy</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Montserrat:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Ultra-Fast Guarantee PDF Downloader Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
 
@@ -21,10 +24,10 @@
                 
                 <div class="nav-right-wrapper">
                     <ul class="nav-menu">
-                        <li><a href="index.html#home">হোম</a></li>
-                        <li><a href="index.html#visa-services">ভিসা সার্ভিস</a></li>
-                        <li><a href="index.html#tour-packages">ট্যুর প্যাকেজ</a></li>
-                        <li><a href="index.html#all-forms">অল ফর্মস</a></li>
+                        <li><a href="#home">হোম</a></li>
+                        <li><a href="#visa-services">ভিসা সার্ভিস</a></li>
+                        <li><a href="#tour-packages">ট্যুর প্যাকেজ</a></li>
+                        <li><a href="#all-forms">অল ফর্মস</a></li>
                         <li><a href="contact.html" class="nav-btn">যোগাযোগ করুন</a></li>
                     </ul>
 
@@ -40,56 +43,175 @@
         </nav>
     </header>
 
-    <!-- Main Contact Section -->
-    <section class="contact-page-section">
-        <div class="container">
-            <h2 class="section-title">Connect With Us</h2>
-            <p class="section-subtitle">আমাদের সাথে সরাসরি কথা বলতে বা অফিসে আসতে নিচের মাধ্যমগুলো ব্যবহার করুন</p>
-            
-            <div class="logo-backlinks-box">
-                <img src="wcs-logo-full.jpg" alt="WCS Full Logo" class="backlink-main-logo">
-                <p>Find us instantly across our official platforms:</p>
-                <div class="backlink-buttons">
-                    <a href="https://www.facebook.com/WorldwideCareerSolutions" target="_blank" class="blink-card fb"><i class="fab fa-facebook-f"></i><span>Facebook</span></a>
-                    <a href="https://maps.app.goo.gl/ZLwQipKEyS9VaYMt9" target="_blank" class="blink-card gmap"><i class="fas fa-map-marker-alt"></i><span>Google Map</span></a>
-                    <a href="mailto:worldwidecareersolution@gmail.com" class="blink-card mail"><i class="fas fa-envelope"></i><span>Mail Us</span></a>
-                    <a href="https://wa.me/8801408200200" target="_blank" class="blink-card wa"><i class="fab fa-whatsapp"></i><span>WhatsApp 1</span></a>
-                    <a href="https://wa.me/8801940904090" target="_blank" class="blink-card wa2"><i class="fab fa-whatsapp"></i><span>WhatsApp 2</span></a>
-                </div>
-            </div>
-
-            <div class="contact-wrapper">
-                <div class="contact-form-box">
-                    <h3 style="color: var(--primary-blue); margin-bottom: 20px;">Send Us a Direct Message</h3>
-                    <form action="https://formspree.io/f/myklpllz" method="POST">
-                        <div class="form-group">
-                            <label>আপনার নাম:</label>
-                            <input type="text" name="name" placeholder="Full Name" required>
-                        </div>
-                        <div class="form-group">
-                            <label>ইমেইল এড্রেস:</label>
-                            <input type="email" name="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <label>ফোন নম্বর:</label>
-                            <input type="tel" name="phone" placeholder="Phone Number" required>
-                        </div>
-                        <div class="form-group">
-                            <label>আপনার বার্তা:</label>
-                            <textarea name="message" placeholder="How can we help you?" rows="4" required></textarea>
-                        </div>
-                        <button type="submit" class="btn-card-action btn-solid w-100" style="padding: 12px; font-size: 1rem;">ম্যাসেজ পাঠান (Send Mail)</button>
-                    </form>
-                </div>
-
-                <div class="map-box">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.023616624534!2d90.38222957589578!3d23.75054908892695!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8a531d0411d%3A0xc3f173f4e2467d02!2sConcept%20Tower!5e0!3m2!1sen!2sbd!4v1713612800454!5m2!1sen!2sbd" width="100%" height="100%" style="border:0; min-height: 380px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <!-- Hero Section -->
+    <section id="home" class="modern-hero">
+        <div class="container hero-wrapper">
+            <div class="hero-text-content">
+                <h1>"THE WORLD IS WAITING, LET'S GET YOU THERE."</h1>
+                <p>আপনার স্বপ্নের গন্তব্যে পৌঁছাতে আমরা আছি আপনার সাথে।</p>
+                
+                <div class="search-box-container">
+                    <div class="search-input-group">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="countrySearchInput" placeholder="আপনি কোন দেশে যেতে চান? (যেমন: USA, Japan, Germany)..." onkeyup="filterVisaCountries()">
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Floating WhatsApp -->
+    <!-- Visa Services Section -->
+    <section id="visa-services" class="top-countries-section">
+        <div class="container">
+            <h2 class="section-title">গ্লোবাল ভিসা সার্ভিসেস (Visa Services)</h2>
+            <p class="section-subtitle">আপনার পছন্দের দেশ নির্বাচন করুন এবং প্রয়োজনীয় তথ্য ও চেকলিস্ট পান</p>
+            
+            <div class="filter-tabs">
+                <button class="tab-btn active" onclick="filterByContinent('All', this)">সকল দেশ</button>
+                <button class="tab-btn" onclick="filterByContinent('North America', this)">নর্থ আমেরিকা ও অস্ট্রেলেশিয়া</button>
+                <button class="tab-btn" onclick="filterByContinent('Europe', this)">ইউরোপ (Schengen & UK)</button>
+                <button class="tab-btn" onclick="filterByContinent('Asia', this)">এশিয়া ও মিডল ইস্ট</button>
+            </div>
+
+            <div class="country-grid" id="countryGridContainer">
+                <!-- Loaded from visa-data.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Tour Packages Section -->
+    <section id="tour-packages" style="padding: 60px 0; background: #ffffff;">
+        <div class="container">
+            <h2 class="section-title">এশিয়ার জনপ্রিয় ট্যুর প্যাকেজসমূহ</h2>
+            <p class="section-subtitle">ফ্যামিলি, ফ্রেন্ডস বা বিজনেস ট্যুরের জন্য বিশেষ অফার</p>
+            
+            <div class="country-grid">
+                <div class="country-card">
+                    <span class="country-flag">🇹🇭</span>
+                    <h3>থাইল্যান্ড ট্যুর প্যাকেজ</h3>
+                    <span class="badge">Bangkok, Pattaya, Phuket</span>
+                    <p style="font-size: 0.85rem; color: #666; margin-bottom: 15px;">এয়ার টিকিট, হোটেল বুকিং ও সাইটসিয়িং সহ সম্পূর্ণ প্যাকেজ সাপোর্ট।</p>
+                    <button class="btn-card-action btn-solid w-100" onclick="openDirectBookingModal('Thailand Tour Package')">আবেদন ও বিস্তারিত</button>
+                </div>
+
+                <div class="country-card">
+                    <span class="country-flag">🇲🇾</span>
+                    <h3>মালয়েশিয়া ট্যুর প্যাকেজ</h3>
+                    <span class="badge">Kuala Lumpur, Genting, Langkawi</span>
+                    <p style="font-size: 0.85rem; color: #666; margin-bottom: 15px;">দ্রুত ই-ভিসা প্রসেসিং ও ফ্যামিলি কাস্টমাইজড প্যাকেজ।</p>
+                    <button class="btn-card-action btn-solid w-100" onclick="openDirectBookingModal('Malaysia Tour Package')">আবেদন ও বিস্তারিত</button>
+                </div>
+
+                <div class="country-card">
+                    <span class="country-flag">🇸🇬</span>
+                    <h3>সিঙ্গাপুর ট্যুর প্যাকেজ</h3>
+                    <span class="badge">Marina Bay, Sentosa Island</span>
+                    <p style="font-size: 0.85rem; color: #666; margin-bottom: 15px;">প্রিমিয়াম হোটেল রিজার্ভেশন ও প্রফেশনাল গাইড সাপোর্ট।</p>
+                    <button class="btn-card-action btn-solid w-100" onclick="openDirectBookingModal('Singapore Tour Package')">আবেদন ও বিস্তারিত</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- All Forms Section -->
+    <section id="all-forms" style="padding: 60px 0; background: #f8fafc;">
+        <div class="container">
+            <h2 class="section-title">অফিসিয়াল ফর্মস (All Forms)</h2>
+            <p class="section-subtitle">অফিসিয়াল ব্যবহারের জন্য ডাউনলোডযোগ্য রেডি ফর্মসমূহ</p>
+            
+            <div style="background: #fff; padding: 25px; border-radius: 16px; border: 1px solid var(--card-border); max-width: 800px; margin: auto; box-shadow: var(--shadow-water);">
+                <ul style="list-style: none;">
+                    <li style="padding: 12px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center;">
+                        <span><i class="fas fa-file-alt" style="color: #003366; margin-right: 10px;"></i> ক্লায়েন্ট ইনফরমেশন ও অ্যাসেসমেন্ট ফরম</span>
+                        <a href="#" class="btn-card-action btn-outline" style="text-decoration: none; padding: 6px 15px;">ডাউনলোড</a>
+                    </li>
+                    <li style="padding: 12px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center;">
+                        <span><i class="fas fa-file-alt" style="color: #003366; margin-right: 10px;"></i> পাসপোর্ট ও ডকুমেন্ট রিকুইজিশন ফরম</span>
+                        <a href="#" class="btn-card-action btn-outline" style="text-decoration: none; padding: 6px 15px;">ডাউনলোড</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dynamic Application & Requirements Modal -->
+    <div id="countryModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeCountryModal()">&times;</span>
+            <h3 id="mCountryName">দেশ নির্বাচন করুন</h3>
+            <p id="mCountryMeta" class="modal-subtext"></p>
+
+            <!-- Checklist View & Official Pad PDF Download -->
+            <div style="background: #f8fafc; padding: 18px; border-radius: 12px; margin-bottom: 20px; border: 1px solid #e2e8f0;">
+                <h4 style="font-size: 0.95rem; color: #003366; margin-bottom: 10px;"><i class="fas fa-list-check"></i> প্রাথমিক প্রয়োজনীয় কাগজের তালিকা (Client Requirement):</h4>
+                <ul id="mReqList" style="padding-left: 20px; font-size: 0.88rem; margin-bottom: 15px; line-height: 1.8;">
+                </ul>
+                <button class="btn-card-action btn-solid w-100" id="btnDownloadChecklistPdf" onclick="generateHdChecklistPdf()">
+                    <i class="fas fa-file-pdf"></i> অফিশিয়াল লেটারহেড প্যাডে ডাউনলোড PDF
+                </button>
+            </div>
+
+            <!-- Application Form -->
+            <form onsubmit="handleWhatsAppSubmit(event)">
+                <h4 style="font-size: 0.95rem; color: #003366; margin-bottom: 12px;"><i class="fas fa-paper-plane"></i> সরাসরি আবেদনপত্র জমা দিন:</h4>
+                <div class="form-group">
+                    <label>আপনার নাম:</label>
+                    <input type="text" id="appApplicantName" required placeholder="আপনার পুরো নাম">
+                </div>
+                <div class="form-group">
+                    <label>ফোন নম্বর:</label>
+                    <input type="tel" id="appApplicantPhone" required placeholder="017xxxxxxxx">
+                </div>
+                <div class="form-group">
+                    <label>সার্ভিস ক্যাটাগরি:</label>
+                    <select id="appServiceCategory" required>
+                        <option value="Student Visa Support">স্টুডেন্ট কনসালটেন্সি (Student Visa)</option>
+                        <option value="Tourist / Visit Visa">ট্যুরিস্ট / ভিজিট ভিসা (Visit Visa)</option>
+                        <option value="Air Ticketing">এয়ার টিকেটিং (Air Ticket)</option>
+                        <option value="Tour Package">ট্যুর প্যাকেজ (Tour Package)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>বার্তা (ঐচ্ছিক):</label>
+                    <textarea id="appApplicantMsg" rows="2" placeholder="আপনার বিশেষ কিছু জানার থাকলে লিখুন..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-card-action btn-solid w-100" style="padding: 12px; font-size: 0.95rem; background: #25d366;">
+                    <i class="fab fa-whatsapp"></i> হোয়াটসঅ্যাপে তথ্য পাঠান
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- STRICT ZERO-OFFSET EXACT A4 TEMPLATE CONTAINER -->
+    <div id="pdfTemplateWrapper" style="position: fixed; top: 0 !important; left: 0 !important; margin: 0 !important; padding: 0 !important; width: 210mm; height: 297mm; z-index: -999; visibility: hidden; pointer-events: none; background: #ffffff;">
+        <div id="pdfTemplate" style="width: 210mm; height: 297mm; position: absolute; top: 0 !important; left: 0 !important; margin: 0 !important; padding: 0 !important; font-family: 'Hind Siliguri', 'Poppins', sans-serif; background: #ffffff; color: #001a33; box-sizing: border-box; overflow: hidden;">
+            
+            <!-- Letterhead Background Image (Locked to Exact 0,0 Margin) -->
+            <img id="pdfBgImg" src="letterhead-bg.jpg" style="position: absolute; top: 0 !important; left: 0 !important; margin: 0 !important; padding: 0 !important; width: 210mm; height: 297mm; max-width: none !important; max-height: none !important; object-fit: fill; z-index: 1;">
+
+            <!-- Content Area: Exactly Starts at 42mm Top & Stops at 45mm Bottom -->
+            <div style="position: relative; z-index: 10; width: 210mm; height: 297mm; box-sizing: border-box; padding-top: 42mm; padding-bottom: 45mm; padding-left: 15mm; padding-right: 15mm; display: flex; flex-direction: column; justify-content: flex-start;">
+                
+                <!-- Title Box -->
+                <div style="margin-bottom: 10mm; text-align: center; border-bottom: 2px solid #003366; padding-bottom: 3mm;">
+                    <h2 id="pdfCountryTitle" style="color: #003366; font-size: 18px; margin: 0; font-weight: 700;"></h2>
+                    <p id="pdfCountryMeta" style="color: #f37021; font-size: 12px; margin: 2mm 0 0; font-weight: 600;"></p>
+                </div>
+
+                <!-- Main Requirements Content Area -->
+                <div style="flex-grow: 1;">
+                    <h3 style="color: #003366; font-size: 14px; margin-bottom: 10px; font-weight: 700;">
+                        প্রাথমিক প্রয়োজনীয় কাগজপত্রের তালিকা (Primary Required Documents):
+                    </h3>
+                    <ul id="pdfReqList" style="padding-left: 20px; font-size: 12px; line-height: 2.1; color: #1e293b; font-weight: 500; margin: 0;">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating WhatsApp Button -->
     <a href="https://wa.me/8801408200200" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
@@ -113,6 +235,8 @@
         </div>
     </footer>
 
+    <script src="visa-data.js"></script>
+
     <script type="text/javascript">
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
@@ -123,10 +247,178 @@
         }
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
     <script>
+        let currentSelectedCountry = null;
+
         const mobileMenu = document.getElementById('mobile-menu');
         const navMenu = document.querySelector('.nav-menu');
         mobileMenu.addEventListener('click', () => { navMenu.classList.toggle('active'); });
+
+        function renderCountryCards(dataList) {
+            const container = document.getElementById('countryGridContainer');
+            container.innerHTML = '';
+
+            dataList.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'country-card';
+                card.innerHTML = `
+                    <span class="country-flag">${item.flag}</span>
+                    <h3>${item.countryName}</h3>
+                    <span class="badge">${item.visasOffered}</span>
+                    <p style="font-size: 0.8rem; color: #666; margin-bottom: 15px;">প্রসেসিং সময়: ${item.processingTime}</p>
+                    <button class="btn-card-action btn-solid w-100" style="padding: 10px;" onclick="openCountryModal('${item.id}')">
+                        <i class="fas fa-paper-plane"></i> আবেদন ও বিস্তারিত
+                    </button>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function filterByContinent(category, btnElement) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            btnElement.classList.add('active');
+            const filtered = getCountriesByCategory(category);
+            renderCountryCards(filtered);
+        }
+
+        function filterVisaCountries() {
+            const input = document.getElementById('countrySearchInput').value.toLowerCase();
+            const filtered = visaDatabase.filter(c => c.countryName.toLowerCase().includes(input) || c.category.toLowerCase().includes(input));
+            renderCountryCards(filtered);
+        }
+
+        function openCountryModal(countryId) {
+            const country = getCountryById(countryId);
+            if(!country) return;
+
+            currentSelectedCountry = country;
+            document.getElementById('mCountryName').innerText = country.countryName;
+            document.getElementById('mCountryMeta').innerText = `ক্যাটাগরি: ${country.category} | প্রসেসিং টাইম: ${country.processingTime}`;
+
+            const reqListElem = document.getElementById('mReqList');
+            reqListElem.innerHTML = '';
+            country.requirements.forEach(req => {
+                const li = document.createElement('li');
+                li.innerText = req;
+                reqListElem.appendChild(li);
+            });
+
+            document.getElementById('countryModal').style.display = 'flex';
+        }
+
+        function openDirectBookingModal(packageName) {
+            currentSelectedCountry = { 
+                id: "tour-pkg",
+                countryName: packageName, 
+                category: "Tour Package", 
+                processingTime: "7-10 Days", 
+                requirements: ["পাসপোর্টের রঙ্গিন স্ক্যান কপি", "NID / জন্ম নিবন্ধনের কপি", "পাসপোর্ট সাইজ ছবি (২ কপি)"] 
+            };
+            document.getElementById('mCountryName').innerText = packageName;
+            document.getElementById('mCountryMeta').innerText = "বিশেষ ট্যুর প্যাকেজ ইনকোয়ারি";
+            
+            const reqListElem = document.getElementById('mReqList');
+            reqListElem.innerHTML = '';
+            currentSelectedCountry.requirements.forEach(req => {
+                const li = document.createElement('li');
+                li.innerText = req;
+                reqListElem.appendChild(li);
+            });
+
+            document.getElementById('countryModal').style.display = 'flex';
+        }
+
+        function closeCountryModal() {
+            document.getElementById('countryModal').style.display = 'none';
+        }
+
+        function handleWhatsAppSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('appApplicantName').value;
+            const phone = document.getElementById('appApplicantPhone').value;
+            const category = document.getElementById('appServiceCategory').value;
+            const msg = document.getElementById('appApplicantMsg').value;
+            const countryName = currentSelectedCountry ? currentSelectedCountry.countryName : "সাধারণ ইনকোয়ারি";
+
+            const waMessage = `*নতুন অনলাইন আবেদন (WCS Website)*%0A%0A` +
+                              `👤 *নাম:* ${encodeURIComponent(name)}%0A` +
+                              `📞 *ফোন:* ${encodeURIComponent(phone)}%0A` +
+                              `🌍 *গন্তব্য/দেশ:* ${encodeURIComponent(countryName)}%0A` +
+                              `📋 *সার্ভিস:* ${encodeURIComponent(category)}%0A` +
+                              `💬 *বার্তা:* ${encodeURIComponent(msg || 'N/A')}`;
+
+            window.open(`https://wa.me/8801408200200?text=${waMessage}`, '_blank');
+        }
+
+        /* Guaranteed 100% Zero-Offset HD PDF Downloader */
+        async function generateHdChecklistPdf() {
+            if (!currentSelectedCountry) return;
+
+            const btn = document.getElementById('btnDownloadChecklistPdf');
+            btn.innerText = "PDF তৈরি হচ্ছে...";
+            btn.disabled = true;
+
+            document.getElementById('pdfCountryTitle').innerText = `${currentSelectedCountry.countryName} - ভিসা চেকলিস্ট`;
+            document.getElementById('pdfCountryMeta').innerText = `ক্যাটাগরি: ${currentSelectedCountry.category} | প্রসেসিং টাইম: ${currentSelectedCountry.processingTime}`;
+
+            const pdfReqList = document.getElementById('pdfReqList');
+            pdfReqList.innerHTML = '';
+            currentSelectedCountry.requirements.forEach(req => {
+                const li = document.createElement('li');
+                li.style.marginBottom = '6px';
+                li.innerText = req;
+                pdfReqList.appendChild(li);
+            });
+
+            const wrapper = document.getElementById('pdfTemplateWrapper');
+            const element = document.getElementById('pdfTemplate');
+            const bgImg = document.getElementById('pdfBgImg');
+
+            if (!bgImg.complete) {
+                await new Promise((resolve) => {
+                    bgImg.onload = resolve;
+                    bgImg.onerror = resolve;
+                });
+            }
+
+            wrapper.style.visibility = 'visible';
+            wrapper.style.zIndex = '999999';
+
+            const opt = {
+                margin:       0,
+                filename:     `${currentSelectedCountry.id}-checklist-WCS.pdf`,
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { 
+                    scale: 2, 
+                    useCORS: true, 
+                    allowTaint: true,
+                    logging: false, 
+                    x: 0,
+                    y: 0,
+                    scrollX: 0, 
+                    scrollY: 0
+                },
+                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+
+            setTimeout(async () => {
+                try {
+                    await html2pdf().set(opt).from(element).save();
+                } catch (err) {
+                    alert("PDF ডাউনলোডে সমস্যা হয়েছে। নিশ্চিত করুন 'letterhead-bg.jpg' ফাইলটি গিটহাবে আপলোড আছে।");
+                } finally {
+                    wrapper.style.visibility = 'hidden';
+                    wrapper.style.zIndex = '-999';
+                    btn.innerHTML = '<i class="fas fa-file-pdf"></i> অফিশিয়াল লেটারহেড প্যাডে ডাউনলোড PDF';
+                    btn.disabled = false;
+                }
+            }, 350);
+        }
+
+        window.onload = () => {
+            renderCountryCards(visaDatabase);
+        };
     </script>
 </body>
 </html>
