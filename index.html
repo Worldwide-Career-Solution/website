@@ -2,7 +2,7 @@
 <html lang="bn">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Worldwide Career Solution | Global Consultancy</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Montserrat:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
@@ -10,6 +10,172 @@
     
     <!-- Ultra-Fast Guarantee PDF Downloader Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <style>
+        /* Strict Mobile Viewport & Boundary Lock (Prevents Right Side Gap & Horizontal Scroll) */
+        *, *::before, *::after {
+            box-sizing: border-box !important;
+        }
+
+        html, body {
+            width: 100% !important;
+            max-width: 100vw !important;
+            overflow-x: hidden !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            position: relative !important;
+        }
+
+        /* Hide Google Translate Annoying Banner & Tooltip Popups */
+        .goog-te-banner-frame,
+        iframe.goog-te-banner-frame,
+        .goog-te-balloon-frame,
+        #goog-gt-tt,
+        .goog-te-spinner-pos,
+        .VIpgJd-Z31W1d-H1333f,
+        .VIpgJd-yD12bf-VGm61e {
+            display: none !important;
+            visibility: hidden !important;
+        }
+
+        body {
+            top: 0px !important;
+            position: static !important;
+        }
+
+        .goog-text-highlight {
+            background-color: transparent !important;
+            box-shadow: none !important;
+            border: none !important;
+        }
+
+        /* Perfect Mobile Responsive Layout Adjustments */
+        @media screen and (max-width: 768px) {
+            .navbar .container {
+                display: flex !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+                padding: 10px 12px !important;
+                width: 100% !important;
+                max-width: 100vw !important;
+                box-sizing: border-box !important;
+            }
+
+            .logo-brand span {
+                font-size: 0.82rem !important;
+            }
+
+            .logo-brand img {
+                height: 30px !important;
+            }
+
+            .lang-translator-box {
+                max-width: 95px !important;
+                overflow: hidden !important;
+            }
+
+            .goog-te-gadget-simple {
+                font-size: 0.7rem !important;
+                padding: 2px 4px !important;
+                border-radius: 6px !important;
+            }
+
+            /* Responsive 2-Column Country Grid on Mobile */
+            .country-grid {
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 10px !important;
+                padding: 0 10px !important;
+                width: 100% !important;
+                max-width: 100vw !important;
+                box-sizing: border-box !important;
+            }
+
+            .country-card {
+                padding: 12px 8px !important;
+                margin: 0 !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+                text-align: center !important;
+            }
+
+            .country-flag {
+                font-size: 1.8rem !important;
+                margin-bottom: 4px !important;
+            }
+
+            .country-card h3 {
+                font-size: 0.85rem !important;
+                margin: 4px 0 !important;
+                line-height: 1.2 !important;
+            }
+
+            .badge {
+                font-size: 0.6rem !important;
+                padding: 2px 4px !important;
+                display: inline-block !important;
+                margin-bottom: 6px !important;
+            }
+
+            .country-card p {
+                font-size: 0.7rem !important;
+                margin-bottom: 8px !important;
+            }
+
+            .btn-card-action {
+                font-size: 0.72rem !important;
+                padding: 8px 4px !important;
+            }
+
+            /* Hero Section Fit */
+            .modern-hero {
+                padding: 25px 12px !important;
+                width: 100% !important;
+                max-width: 100vw !important;
+                box-sizing: border-box !important;
+            }
+
+            .hero-text-content {
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+
+            .hero-text-content h1 {
+                font-size: 1.15rem !important;
+                line-height: 1.3 !important;
+            }
+
+            .hero-text-content p {
+                font-size: 0.8rem !important;
+            }
+
+            .search-box-container, .search-input-group {
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+
+            .search-input-group input {
+                width: 100% !important;
+                font-size: 0.8rem !important;
+            }
+
+            .filter-tabs {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                gap: 6px !important;
+                justify-content: center !important;
+                padding: 0 8px !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+            }
+
+            .tab-btn {
+                font-size: 0.72rem !important;
+                padding: 6px 8px !important;
+                white-space: normal !important;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -183,7 +349,7 @@
         </div>
     </div>
 
-    <!-- ZERO-FAIL A4 PDF TEMPLATE CONTAINER -->
+    <!-- ZERO-FAIL A4 PDF TEMPLATE CONTAINER (UNTOUCHED) -->
     <div id="pdfTemplateWrapper" style="display: none;">
         <div id="pdfTemplate" style="width: 210mm; height: 296mm; position: relative; font-family: 'Hind Siliguri', 'Poppins', sans-serif; background: #ffffff; color: #001a33; box-sizing: border-box; overflow: hidden; margin: 0; padding: 0;">
             
@@ -369,7 +535,7 @@
             });
         }
 
-        /* 100% Guaranteed Non-Zero Single-Page HD PDF Downloader */
+        /* 100% Guaranteed Non-Zero Single-Page HD PDF Downloader (UNTOUCHED) */
         async function generateHdChecklistPdf() {
             if (!currentSelectedCountry) return;
 
