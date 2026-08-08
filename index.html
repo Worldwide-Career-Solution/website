@@ -183,28 +183,28 @@
         </div>
     </div>
 
-    <!-- STRICT SINGLE PAGE LOCKED TEMPLATE WRAPPER -->
-    <div id="pdfTemplateWrapper" style="position: fixed; top: 0 !important; left: 0 !important; margin: 0 !important; padding: 0 !important; width: 210mm; height: 296mm; z-index: -999; visibility: hidden; pointer-events: none; background: #ffffff;">
-        <div id="pdfTemplate" style="width: 210mm; height: 296mm; position: absolute; top: 0 !important; left: 0 !important; margin: 0 !important; padding: 0 !important; font-family: 'Hind Siliguri', 'Poppins', sans-serif; background: #ffffff; color: #001a33; box-sizing: border-box; overflow: hidden;">
+    <!-- PRE-RENDERED ABSOLUTE FIXED A4 TEMPLATE WRAPPER -->
+    <div id="pdfTemplateWrapper" style="position: fixed; top: 0; left: 0; width: 210mm; height: 297mm; z-index: -999; visibility: hidden; pointer-events: none; background: #ffffff;">
+        <div id="pdfTemplate" style="width: 210mm; height: 297mm; position: relative; font-family: 'Hind Siliguri', 'Poppins', sans-serif; background: #ffffff; color: #001a33; box-sizing: border-box; overflow: hidden;">
             
             <!-- Letterhead Background Image -->
-            <img id="pdfBgImg" src="letterhead-bg.jpg" style="position: absolute; top: 0 !important; left: 0 !important; margin: 0 !important; padding: 0 !important; width: 210mm; height: 296mm; max-width: none !important; max-height: none !important; object-fit: fill; z-index: 1;">
+            <img id="pdfBgImg" src="letterhead-bg.jpg" style="position: absolute; top: 0; left: 0; margin: 0; padding: 0; width: 210mm; height: 297mm; object-fit: fill; z-index: 1;">
 
-            <!-- Content Area: Exactly Starts at 42mm Top & Stops before Footer -->
-            <div style="position: relative; z-index: 10; width: 210mm; height: 296mm; box-sizing: border-box; padding-top: 42mm; padding-bottom: 35mm; padding-left: 15mm; padding-right: 15mm; display: flex; flex-direction: column; justify-content: flex-start; overflow: hidden;">
+            <!-- Content Area: Exactly Starts at 42mm Top & Stops at 45mm Bottom -->
+            <div style="position: relative; z-index: 10; width: 210mm; height: 297mm; box-sizing: border-box; padding-top: 42mm; padding-bottom: 45mm; padding-left: 15mm; padding-right: 15mm; display: flex; flex-direction: column; justify-content: flex-start;">
                 
                 <!-- Title Box -->
-                <div style="margin-bottom: 8mm; text-align: center; border-bottom: 2px solid #003366; padding-bottom: 3mm;">
+                <div style="margin-bottom: 10mm; text-align: center; border-bottom: 2px solid #003366; padding-bottom: 3mm;">
                     <h2 id="pdfCountryTitle" style="color: #003366; font-size: 18px; margin: 0; font-weight: 700;"></h2>
                     <p id="pdfCountryMeta" style="color: #f37021; font-size: 12px; margin: 2mm 0 0; font-weight: 600;"></p>
                 </div>
 
                 <!-- Main Requirements Content Area -->
-                <div style="flex-grow: 1; overflow: hidden;">
+                <div style="flex-grow: 1;">
                     <h3 style="color: #003366; font-size: 14px; margin-bottom: 10px; font-weight: 700;">
                         প্রাথমিক প্রয়োজনীয় কাগজপত্রের তালিকা (Primary Required Documents):
                     </h3>
-                    <ul id="pdfReqList" style="padding-left: 20px; font-size: 12px; line-height: 2.0; color: #1e293b; font-weight: 500; margin: 0;">
+                    <ul id="pdfReqList" style="padding-left: 20px; font-size: 12px; line-height: 2.1; color: #1e293b; font-weight: 500; margin: 0;">
                     </ul>
                 </div>
             </div>
@@ -351,7 +351,7 @@
             window.open(`https://wa.me/8801408200200?text=${waMessage}`, '_blank');
         }
 
-        /* Guaranteed Single Page Strict HD PDF Downloader */
+        /* Guaranteed 100% Rendered HD PDF Downloader */
         async function generateHdChecklistPdf() {
             if (!currentSelectedCountry) return;
 
@@ -359,6 +359,7 @@
             btn.innerText = "PDF তৈরি হচ্ছে...";
             btn.disabled = true;
 
+            // Populate text
             document.getElementById('pdfCountryTitle').innerText = `${currentSelectedCountry.countryName} - ভিসা চেকলিস্ট`;
             document.getElementById('pdfCountryMeta').innerText = `ক্যাটাগরি: ${currentSelectedCountry.category} | প্রসেসিং টাইম: ${currentSelectedCountry.processingTime}`;
 
@@ -375,6 +376,7 @@
             const element = document.getElementById('pdfTemplate');
             const bgImg = document.getElementById('pdfBgImg');
 
+            // 1. Ensure Background Image is Fully Loaded
             if (!bgImg.complete) {
                 await new Promise((resolve) => {
                     bgImg.onload = resolve;
@@ -382,6 +384,7 @@
                 });
             }
 
+            // 2. Make visible temporarily for browser DOM repaint
             wrapper.style.visibility = 'visible';
             wrapper.style.zIndex = '999999';
 
@@ -394,15 +397,13 @@
                     useCORS: true, 
                     allowTaint: true,
                     logging: false, 
-                    x: 0,
-                    y: 0,
                     scrollX: 0, 
                     scrollY: 0
                 },
-                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
-                pagebreak:    { mode: 'avoid-all' }
+                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
             };
 
+            // 3. Wait 300ms for browser layout engine repaint before html2pdf capture
             setTimeout(async () => {
                 try {
                     await html2pdf().set(opt).from(element).save();
