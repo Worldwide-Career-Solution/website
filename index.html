@@ -351,7 +351,7 @@
             window.open(`https://wa.me/8801408200200?text=${waMessage}`, '_blank');
         }
 
-        /* Guaranteed 100% Rendered Single-Page HD PDF Downloader */
+        /* Guaranteed 100% Rendered Single-Page Non-Zero HD PDF Downloader */
         async function generateHdChecklistPdf() {
             if (!currentSelectedCountry) return;
 
@@ -372,21 +372,31 @@
                 pdfReqList.appendChild(li);
             });
 
-            const wrapper = document.getElementById('pdfTemplateWrapper');
-            const element = document.getElementById('pdfTemplate');
-            const bgImg = document.getElementById('pdfBgImg');
+            // 1. Create a visible temporary clone in body for guaranteed rendering
+            const originalElement = document.getElementById('pdfTemplate');
+            const clone = originalElement.cloneNode(true);
 
-            // 1. Ensure Background Image is Fully Loaded
-            if (!bgImg.complete) {
+            clone.style.position = 'fixed';
+            clone.style.top = '0px';
+            clone.style.left = '0px';
+            clone.style.zIndex = '999999';
+            clone.style.visibility = 'visible';
+            clone.style.display = 'block';
+            clone.style.opacity = '1';
+
+            document.body.appendChild(clone);
+
+            // 2. Ensure Background Image inside Clone is Loaded
+            const cloneImg = clone.querySelector('#pdfBgImg');
+            if (cloneImg && !cloneImg.complete) {
                 await new Promise((resolve) => {
-                    bgImg.onload = resolve;
-                    bgImg.onerror = resolve;
+                    cloneImg.onload = resolve;
+                    cloneImg.onerror = resolve;
                 });
             }
 
-            // 2. Make visible temporarily for browser DOM repaint
-            wrapper.style.visibility = 'visible';
-            wrapper.style.zIndex = '999999';
+            // 3. Wait 150ms for Browser Paint Engine
+            await new Promise(resolve => setTimeout(resolve, 150));
 
             const opt = {
                 margin:       0,
@@ -400,26 +410,24 @@
                     x: 0,
                     y: 0,
                     scrollX: 0, 
-                    scrollY: 0,
-                    windowWidth: 794
+                    scrollY: 0
                 },
                 jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
                 pagebreak:    { mode: 'avoid-all' }
             };
 
-            // 3. Wait 350ms for browser layout engine repaint before html2pdf capture
-            setTimeout(async () => {
-                try {
-                    await html2pdf().set(opt).from(element).save();
-                } catch (err) {
-                    alert("PDF ডাউনলোডে সমস্যা হয়েছে। নিশ্চিত করুন 'letterhead-bg.jpg' ফাইলটি গিটহাবে আপলোড আছে।");
-                } finally {
-                    wrapper.style.visibility = 'hidden';
-                    wrapper.style.zIndex = '-999';
-                    btn.innerHTML = '<i class="fas fa-file-pdf"></i> অফিশিয়াল লেটারহেড প্যাডে ডাউনলোড PDF';
-                    btn.disabled = false;
+            try {
+                await html2pdf().set(opt).from(clone).save();
+            } catch (err) {
+                alert("PDF ডাউনলোডে সমস্যা হয়েছে। নিশ্চিত করুন 'letterhead-bg.jpg' ফাইলটি গিটহাবে আপলোড আছে।");
+            } finally {
+                // Safely remove cloned element
+                if (clone && clone.parentNode) {
+                    clone.parentNode.removeChild(clone);
                 }
-            }, 350);
+                btn.innerHTML = '<i class="fas fa-file-pdf"></i> অফিশিয়াল লেটারহেড প্যাডে ডাউনলোড PDF';
+                btn.disabled = false;
+            }
         }
 
         window.onload = () => {
