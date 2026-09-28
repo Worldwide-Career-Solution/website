@@ -2,194 +2,25 @@
 <html lang="bn">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Worldwide Career Solution | Global Consultancy</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Montserrat:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <!-- Ultra-Fast Guarantee PDF Downloader Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-
-    <style>
-        /* Strict Mobile Viewport & Boundary Lock (Prevents Right Side Gap & Horizontal Scroll) */
-        *, *::before, *::after {
-            box-sizing: border-box !important;
-        }
-
-        html, body {
-            width: 100% !important;
-            max-width: 100vw !important;
-            overflow-x: hidden !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            position: relative !important;
-        }
-
-        /* Hide Google Translate Annoying Banner & Tooltip Popups */
-        .goog-te-banner-frame,
-        iframe.goog-te-banner-frame,
-        .goog-te-balloon-frame,
-        #goog-gt-tt,
-        .goog-te-spinner-pos,
-        .VIpgJd-Z31W1d-H1333f,
-        .VIpgJd-yD12bf-VGm61e {
-            display: none !important;
-            visibility: hidden !important;
-        }
-
-        body {
-            top: 0px !important;
-            position: static !important;
-        }
-
-        .goog-text-highlight {
-            background-color: transparent !important;
-            box-shadow: none !important;
-            border: none !important;
-        }
-
-        /* Perfect Mobile Responsive Layout Adjustments */
-        @media screen and (max-width: 768px) {
-            .navbar .container {
-                display: flex !important;
-                justify-content: space-between !important;
-                align-items: center !important;
-                padding: 10px 12px !important;
-                width: 100% !important;
-                max-width: 100vw !important;
-                box-sizing: border-box !important;
-            }
-
-            .logo-brand span {
-                font-size: 0.82rem !important;
-            }
-
-            .logo-brand img {
-                height: 30px !important;
-            }
-
-            .lang-translator-box {
-                max-width: 95px !important;
-                overflow: hidden !important;
-            }
-
-            .goog-te-gadget-simple {
-                font-size: 0.7rem !important;
-                padding: 2px 4px !important;
-                border-radius: 6px !important;
-            }
-
-            /* Responsive 2-Column Country Grid on Mobile */
-            .country-grid {
-                display: grid !important;
-                grid-template-columns: repeat(2, 1fr) !important;
-                gap: 10px !important;
-                padding: 0 10px !important;
-                width: 100% !important;
-                max-width: 100vw !important;
-                box-sizing: border-box !important;
-            }
-
-            .country-card {
-                padding: 12px 8px !important;
-                margin: 0 !important;
-                width: 100% !important;
-                box-sizing: border-box !important;
-                text-align: center !important;
-            }
-
-            .country-flag {
-                font-size: 1.8rem !important;
-                margin-bottom: 4px !important;
-            }
-
-            .country-card h3 {
-                font-size: 0.85rem !important;
-                margin: 4px 0 !important;
-                line-height: 1.2 !important;
-            }
-
-            .badge {
-                font-size: 0.6rem !important;
-                padding: 2px 4px !important;
-                display: inline-block !important;
-                margin-bottom: 6px !important;
-            }
-
-            .country-card p {
-                font-size: 0.7rem !important;
-                margin-bottom: 8px !important;
-            }
-
-            .btn-card-action {
-                font-size: 0.72rem !important;
-                padding: 8px 4px !important;
-            }
-
-            /* Hero Section Fit */
-            .modern-hero {
-                padding: 25px 12px !important;
-                width: 100% !important;
-                max-width: 100vw !important;
-                box-sizing: border-box !important;
-            }
-
-            .hero-text-content {
-                width: 100% !important;
-                max-width: 100% !important;
-            }
-
-            .hero-text-content h1 {
-                font-size: 1.15rem !important;
-                line-height: 1.3 !important;
-            }
-
-            .hero-text-content p {
-                font-size: 0.8rem !important;
-            }
-
-            .search-box-container, .search-input-group {
-                width: 100% !important;
-                max-width: 100% !important;
-            }
-
-            .search-input-group input {
-                width: 100% !important;
-                font-size: 0.8rem !important;
-            }
-
-            .filter-tabs {
-                display: flex !important;
-                flex-wrap: wrap !important;
-                gap: 6px !important;
-                justify-content: center !important;
-                padding: 0 8px !important;
-                width: 100% !important;
-                box-sizing: border-box !important;
-            }
-
-            .tab-btn {
-                font-size: 0.72rem !important;
-                padding: 6px 8px !important;
-                white-space: normal !important;
-            }
-        }
-    </style>
 </head>
 <body>
 
-    <!-- Header Section -->
     <header>
         <nav class="navbar">
             <div class="container">
                 <a href="index.html" class="logo-brand">
-                    <img src="wcs-logo-round.jpg" alt="WCS Logo">
+                    <img src="wcs-logo-round.jpg" alt="Worldwide Career Solution">
                     <span>Worldwide Career Solution</span>
                 </a>
-                
+
                 <div class="nav-right-wrapper">
-                    <ul class="nav-menu">
+                    <ul class="nav-menu" id="nav-menu">
                         <li><a href="#home">হোম</a></li>
                         <li><a href="#visa-services">ভিসা সার্ভিস</a></li>
                         <li><a href="#tour-packages">ট্যুর প্যাকেজ</a></li>
@@ -201,209 +32,190 @@
                         <div id="google_translate_element"></div>
                     </div>
 
-                    <div class="menu-toggle" id="mobile-menu">
+                    <button type="button" class="menu-toggle" id="mobile-menu" aria-label="মেনু">
                         <i class="fas fa-bars"></i>
-                    </div>
+                    </button>
                 </div>
             </div>
         </nav>
     </header>
 
-    <!-- Hero Section -->
     <section id="home" class="modern-hero">
         <div class="container hero-wrapper">
             <div class="hero-text-content">
-                <h1>"THE WORLD IS WAITING, LET'S GET YOU THERE."</h1>
+                <h1>The world is waiting. Let's get you there.</h1>
                 <p>আপনার স্বপ্নের গন্তব্যে পৌঁছাতে আমরা আছি আপনার সাথে।</p>
-                
+
                 <div class="search-box-container">
                     <div class="search-input-group">
-                        <i class="fas fa-search"></i>
-                        <input type="text" id="countrySearchInput" placeholder="আপনি কোন দেশে যেতে চান? (যেমন: USA, Japan, Germany)..." onkeyup="filterVisaCountries()">
+                        <i class="fas fa-search" aria-hidden="true"></i>
+                        <input type="search" id="countrySearchInput" placeholder="দেশ খুঁজুন — যেমন: USA, Japan, Germany" autocomplete="off">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Visa Services Section -->
     <section id="visa-services" class="top-countries-section">
         <div class="container">
-            <h2 class="section-title">গ্লোবাল ভিসা সার্ভিসেস (Visa Services)</h2>
-            <p class="section-subtitle">আপনার পছন্দের দেশ নির্বাচন করুন এবং প্রয়োজনীয় তথ্য ও চেকলিস্ট পান</p>
-            
+            <h2 class="section-title">গ্লোবাল ভিসা সার্ভিসেস</h2>
+            <p class="section-subtitle">পছন্দের দেশ বেছে নিন — প্রয়োজনীয় তথ্য ও চেকলিস্ট পাবেন</p>
+
             <div class="filter-tabs">
-                <button class="tab-btn active" onclick="filterByContinent('All', this)">সকল দেশ</button>
-                <button class="tab-btn" onclick="filterByContinent('North America', this)">নর্থ আমেরিকা ও অস্ট্রেলেশিয়া</button>
-                <button class="tab-btn" onclick="filterByContinent('Europe', this)">ইউরোপ (Schengen & UK)</button>
-                <button class="tab-btn" onclick="filterByContinent('Asia', this)">এশিয়া ও মিডল ইস্ট</button>
+                <button type="button" class="tab-btn active" data-category="All">সকল দেশ</button>
+                <button type="button" class="tab-btn" data-category="North America">নর্থ আমেরিকা</button>
+                <button type="button" class="tab-btn" data-category="Europe">ইউরোপ (Schengen ও UK)</button>
+                <button type="button" class="tab-btn" data-category="Asia">এশিয়া ও মিডল ইস্ট</button>
             </div>
 
-            <div class="country-grid" id="countryGridContainer">
-                <!-- Loaded from visa-data.js -->
-            </div>
+            <div class="country-grid" id="countryGridContainer"></div>
+            <p id="noCountryResult" class="empty-state" hidden>কোনো দেশ পাওয়া যায়নি। অন্য নাম দিয়ে খুঁজুন।</p>
         </div>
     </section>
 
-    <!-- Tour Packages Section -->
-    <section id="tour-packages" style="padding: 60px 0; background: #ffffff;">
+    <section id="tour-packages" class="tour-section">
         <div class="container">
-            <h2 class="section-title">এশিয়ার জনপ্রিয় ট্যুর প্যাকেজসমূহ</h2>
-            <p class="section-subtitle">ফ্যামিলি, ফ্রেন্ডস বা বিজনেস ট্যুরের জন্য বিশেষ অফার</p>
-            
+            <h2 class="section-title">এশিয়ার জনপ্রিয় ট্যুর প্যাকেজ</h2>
+            <p class="section-subtitle">ফ্যামিলি, ফ্রেন্ডস বা বিজনেস ট্যুরের জন্য সাপোর্ট</p>
+
             <div class="country-grid">
-                <div class="country-card">
-                    <span class="country-flag">🇹🇭</span>
+                <article class="country-card">
+                    <img class="country-flag-img" src="https://flagcdn.com/w80/th.png" width="48" height="36" alt="">
                     <h3>থাইল্যান্ড ট্যুর প্যাকেজ</h3>
                     <span class="badge">Bangkok, Pattaya, Phuket</span>
-                    <p style="font-size: 0.85rem; color: #666; margin-bottom: 15px;">এয়ার টিকিট, হোটেল বুকিং ও সাইটসিয়িং সহ সম্পূর্ণ প্যাকেজ সাপোর্ট।</p>
-                    <button class="btn-card-action btn-solid w-100" onclick="openDirectBookingModal('Thailand Tour Package')">আবেদন ও বিস্তারিত</button>
-                </div>
+                    <p class="card-note">এয়ার টিকিট, হোটেল বুকিং ও সাইটসিয়িং সহ প্যাকেজ সাপোর্ট।</p>
+                    <button type="button" class="btn-card-action btn-solid w-100" data-tour="Thailand Tour Package">আবেদন ও বিস্তারিত</button>
+                </article>
 
-                <div class="country-card">
-                    <span class="country-flag">🇲🇾</span>
+                <article class="country-card">
+                    <img class="country-flag-img" src="https://flagcdn.com/w80/my.png" width="48" height="36" alt="">
                     <h3>মালয়েশিয়া ট্যুর প্যাকেজ</h3>
                     <span class="badge">Kuala Lumpur, Genting, Langkawi</span>
-                    <p style="font-size: 0.85rem; color: #666; margin-bottom: 15px;">দ্রুত ই-ভিসা প্রসেসিং ও ফ্যামিলি কাস্টমাইজড প্যাকেজ।</p>
-                    <button class="btn-card-action btn-solid w-100" onclick="openDirectBookingModal('Malaysia Tour Package')">আবেদন ও বিস্তারিত</button>
-                </div>
+                    <p class="card-note">দ্রুত ই-ভিসা প্রসেসিং ও ফ্যামিলি কাস্টমাইজড প্যাকেজ।</p>
+                    <button type="button" class="btn-card-action btn-solid w-100" data-tour="Malaysia Tour Package">আবেদন ও বিস্তারিত</button>
+                </article>
 
-                <div class="country-card">
-                    <span class="country-flag">🇸🇬</span>
+                <article class="country-card">
+                    <img class="country-flag-img" src="https://flagcdn.com/w80/sg.png" width="48" height="36" alt="">
                     <h3>সিঙ্গাপুর ট্যুর প্যাকেজ</h3>
                     <span class="badge">Marina Bay, Sentosa Island</span>
-                    <p style="font-size: 0.85rem; color: #666; margin-bottom: 15px;">প্রিমিয়াম হোটেল রিজার্ভেশন ও প্রফেশনাল গাইড সাপোর্ট।</p>
-                    <button class="btn-card-action btn-solid w-100" onclick="openDirectBookingModal('Singapore Tour Package')">আবেদন ও বিস্তারিত</button>
-                </div>
+                    <p class="card-note">প্রিমিয়াম হোটেল রিজার্ভেশন ও গাইড সাপোর্ট।</p>
+                    <button type="button" class="btn-card-action btn-solid w-100" data-tour="Singapore Tour Package">আবেদন ও বিস্তারিত</button>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- All Forms Section -->
-    <section id="all-forms" style="padding: 60px 0; background: #f8fafc;">
+    <section id="all-forms" class="forms-section">
         <div class="container">
-            <h2 class="section-title">অফিসিয়াল ফর্মস (All Forms)</h2>
-            <p class="section-subtitle">অফিসিয়াল ব্যবহারের জন্য ডাউনলোডযোগ্য রেডি ফর্মসমূহ</p>
-            
-            <div style="background: #fff; padding: 25px; border-radius: 16px; border: 1px solid var(--card-border); max-width: 800px; margin: auto; box-shadow: var(--shadow-water);">
-                <ul style="list-style: none;">
-                    <li style="padding: 12px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center;">
-                        <span><i class="fas fa-file-alt" style="color: #003366; margin-right: 10px;"></i> ক্লায়েন্ট ইনফরমেশন ও অ্যাসেসমেন্ট ফরম</span>
-                        <a href="#" class="btn-card-action btn-outline" style="text-decoration: none; padding: 6px 15px;">ডাউনলোড</a>
+            <h2 class="section-title">অফিসিয়াল ফর্মস</h2>
+            <p class="section-subtitle">ফর্ম ফাইল চাইলে WhatsApp-এ অনুরোধ পাঠান — পরে PDF আপলোড করলে সরাসরি ডাউনলোড চালু করা যাবে</p>
+
+            <div class="forms-box">
+                <ul class="forms-list">
+                    <li>
+                        <span><i class="fas fa-file-alt"></i> ক্লায়েন্ট ইনফরমেশন ও অ্যাসেসমেন্ট ফরম</span>
+                        <a class="btn-card-action btn-outline" href="https://wa.me/8801408200200?text=%E0%A6%95%E0%A7%8D%E0%A6%B2%E0%A6%BE%E0%A6%AF%E0%A6%BC%E0%A7%87%E0%A6%A8%E0%A7%8D%E0%A6%9F%20%E0%A6%87%E0%A6%A8%E0%A6%AB%E0%A6%B0%E0%A6%AE%E0%A7%87%E0%A6%B6%E0%A6%A8%20%E0%A6%AB%E0%A6%B0%E0%A7%8D%E0%A6%AE%20%E0%A6%9A%E0%A6%BE%E0%A6%87" target="_blank" rel="noopener">WhatsApp</a>
                     </li>
-                    <li style="padding: 12px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center;">
-                        <span><i class="fas fa-file-alt" style="color: #003366; margin-right: 10px;"></i> পাসপোর্ট ও ডকুমেন্ট রিকুইজিশন ফরম</span>
-                        <a href="#" class="btn-card-action btn-outline" style="text-decoration: none; padding: 6px 15px;">ডাউনলোড</a>
+                    <li>
+                        <span><i class="fas fa-file-alt"></i> পাসপোর্ট ও ডকুমেন্ট রিকুইজিশন ফরম</span>
+                        <a class="btn-card-action btn-outline" href="https://wa.me/8801408200200?text=%E0%A6%AA%E0%A6%BE%E0%A6%B8%E0%A6%AA%E0%A7%8B%E0%A6%B0%E0%A7%8D%E0%A6%9F%20%E0%A6%B0%E0%A6%BF%E0%A6%95%E0%A7%81%E0%A6%87%E0%A6%9C%E0%A6%BF%E0%A6%B6%E0%A6%A8%20%E0%A6%AB%E0%A6%B0%E0%A7%8D%E0%A6%AE%20%E0%A6%9A%E0%A6%BE%E0%A6%87" target="_blank" rel="noopener">WhatsApp</a>
                     </li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <!-- Dynamic Application & Requirements Modal -->
-    <div id="countryModal" class="modal">
+    <div id="countryModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="mCountryName">
         <div class="modal-content">
-            <span class="close-btn" onclick="closeCountryModal()">&times;</span>
+            <button type="button" class="close-btn" id="modalCloseBtn" aria-label="বন্ধ">&times;</button>
             <h3 id="mCountryName">দেশ নির্বাচন করুন</h3>
             <p id="mCountryMeta" class="modal-subtext"></p>
 
-            <!-- Checklist View & Official Pad PDF Download -->
-            <div style="background: #f8fafc; padding: 18px; border-radius: 12px; margin-bottom: 20px; border: 1px solid #e2e8f0;">
-                <h4 style="font-size: 0.95rem; color: #003366; margin-bottom: 10px;"><i class="fas fa-list-check"></i> প্রাথমিক প্রয়োজনীয় কাগজের তালিকা (Client Requirement):</h4>
-                <ul id="mReqList" style="padding-left: 20px; font-size: 0.88rem; margin-bottom: 15px; line-height: 1.8;">
-                </ul>
-                <button class="btn-card-action btn-solid w-100" id="btnDownloadChecklistPdf" onclick="generateHdChecklistPdf()">
+            <div class="checklist-box">
+                <h4><i class="fas fa-list-check"></i> প্রাথমিক প্রয়োজনীয় কাগজের তালিকা</h4>
+                <ul id="mReqList"></ul>
+                <button type="button" class="btn-card-action btn-solid w-100" id="btnDownloadChecklistPdf">
                     <i class="fas fa-file-pdf"></i> অফিশিয়াল লেটারহেড প্যাডে ডাউনলোড PDF
                 </button>
             </div>
 
-            <!-- Application Form -->
-            <form onsubmit="handleWhatsAppSubmit(event)">
-                <h4 style="font-size: 0.95rem; color: #003366; margin-bottom: 12px;"><i class="fas fa-paper-plane"></i> সরাসরি আবেদনপত্র জমা দিন:</h4>
+            <form id="whatsappApplyForm">
+                <h4><i class="fas fa-paper-plane"></i> সরাসরি আবেদনপত্র জমা দিন</h4>
                 <div class="form-group">
-                    <label>আপনার নাম:</label>
+                    <label for="appApplicantName">আপনার নাম</label>
                     <input type="text" id="appApplicantName" required placeholder="আপনার পুরো নাম">
                 </div>
                 <div class="form-group">
-                    <label>ফোন নম্বর:</label>
+                    <label for="appApplicantPhone">ফোন নম্বর</label>
                     <input type="tel" id="appApplicantPhone" required placeholder="017xxxxxxxx">
                 </div>
                 <div class="form-group">
-                    <label>সার্ভিস ক্যাটাগরি:</label>
+                    <label for="appServiceCategory">সার্ভিস ক্যাটাগরি</label>
                     <select id="appServiceCategory" required>
-                        <option value="Student Visa Support">স্টুডেন্ট কনসালটেন্সি (Student Visa)</option>
-                        <option value="Tourist / Visit Visa">ট্যুরিস্ট / ভিজিট ভিসা (Visit Visa)</option>
-                        <option value="Air Ticketing">এয়ার টিকেটিং (Air Ticket)</option>
-                        <option value="Tour Package">ট্যুর প্যাকেজ (Tour Package)</option>
+                        <option value="Student Visa Support">স্টুডেন্ট কনসালটেন্সি</option>
+                        <option value="Tourist / Visit Visa">ট্যুরিস্ট / ভিজিট ভিসা</option>
+                        <option value="Air Ticketing">এয়ার টিকেটিং</option>
+                        <option value="Tour Package">ট্যুর প্যাকেজ</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>বার্তা (ঐচ্ছিক):</label>
-                    <textarea id="appApplicantMsg" rows="2" placeholder="আপনার বিশেষ কিছু জানার থাকলে লিখুন..."></textarea>
+                    <label for="appApplicantMsg">বার্তা (ঐচ্ছিক)</label>
+                    <textarea id="appApplicantMsg" rows="2" placeholder="বিশেষ কিছু জানার থাকলে লিখুন"></textarea>
                 </div>
-
-                <button type="submit" class="btn-card-action btn-solid w-100" style="padding: 12px; font-size: 0.95rem; background: #25d366;">
+                <button type="submit" class="btn-card-action btn-solid w-100 btn-whatsapp">
                     <i class="fab fa-whatsapp"></i> হোয়াটসঅ্যাপে তথ্য পাঠান
                 </button>
             </form>
         </div>
     </div>
 
-    <!-- ZERO-FAIL A4 PDF TEMPLATE CONTAINER (UNTOUCHED) -->
     <div id="pdfTemplateWrapper" style="display: none;">
         <div id="pdfTemplate" style="width: 210mm; height: 296mm; position: relative; font-family: 'Hind Siliguri', 'Poppins', sans-serif; background: #ffffff; color: #001a33; box-sizing: border-box; overflow: hidden; margin: 0; padding: 0;">
-            
-            <!-- Letterhead Background Image -->
-            <img id="pdfBgImg" src="letterhead-bg.jpg" style="position: absolute; top: 0 !important; left: 0 !important; margin: 0 !important; padding: 0 !important; width: 210mm; height: 296mm; object-fit: fill; z-index: 1;">
-
-            <!-- Content Area: Exactly Starts at 42mm Top & Stops at 45mm Bottom -->
+            <img id="pdfBgImg" src="letterhead-bg.jpg" alt="" style="position: absolute; top: 0 !important; left: 0 !important; margin: 0 !important; padding: 0 !important; width: 210mm; height: 296mm; object-fit: fill; z-index: 1;">
             <div style="position: relative; z-index: 10; width: 210mm; height: 296mm; box-sizing: border-box; padding-top: 42mm; padding-bottom: 45mm; padding-left: 15mm; padding-right: 15mm; display: flex; flex-direction: column; justify-content: flex-start;">
-                
-                <!-- Title Box -->
                 <div style="margin-bottom: 10mm; text-align: center; border-bottom: 2px solid #003366; padding-bottom: 3mm;">
                     <h2 id="pdfCountryTitle" style="color: #003366; font-size: 18px; margin: 0; font-weight: 700;"></h2>
                     <p id="pdfCountryMeta" style="color: #f37021; font-size: 12px; margin: 2mm 0 0; font-weight: 600;"></p>
                 </div>
-
-                <!-- Main Requirements Content Area -->
                 <div style="flex-grow: 1;">
-                    <h3 style="color: #003366; font-size: 14px; margin-bottom: 10px; font-weight: 700;">
-                        প্রাথমিক প্রয়োজনীয় কাগজপত্রের তালিকা (Primary Required Documents):
-                    </h3>
-                    <ul id="pdfReqList" style="padding-left: 20px; font-size: 12px; line-height: 2.1; color: #1e293b; font-weight: 500; margin: 0;">
-                    </ul>
+                    <h3 style="color: #003366; font-size: 14px; margin-bottom: 10px; font-weight: 700;">প্রাথমিক প্রয়োজনীয় কাগজপত্রের তালিকা (Primary Required Documents):</h3>
+                    <ul id="pdfReqList" style="padding-left: 20px; font-size: 12px; line-height: 2.1; color: #1e293b; font-weight: 500; margin: 0;"></ul>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/8801408200200" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/8801408200200" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Footer -->
-    <footer style="background: #001a33; color: #fff; padding: 50px 0 20px; margin-top: 50px;">
-        <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; padding-bottom: 30px;">
+    <footer class="site-footer">
+        <div class="container footer-grid">
             <div>
-                <img src="wcs-logo-full.jpg" alt="WCS Full Logo" style="height: 60px; margin-bottom: 15px;">
-                <p style="font-size: 0.85rem; opacity: 0.8;">Empowering students and professionals to build global careers.</p>
+                <img src="wcs-logo-full.jpg" alt="Worldwide Career Solution" class="footer-logo">
+                <p>Empowering students and professionals to build global careers.</p>
             </div>
             <div>
-                <h3 style="color: #f37021; margin-bottom: 15px; font-size: 1.1rem;">অফিস এড্রেস</h3>
-                <p style="font-size: 0.85rem;"><i class="fas fa-map-marker-alt"></i> 68/69 Concept Tower, Panthapath, Dhaka</p>
-                <p style="font-size: 0.85rem;"><i class="fas fa-phone"></i> +8801408-200200 | +8801940-904090</p>
-                <p style="font-size: 0.85rem;"><i class="fas fa-envelope"></i> worldwidecareersolution@gmail.com</p>
+                <h3>দ্রুত লিংক</h3>
+                <p><a href="#visa-services">ভিসা সার্ভিস</a></p>
+                <p><a href="#tour-packages">ট্যুর প্যাকেজ</a></p>
+                <p><a href="contact.html">যোগাযোগ</a></p>
+            </div>
+            <div>
+                <h3>অফিস এড্রেস</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 68/69 Concept Tower, Panthapath, Dhaka</p>
+                <p><i class="fas fa-phone"></i> <a href="tel:+8801408200200">+8801408-200200</a> | <a href="tel:+8801940904090">+8801940-904090</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:worldwidecareersolution@gmail.com">worldwidecareersolution@gmail.com</a></p>
             </div>
         </div>
-        <div style="text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 0.8rem; opacity: 0.5;">
+        <div class="footer-copy">
             <p>&copy; 2026 Worldwide Career Solution. All rights reserved.</p>
         </div>
     </footer>
 
     <script src="visa-data.js"></script>
-
-    <script type="text/javascript">
+    <script>
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
                 pageLanguage: 'bn',
@@ -412,112 +224,160 @@
             }, 'google_translate_element');
         }
     </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script>
-        let currentSelectedCountry = null;
+        const FLAG_ISO = {
+            usa: 'us', canada: 'ca', uk: 'gb', germany: 'de', austria: 'at', france: 'fr',
+            greece: 'gr', bulgaria: 'bg', albania: 'al', montenegro: 'me', serbia: 'rs',
+            japan: 'jp', malaysia: 'my', thailand: 'th'
+        };
 
+        let currentSelectedCountry = null;
         const mobileMenu = document.getElementById('mobile-menu');
-        const navMenu = document.querySelector('.nav-menu');
-        mobileMenu.addEventListener('click', () => { navMenu.classList.toggle('active'); });
+        const navMenu = document.getElementById('nav-menu');
+        const modal = document.getElementById('countryModal');
+        const noResult = document.getElementById('noCountryResult');
+
+        mobileMenu.addEventListener('click', () => navMenu.classList.toggle('active'));
+        document.querySelectorAll('.nav-menu a').forEach((link) => {
+            link.addEventListener('click', () => navMenu.classList.remove('active'));
+        });
+
+        function flagUrl(id) {
+            const iso = FLAG_ISO[id] || 'un';
+            return 'https://flagcdn.com/w80/' + iso + '.png';
+        }
 
         function renderCountryCards(dataList) {
             const container = document.getElementById('countryGridContainer');
             container.innerHTML = '';
+            noResult.hidden = dataList.length !== 0;
 
-            dataList.forEach(item => {
-                const card = document.createElement('div');
+            dataList.forEach((item) => {
+                const card = document.createElement('article');
                 card.className = 'country-card';
-                card.innerHTML = `
-                    <span class="country-flag">${item.flag}</span>
-                    <h3>${item.countryName}</h3>
-                    <span class="badge">${item.visasOffered}</span>
-                    <p style="font-size: 0.8rem; color: #666; margin-bottom: 15px;">প্রসেসিং সময়: ${item.processingTime}</p>
-                    <button class="btn-card-action btn-solid w-100" style="padding: 10px;" onclick="openCountryModal('${item.id}')">
-                        <i class="fas fa-paper-plane"></i> আবেদন ও বিস্তারিত
-                    </button>
-                `;
+
+                const img = document.createElement('img');
+                img.className = 'country-flag-img';
+                img.src = flagUrl(item.id);
+                img.width = 48;
+                img.height = 36;
+                img.alt = '';
+
+                const h3 = document.createElement('h3');
+                h3.textContent = item.countryName;
+
+                const badge = document.createElement('span');
+                badge.className = 'badge';
+                badge.textContent = item.visasOffered;
+
+                const p = document.createElement('p');
+                p.className = 'card-note';
+                p.textContent = 'প্রসেসিং সময়: ' + item.processingTime;
+
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'btn-card-action btn-solid w-100';
+                btn.textContent = 'আবেদন ও বিস্তারিত';
+                btn.addEventListener('click', () => openCountryModal(item.id));
+
+                card.append(img, h3, badge, p, btn);
                 container.appendChild(card);
             });
         }
 
-        function filterByContinent(category, btnElement) {
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            btnElement.classList.add('active');
-            const filtered = getCountriesByCategory(category);
-            renderCountryCards(filtered);
-        }
+        document.querySelectorAll('.filter-tabs .tab-btn').forEach((btn) => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-tabs .tab-btn').forEach((b) => b.classList.remove('active'));
+                btn.classList.add('active');
+                renderCountryCards(getCountriesByCategory(btn.dataset.category));
+            });
+        });
 
-        function filterVisaCountries() {
-            const input = document.getElementById('countrySearchInput').value.toLowerCase();
-            const filtered = visaDatabase.filter(c => c.countryName.toLowerCase().includes(input) || c.category.toLowerCase().includes(input));
+        document.getElementById('countrySearchInput').addEventListener('input', function () {
+            const q = this.value.trim().toLowerCase();
+            const filtered = visaDatabase.filter((c) =>
+                c.countryName.toLowerCase().includes(q) ||
+                c.category.toLowerCase().includes(q) ||
+                (c.visasOffered && c.visasOffered.toLowerCase().includes(q)) ||
+                (FLAG_ISO[c.id] && FLAG_ISO[c.id].includes(q)) ||
+                c.id.toLowerCase().includes(q)
+            );
             renderCountryCards(filtered);
+        });
+
+        function fillRequirementList(listEl, items) {
+            listEl.innerHTML = '';
+            items.forEach((req) => {
+                const li = document.createElement('li');
+                li.textContent = req;
+                listEl.appendChild(li);
+            });
         }
 
         function openCountryModal(countryId) {
             const country = getCountryById(countryId);
-            if(!country) return;
-
+            if (!country) return;
             currentSelectedCountry = country;
-            document.getElementById('mCountryName').innerText = country.countryName;
-            document.getElementById('mCountryMeta').innerText = `ক্যাটাগরি: ${country.category} | প্রসেসিং টাইম: ${country.processingTime}`;
-
-            const reqListElem = document.getElementById('mReqList');
-            reqListElem.innerHTML = '';
-            country.requirements.forEach(req => {
-                const li = document.createElement('li');
-                li.innerText = req;
-                reqListElem.appendChild(li);
-            });
-
-            document.getElementById('countryModal').style.display = 'flex';
+            document.getElementById('mCountryName').textContent = country.countryName;
+            document.getElementById('mCountryMeta').textContent =
+                'ক্যাটাগরি: ' + country.category + ' | প্রসেসিং টাইম: ' + country.processingTime;
+            fillRequirementList(document.getElementById('mReqList'), country.requirements);
+            modal.style.display = 'flex';
         }
 
         function openDirectBookingModal(packageName) {
-            currentSelectedCountry = { 
-                id: "tour-pkg",
-                countryName: packageName, 
-                category: "Tour Package", 
-                processingTime: "7-10 Days", 
-                requirements: ["পাসপোর্টের রঙ্গিন স্ক্যান কপি", "NID / জন্ম নিবন্ধনের কপি", "পাসপোর্ট সাইজ ছবি (২ কপি)"] 
+            currentSelectedCountry = {
+                id: 'tour-pkg',
+                countryName: packageName,
+                category: 'Tour Package',
+                processingTime: '7-10 Days',
+                requirements: [
+                    'পাসপোর্টের রঙ্গিন স্ক্যান কপি',
+                    'NID / জন্ম নিবন্ধনের কপি',
+                    'পাসপোর্ট সাইজ ছবি (২ কপি)'
+                ]
             };
-            document.getElementById('mCountryName').innerText = packageName;
-            document.getElementById('mCountryMeta').innerText = "বিশেষ ট্যুর প্যাকেজ ইনকোয়ারি";
-            
-            const reqListElem = document.getElementById('mReqList');
-            reqListElem.innerHTML = '';
-            currentSelectedCountry.requirements.forEach(req => {
-                const li = document.createElement('li');
-                li.innerText = req;
-                reqListElem.appendChild(li);
-            });
-
-            document.getElementById('countryModal').style.display = 'flex';
+            document.getElementById('mCountryName').textContent = packageName;
+            document.getElementById('mCountryMeta').textContent = 'বিশেষ ট্যুর প্যাকেজ ইনকোয়ারি';
+            fillRequirementList(document.getElementById('mReqList'), currentSelectedCountry.requirements);
+            modal.style.display = 'flex';
         }
 
         function closeCountryModal() {
-            document.getElementById('countryModal').style.display = 'none';
+            modal.style.display = 'none';
         }
 
-        function handleWhatsAppSubmit(event) {
+        document.getElementById('modalCloseBtn').addEventListener('click', closeCountryModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeCountryModal();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeCountryModal();
+        });
+        document.querySelectorAll('[data-tour]').forEach((btn) => {
+            btn.addEventListener('click', () => openDirectBookingModal(btn.dataset.tour));
+        });
+
+        document.getElementById('whatsappApplyForm').addEventListener('submit', (event) => {
             event.preventDefault();
-            const name = document.getElementById('appApplicantName').value;
-            const phone = document.getElementById('appApplicantPhone').value;
+            const name = document.getElementById('appApplicantName').value.trim();
+            const phone = document.getElementById('appApplicantPhone').value.trim();
             const category = document.getElementById('appServiceCategory').value;
-            const msg = document.getElementById('appApplicantMsg').value;
-            const countryName = currentSelectedCountry ? currentSelectedCountry.countryName : "সাধারণ ইনকোয়ারি";
+            const msg = document.getElementById('appApplicantMsg').value.trim();
+            const countryName = currentSelectedCountry ? currentSelectedCountry.countryName : 'সাধারণ ইনকোয়ারি';
 
-            const waMessage = `*নতুন অনলাইন আবেদন (WCS Website)*%0A%0A` +
-                              `👤 *নাম:* ${encodeURIComponent(name)}%0A` +
-                              `📞 *ফোন:* ${encodeURIComponent(phone)}%0A` +
-                              `🌍 *গন্তব্য/দেশ:* ${encodeURIComponent(countryName)}%0A` +
-                              `📋 *সার্ভিস:* ${encodeURIComponent(category)}%0A` +
-                              `💬 *বার্তা:* ${encodeURIComponent(msg || 'N/A')}`;
+            const waMessage =
+                'নতুন অনলাইন আবেদন (WCS Website)\n\n' +
+                'নাম: ' + name + '\n' +
+                'ফোন: ' + phone + '\n' +
+                'গন্তব্য/দেশ: ' + countryName + '\n' +
+                'সার্ভিস: ' + category + '\n' +
+                'বার্তা: ' + (msg || 'N/A');
 
-            window.open(`https://wa.me/8801408200200?text=${waMessage}`, '_blank');
-        }
+            window.open('https://wa.me/8801408200200?text=' + encodeURIComponent(waMessage), '_blank');
+        });
 
-        // Helper to Convert Image to Base64 to Bypass CORS Block Completely
         function getBase64Image(url) {
             return new Promise((resolve) => {
                 const img = new Image();
@@ -530,42 +390,37 @@
                     ctx.drawImage(img, 0, 0);
                     resolve(canvas.toDataURL('image/jpeg', 0.98));
                 };
-                img.onerror = () => { resolve(url); };
+                img.onerror = () => resolve(url);
                 img.src = url;
             });
         }
 
-        /* 100% Guaranteed Non-Zero Single-Page HD PDF Downloader (UNTOUCHED) */
         async function generateHdChecklistPdf() {
             if (!currentSelectedCountry) return;
-
             const btn = document.getElementById('btnDownloadChecklistPdf');
-            btn.innerText = "PDF তৈরি হচ্ছে...";
+            btn.textContent = 'PDF তৈরি হচ্ছে...';
             btn.disabled = true;
 
             try {
-                // 1. Convert Image to Base64 Stream
                 const base64Src = await getBase64Image('letterhead-bg.jpg');
-                const bgImgElem = document.getElementById('pdfBgImg');
-                bgImgElem.src = base64Src;
-
-                // 2. Populate text
-                document.getElementById('pdfCountryTitle').innerText = `${currentSelectedCountry.countryName} - ভিসা চেকলিস্ট`;
-                document.getElementById('pdfCountryMeta').innerText = `ক্যাটাগরি: ${currentSelectedCountry.category} | প্রসেসিং টাইম: ${currentSelectedCountry.processingTime}`;
+                document.getElementById('pdfBgImg').src = base64Src;
+                document.getElementById('pdfCountryTitle').textContent =
+                    currentSelectedCountry.countryName + ' - ভিসা চেকলিস্ট';
+                document.getElementById('pdfCountryMeta').textContent =
+                    'ক্যাটাগরি: ' + currentSelectedCountry.category +
+                    ' | প্রসেসিং টাইম: ' + currentSelectedCountry.processingTime;
 
                 const pdfReqList = document.getElementById('pdfReqList');
                 pdfReqList.innerHTML = '';
-                currentSelectedCountry.requirements.forEach(req => {
+                currentSelectedCountry.requirements.forEach((req) => {
                     const li = document.createElement('li');
                     li.style.marginBottom = '6px';
-                    li.innerText = req;
+                    li.textContent = req;
                     pdfReqList.appendChild(li);
                 });
 
-                // 3. Render Modal In-View for Canvas Capture
                 const wrapper = document.getElementById('pdfTemplateWrapper');
                 const element = document.getElementById('pdfTemplate');
-
                 wrapper.style.display = 'block';
                 wrapper.style.position = 'fixed';
                 wrapper.style.top = '0px';
@@ -575,32 +430,21 @@
                 wrapper.style.zIndex = '999999';
                 wrapper.style.background = '#ffffff';
 
-                // Wait 200ms for browser DOM repaint engine
-                await new Promise(resolve => setTimeout(resolve, 200));
+                await new Promise((resolve) => setTimeout(resolve, 200));
 
-                const opt = {
-                    margin:       0,
-                    filename:     `${currentSelectedCountry.id}-checklist-WCS.pdf`,
-                    image:        { type: 'jpeg', quality: 0.98 },
-                    html2canvas:  { 
-                        scale: 2, 
-                        useCORS: true, 
-                        allowTaint: true,
-                        logging: false, 
-                        x: 0,
-                        y: 0,
-                        scrollX: 0, 
-                        scrollY: 0,
-                        windowWidth: 794
+                await html2pdf().set({
+                    margin: 0,
+                    filename: currentSelectedCountry.id + '-checklist-WCS.pdf',
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: {
+                        scale: 2, useCORS: true, allowTaint: true, logging: false,
+                        x: 0, y: 0, scrollX: 0, scrollY: 0, windowWidth: 794
                     },
-                    jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
-                    pagebreak:    { mode: 'avoid-all' }
-                };
-
-                await html2pdf().set(opt).from(element).save();
-
+                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                    pagebreak: { mode: 'avoid-all' }
+                }).from(element).save();
             } catch (err) {
-                alert("PDF ডাউনলোডে সমস্যা হয়েছে। নিশ্চিত করুন 'letterhead-bg.jpg' ফাইলটি গিটহাবে আপলোড আছে।");
+                alert("PDF ডাউনলোডে সমস্যা হয়েছে। নিশ্চিত করুন 'letterhead-bg.jpg' ফাইলটি আপলোড আছে।");
             } finally {
                 const wrapper = document.getElementById('pdfTemplateWrapper');
                 if (wrapper) wrapper.style.display = 'none';
@@ -609,9 +453,11 @@
             }
         }
 
-        window.onload = () => {
+        document.getElementById('btnDownloadChecklistPdf').addEventListener('click', generateHdChecklistPdf);
+
+        document.addEventListener('DOMContentLoaded', () => {
             renderCountryCards(visaDatabase);
-        };
+        });
     </script>
 </body>
 </html>
